@@ -13,7 +13,7 @@ import {
 } from 'remotion';
 
 // Palette: night navy + amber. Series look for "The Grid Goes Down".
-const C = {
+export const C = {
   bg: '#0b1020',
   bg2: '#121a33',
   amber: '#ffb238',
@@ -23,16 +23,16 @@ const C = {
   ink: '#e9ecf5',
   dim: '#7c86a6',
 };
-const FONT = 'Inter, "Inter Display", system-ui, sans-serif';
+export const FONT = 'Inter, "Inter Display", system-ui, sans-serif';
 
 export type Segment = {start: number; end: number; text: string};
 export type gridEp1Schema = {segments: Segment[]; captions: Segment[]; audio: string};
 
-const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
+export const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
 // ---------- shared pieces ----------
 
-const Stars: React.FC = () => {
+export const Stars: React.FC = () => {
   const frame = useCurrentFrame();
   return (
     <>
@@ -61,7 +61,7 @@ const Stars: React.FC = () => {
 };
 
 // City skyline whose windows switch off over [offStart, offEnd] frames.
-const Skyline: React.FC<{offStart: number; offEnd: number}> = ({offStart, offEnd}) => {
+export const Skyline: React.FC<{offStart: number; offEnd: number}> = ({offStart, offEnd}) => {
   const frame = useCurrentFrame();
   const buildings = new Array(11).fill(0).map((_, i) => ({
     x: i * 100 - 10,
@@ -106,10 +106,19 @@ const Skyline: React.FC<{offStart: number; offEnd: number}> = ({offStart, offEnd
 };
 
 // Top bar: series tag + clock running through the first hour.
-const TopBar: React.FC<{totalFrames: number; finalHour: boolean}> = ({totalFrames, finalHour}) => {
+export const TopBar: React.FC<{
+  totalFrames: number;
+  finalHour: boolean;
+  ep?: number;
+  fromMin?: number;
+  toMin?: number;
+  finalLabel?: string;
+}> = ({totalFrames, finalHour, ep = 1, fromMin = 0, toMin = 59, finalLabel = 'HOUR 6'}) => {
   const frame = useCurrentFrame();
-  const minutes = Math.floor(interpolate(frame, [0, totalFrames * 0.9], [0, 59], clamp));
-  const label = finalHour ? 'HOUR 6' : `00:${String(minutes).padStart(2, '0')}`;
+  const total = Math.floor(interpolate(frame, [0, totalFrames * 0.9], [fromMin, toMin], clamp));
+  const hh = String(Math.floor(total / 60)).padStart(2, '0');
+  const mm = String(total % 60).padStart(2, '0');
+  const label = finalHour ? finalLabel : `${hh}:${mm}`;
   return (
     <div
       style={{
@@ -133,7 +142,7 @@ const TopBar: React.FC<{totalFrames: number; finalHour: boolean}> = ({totalFrame
           textTransform: 'uppercase',
         }}
       >
-        The Grid Goes Down · Ep. 1
+        The Grid Goes Down · Ep. {ep}
       </div>
       <div
         style={{
@@ -151,7 +160,7 @@ const TopBar: React.FC<{totalFrames: number; finalHour: boolean}> = ({totalFrame
 };
 
 // Captions: words appear progressively across the segment; key words highlighted.
-const KEY = new Set([
+export const KEY = new Set([
   'hour',
   'one.',
   'lights',
@@ -172,7 +181,7 @@ const KEY = new Set([
   'strange.',
   'two.',
 ]);
-const Captions: React.FC<{segments: Segment[]}> = ({segments}) => {
+export const Captions: React.FC<{segments: Segment[]; keys?: Set<string>}> = ({segments, keys = KEY}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const t = frame / fps;
@@ -207,7 +216,7 @@ const Captions: React.FC<{segments: Segment[]}> = ({segments}) => {
     >
       {chunk.map((w, i) => {
         const spoken = chunkStart + i <= idx;
-        const isKey = KEY.has(w.toLowerCase());
+        const isKey = keys.has(w.toLowerCase());
         return (
           <span
             key={i}
@@ -224,7 +233,7 @@ const Captions: React.FC<{segments: Segment[]}> = ({segments}) => {
   );
 };
 
-const Label: React.FC<{text: string; color?: string; delay?: number; top?: number}> = ({
+export const Label: React.FC<{text: string; color?: string; delay?: number; top?: number}> = ({
   text,
   color = C.amber,
   delay = 6,
@@ -263,7 +272,7 @@ const Label: React.FC<{text: string; color?: string; delay?: number; top?: numbe
   );
 };
 
-const pop = (frame: number, fps: number, delay = 0) =>
+export const pop = (frame: number, fps: number, delay = 0) =>
   spring({frame: frame - delay, fps, config: {damping: 14, mass: 0.8}});
 
 // ---------- scenes ----------

@@ -9,9 +9,9 @@ What actually stops working in the first hour of a nationwide blackout? Lights a
 Part 2 (Hour 6) is coming next. Follow so you don't miss it.
 
 Sources:
-• USDA FSIS, "Keeping Food Safe During an Emergency": a closed fridge keeps food safe for about 4 hours.
-• Ready.gov (FEMA), "Power Outages".
-• Cell site backup power varies by carrier and site; many rely on batteries that last hours, not days.
+• USDA FSIS, "Keep Your Food Safe During Emergencies": https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/emergencies/keep-your-food-safe-during-emergencies
+• FoodSafety.gov, "Food Safety During Power Outage": https://www.foodsafety.gov/food-safety-charts/food-safety-during-power-outage
+• CPUC decision on telecom backup power (industry guidelines: min. 4 hrs, design objective 8 hrs): https://docs.cpuc.ca.gov/published/FINAL_DECISION/87681-06.htm
 
 #blackout #powergrid #preparedness #whatif #shorts
 

@@ -1,0 +1,148 @@
+{
+ "duration": 47.36,
+ "audio": "ep2_voice.mp3",
+ "segments": [
+  {
+   "start": 0,
+   "end": 3.45,
+   "text": ""
+  },
+  {
+   "start": 3.45,
+   "end": 13.0,
+   "text": ""
+  },
+  {
+   "start": 13.0,
+   "end": 19.9,
+   "text": ""
+  },
+  {
+   "start": 19.9,
+   "end": 28.68,
+   "text": ""
+  },
+  {
+   "start": 28.68,
+   "end": 34.44,
+   "text": ""
+  },
+  {
+   "start": 34.44,
+   "end": 42.51,
+   "text": ""
+  },
+  {
+   "start": 42.51,
+   "end": 47.36,
+   "text": ""
+  }
+ ],
+ "captions": [
+  {
+   "start": 0,
+   "end": 1.02,
+   "text": "Hour six."
+  },
+  {
+   "start": 1.53,
+   "end": 2.86,
+   "text": "The grid is still down."
+  },
+  {
+   "start": 3.45,
+   "end": 5.44,
+   "text": "Your fridge just passed its four-hour mark."
+  },
+  {
+   "start": 5.99,
+   "end": 6.99,
+   "text": "The USDA rule:"
+  },
+  {
+   "start": 7.42,
+   "end": 11.37,
+   "text": "if milk, meat or eggs sit above 40\u00b0F for more than two hours..."
+  },
+  {
+   "start": 11.82,
+   "end": 12.4,
+   "text": "throw them out."
+  },
+  {
+   "start": 13.0,
+   "end": 14.75,
+   "text": "Your freezer is your best friend now."
+  },
+  {
+   "start": 15.17,
+   "end": 17.32,
+   "text": "A full one holds for about 48 hours."
+  },
+  {
+   "start": 17.71,
+   "end": 18.22,
+   "text": "Half full?"
+  },
+  {
+   "start": 18.58,
+   "end": 19.35,
+   "text": "Just 24."
+  },
+  {
+   "start": 19.9,
+   "end": 21.55,
+   "text": "Cell signal starts to vanish."
+  },
+  {
+   "start": 21.96,
+   "end": 26.13,
+   "text": "Industry guidelines call for as little as four hours of backup power at many sites."
+  },
+  {
+   "start": 26.58,
+   "end": 28.15,
+   "text": "That time... is running out."
+  },
+  {
+   "start": 28.68,
+   "end": 30.14,
+   "text": "Every traffic light is dark."
+  },
+  {
+   "start": 30.52,
+   "end": 34.02,
+   "text": "In most states, that turns every intersection into an all-way stop."
+  },
+  {
+   "start": 34.44,
+   "end": 35.47,
+   "text": "Your tap still works."
+  },
+  {
+   "start": 35.77,
+   "end": 39.6,
+   "text": "Water towers push water down with gravity, and many hold about a day's supply."
+  },
+  {
+   "start": 40.02,
+   "end": 42.08,
+   "text": "But the pumps that refill them need power."
+  },
+  {
+   "start": 42.51,
+   "end": 43.56,
+   "text": "And at hour twelve..."
+  },
+  {
+   "start": 44.01,
+   "end": 45.51,
+   "text": "your phone becomes the problem."
+  },
+  {
+   "start": 46.16,
+   "end": 47.36,
+   "text": "Follow for part three."
+  }
+ ]
+}

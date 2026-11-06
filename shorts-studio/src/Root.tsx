@@ -2,11 +2,23 @@ import React from 'react';
 import {Composition} from 'remotion';
 import {GridEp1, gridEp1Schema} from './GridEp1';
 import timing from './timing.json';
+import {GridEp2} from './GridEp2';
+import timing2 from './timing2.json';
 
 const FPS = 30;
 
 export const Root: React.FC = () => {
   return (
+    <>
+    <Composition
+      id="GridEp2"
+      component={GridEp2}
+      width={1080}
+      height={1920}
+      fps={FPS}
+      durationInFrames={Math.ceil((timing2.duration + 0.6) * FPS)}
+      defaultProps={{segments: timing2.segments, captions: timing2.captions, audio: timing2.audio} as gridEp1Schema}
+    />
     <Composition
       id="GridEp1"
       component={GridEp1}
@@ -16,5 +28,6 @@ export const Root: React.FC = () => {
       durationInFrames={Math.ceil((timing.duration + 0.6) * FPS)}
       defaultProps={{segments: timing.segments, captions: timing.captions, audio: timing.audio} as gridEp1Schema}
     />
+    </>
   );
 };
