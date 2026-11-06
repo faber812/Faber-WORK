@@ -1,0 +1,148 @@
+{
+ "duration": 38.0,
+ "audio": "ep1_vasko.mp3",
+ "segments": [
+  {
+   "start": 0,
+   "end": 4.42,
+   "text": ""
+  },
+  {
+   "start": 4.42,
+   "end": 10.37,
+   "text": ""
+  },
+  {
+   "start": 10.37,
+   "end": 16.49,
+   "text": ""
+  },
+  {
+   "start": 16.49,
+   "end": 20.1,
+   "text": ""
+  },
+  {
+   "start": 20.1,
+   "end": 27.11,
+   "text": ""
+  },
+  {
+   "start": 27.11,
+   "end": 33.55,
+   "text": ""
+  },
+  {
+   "start": 33.55,
+   "end": 38.0,
+   "text": ""
+  }
+ ],
+ "captions": [
+  {
+   "start": 0,
+   "end": 2.08,
+   "text": "If the power grid went down right now..."
+  },
+  {
+   "start": 2.67,
+   "end": 4.08,
+   "text": "this is hour one."
+  },
+  {
+   "start": 4.42,
+   "end": 5.21,
+   "text": "Your lights go out."
+  },
+  {
+   "start": 5.65,
+   "end": 7.17,
+   "text": "That's the part everyone expects."
+  },
+  {
+   "start": 7.56,
+   "end": 8.53,
+   "text": "What comes next..."
+  },
+  {
+   "start": 8.76,
+   "end": 9.91,
+   "text": "is what nobody does."
+  },
+  {
+   "start": 10.37,
+   "end": 11.69,
+   "text": "Your card stops working."
+  },
+  {
+   "start": 12.01,
+   "end": 14.69,
+   "text": "Card readers and ATMs need power and a network."
+  },
+  {
+   "start": 14.95,
+   "end": 16.19,
+   "text": "So it's cash only."
+  },
+  {
+   "start": 16.49,
+   "end": 17.75,
+   "text": "Gas stations can't help you."
+  },
+  {
+   "start": 18.02,
+   "end": 19.74,
+   "text": "Their pumps run on electricity too."
+  },
+  {
+   "start": 20.1,
+   "end": 21.68,
+   "text": "Your fridge starts a countdown."
+  },
+  {
+   "start": 21.99,
+   "end": 24.9,
+   "text": "According to the USDA, food stays safe for about four hours..."
+  },
+  {
+   "start": 24.9,
+   "end": 26.8,
+   "text": "if you keep the door shut."
+  },
+  {
+   "start": 27.11,
+   "end": 27.68,
+   "text": "And your phone?"
+  },
+  {
+   "start": 28.03,
+   "end": 28.93,
+   "text": "It still has signal..."
+  },
+  {
+   "start": 29.26,
+   "end": 29.74,
+   "text": "for now."
+  },
+  {
+   "start": 29.99,
+   "end": 33.23,
+   "text": "Many cell towers only run on backup batteries for a few hours."
+  },
+  {
+   "start": 33.55,
+   "end": 34.57,
+   "text": "But hour six..."
+  },
+  {
+   "start": 34.92,
+   "end": 36.36,
+   "text": "is when things get strange."
+  },
+  {
+   "start": 36.76,
+   "end": 37.76,
+   "text": "Follow for part two."
+  }
+ ]
+}

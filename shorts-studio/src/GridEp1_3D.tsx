@@ -60,7 +60,7 @@ const S2Lights: React.FC<{dur: number}> = ({dur}) => {
 
 // 3. Card: terminal says NO NETWORK; a cash bill drops. "Your card stops working... cash only."
 const Terminal: React.FC<{frame: number}> = ({frame}) => {
-  const tex = useTextTexture(Math.floor(frame / 10) % 2 === 0 ? 'NO\nNETWORK' : '', {w: 256, h: 256, size: 70});
+  const tex = useTextTexture(Math.floor(frame / 10) % 2 === 0 ? 'NO\nNETWORK' : '', {w: 320, h: 256, size: 52});
   return (
     <group position={[-0.9, 1.2, 0.6]} rotation={[-0.25, 0.35, 0]}>
       <Box s={[0.9, 1.3, 0.25]} c="#1e284d" />
@@ -217,7 +217,7 @@ const S7Outro: React.FC<{dur: number}> = ({dur}) => {
         <spotLight position={[0.6, 1.8, -0.6]} angle={0.35} penumbra={0.5} intensity={30} distance={18} color="#fff3cf" target-position={[0.8, 1, -10]} castShadow />
         <Volt frame={frame} pos={[-1.2, 2.6, -0.3]} glow={0} mood="shock" />
       </Scene3D>
-      <div style={{position: 'absolute', top: 1180, width: '100%', textAlign: 'center', fontFamily: FONT, fontWeight: 900, fontSize: 120, color: C.red, transform: `scale(${s})`, textShadow: `0 0 60px ${C.red}88`}}>
+      <div style={{position: 'absolute', top: 1330, width: '100%', textAlign: 'center', fontFamily: FONT, fontWeight: 900, fontSize: 110, color: C.red, transform: `scale(${s})`, textShadow: `0 0 60px ${C.red}88`}}>
         PART 2 →
       </div>
     </AbsoluteFill>
