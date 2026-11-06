@@ -26,4 +26,4 @@ Sources:
 **Техника:**
 - 1080×1920, 30 fps, 40 секунд, H.264 + AAC.
 - Голос: ElevenLabs, «Robert — Measured Thriller Narrator», дубль 1 из 2.
-- Анимация: `shorts-studio/src/GridEp1.tsx` (Remotion).
+- Анимация: 3D-версия `shorts-studio/src/GridEp1_3D.tsx` → `grid_ep1_3d.mp4` (основная). Плоская версия `GridEp1.tsx` → `grid_ep1.mp4` (запасная).
