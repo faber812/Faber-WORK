@@ -5,6 +5,8 @@ import timing from './timing.json';
 import {GridEp2} from './GridEp2';
 import {Test3D} from './Test3D';
 import {GridEp1_3D} from './GridEp1_3D';
+import {GridEp2_3D} from './GridEp2_3D';
+import timing2v from './timing2_vasko.json';
 import timing2 from './timing2.json';
 
 const FPS = 30;
@@ -12,6 +14,15 @@ const FPS = 30;
 export const Root: React.FC = () => {
   return (
     <>
+    <Composition
+      id="GridEp2-3D"
+      component={GridEp2_3D}
+      width={1080}
+      height={1920}
+      fps={FPS}
+      durationInFrames={Math.ceil((timing2v.duration + 0.6) * FPS)}
+      defaultProps={{segments: timing2v.segments, captions: timing2v.captions, audio: timing2v.audio} as gridEp1Schema}
+    />
     <Composition
       id="GridEp1-3D"
       component={GridEp1_3D}
