@@ -3,6 +3,7 @@ import {Composition} from 'remotion';
 import {GridEp1, gridEp1Schema} from './GridEp1';
 import timing from './timing.json';
 import {GridEp2} from './GridEp2';
+import {Test3D} from './Test3D';
 import timing2 from './timing2.json';
 
 const FPS = 30;
@@ -10,6 +11,7 @@ const FPS = 30;
 export const Root: React.FC = () => {
   return (
     <>
+    <Composition id="Test3D" component={Test3D} width={1080} height={1920} fps={FPS} durationInFrames={150} />
     <Composition
       id="GridEp2"
       component={GridEp2}
