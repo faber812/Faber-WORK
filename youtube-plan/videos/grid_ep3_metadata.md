@@ -24,6 +24,6 @@ Voice: ElevenLabs.
 
 **Техника:**
 - **Видео:** 1080×1920, 30 fps, около 35 секунд.
-- **Стиль:** C (tilt-shift миниатюра) + E (изометрия).
+- **Стиль:** основная версия `grid_ep3_3d.mp4`, 3D с электриком и Volt, как эпизоды 1–2 (исходник `shorts-studio/src/GridEp3_3D.tsx`). Альтернативная версия `grid_ep3.mp4` в стиле C+E.
 - **Голос:** VASKO (ElevenLabs).
 - **Исходник:** `shorts-studio/src/GridEp3.tsx`.
