@@ -5,6 +5,8 @@ import timing from './timing.json';
 import {GridEp2} from './GridEp2';
 import {Test3D} from './Test3D';
 import {StylesRoot} from './styles/StylesRoot';
+import {GridEp3, Ep3Props} from './GridEp3';
+import timing3v from './timing3_vasko.json';
 import {GridEp1_3D} from './GridEp1_3D';
 import {GridEp2_3D} from './GridEp2_3D';
 import timing2v from './timing2_vasko.json';
@@ -17,6 +19,15 @@ export const Root: React.FC = () => {
   return (
     <>
     <StylesRoot />
+    <Composition
+      id="GridEp3"
+      component={GridEp3}
+      width={1080}
+      height={1920}
+      fps={FPS}
+      durationInFrames={Math.ceil((timing3v.duration + 0.6) * FPS)}
+      defaultProps={{segments: timing3v.segments, captions: timing3v.captions, audio: timing3v.audio} as Ep3Props}
+    />
     <Composition
       id="GridEp2-3D"
       component={GridEp2_3D}

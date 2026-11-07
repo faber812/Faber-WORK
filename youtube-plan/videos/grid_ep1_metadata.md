@@ -13,6 +13,8 @@ Sources:
 • FoodSafety.gov, "Food Safety During Power Outage": https://www.foodsafety.gov/food-safety-charts/food-safety-during-power-outage
 • CPUC decision on telecom backup power (industry guidelines: min. 4 hrs, design objective 8 hrs): https://docs.cpuc.ca.gov/published/FINAL_DECISION/87681-06.htm
 
+Voice: ElevenLabs.
+
 #blackout #powergrid #preparedness #whatif #shorts
 
 **Настройки загрузки:**

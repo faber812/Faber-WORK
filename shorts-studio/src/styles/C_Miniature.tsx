@@ -9,7 +9,8 @@ import {F} from './fonts';
 
 const cl = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 const OUT_START = 120;
-const offAt = (x: number, z: number) => OUT_START + (x + z + 14) * 3.2; // diagonal wave
+let OUT = OUT_START;
+const offAt = (x: number, z: number) => OUT + (x + z + 14) * 3.2; // diagonal wave
 
 const winTex = (seed: number, lit: string) => {
   const c = document.createElement('canvas');
@@ -29,7 +30,7 @@ const winTex = (seed: number, lit: string) => {
   return t;
 };
 
-const Rig: React.FC<{frame: number}> = ({frame}) => {
+export const Rig: React.FC<{frame: number}> = ({frame}) => {
   const {camera} = useThree();
   const a = interpolate(frame, [0, 240], [-0.55, 0.25]);
   const r = interpolate(frame, [0, 240], [24, 20], {easing: Easing.inOut(Easing.cubic)});
@@ -45,7 +46,8 @@ const B: React.FC<{p: [number, number, number]; s: [number, number, number]; c: 
   </mesh>
 );
 
-const City: React.FC<{frame: number}> = ({frame}) => {
+export const City: React.FC<{frame: number; outStart?: number; towers?: number}> = ({frame, outStart = OUT_START, towers = -1}) => {
+  OUT = outStart;
   const texes = useMemo(() => new Array(6).fill(0).map((_, i) => winTex(i, '#ffd38a')), []);
   const blocks = useMemo(() => {
     const out: {x: number; z: number; w: number; d: number; h: number; c: string; t: number}[] = [];
@@ -137,6 +139,22 @@ const City: React.FC<{frame: number}> = ({frame}) => {
           );
         }),
       )}
+      {towers >= 0 &&
+        [[-6, -3], [5.5, -5], [3.2, 5.6], [-3, 6.2], [6.6, 2]].map(([x, z], i) => {
+          const alive = frame < towers + i * 18;
+          const blink = alive && Math.floor((frame + i * 7) / 12) % 2 === 0;
+          return (
+            <group key={`ct${i}`} position={[x, 0, z]}>
+              <B p={[0, 1.6, 0]} s={[0.12, 3.2, 0.12]} c="#c9ccd6" />
+              <B p={[0, 2.9, 0.1]} s={[0.36, 0.5, 0.06]} c="#e6e8ee" />
+              <mesh position={[0, 3.3, 0]}>
+                <sphereGeometry args={[0.13, 12, 12]} />
+                <meshStandardMaterial color={alive ? '#ff4d4d' : '#3a2224'} emissive="#ff3030" emissiveIntensity={blink ? 4 : alive ? 0.6 : 0} />
+              </mesh>
+              {blink && <pointLight position={[0, 3.4, 0]} color="#ff3b3b" intensity={3} distance={3} />}
+            </group>
+          );
+        })}
       {/* water tower */}
       <group position={[-5.6, 0, 4.8]}>
         {[[-0.4, -0.4], [0.4, -0.4], [-0.4, 0.4], [0.4, 0.4]].map(([a, b], i) => (
@@ -158,7 +176,7 @@ const City: React.FC<{frame: number}> = ({frame}) => {
         const pos = (((tf * c.speed + c.off) % 16) + 16) % 16 - 8;
         const x = c.axis === 'x' ? pos : c.lane;
         const z = c.axis === 'x' ? c.lane : pos;
-        const head = frame < offAt(x, z) ? 2.5 : 0.4;
+        const head = frame < offAt(x, z) ? 2.5 : 1.6;
         return (
           <group key={i} position={[x, 0.12, z]} rotation={[0, c.axis === 'x' ? 0 : Math.PI / 2, 0]}>
             <B p={[0, 0.06, 0]} s={[0.55, 0.16, 0.28]} c={c.c} />

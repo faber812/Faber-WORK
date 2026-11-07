@@ -9,12 +9,12 @@ const CUT = 120;
 const S = 62; // tile size
 const CX = 540;
 const CY = 990;
-const iso = (x: number, y: number, z = 0): [number, number] => [CX + (x - y) * S * 0.866, CY + (x + y) * S * 0.5 - z * S];
-const P = (pts: [number, number, number?][]) => pts.map(([x, y, z], i) => `${i ? 'L' : 'M'}${iso(x, y, z ?? 0).join(' ')}`).join(' ') + ' Z';
-const L = (pts: [number, number, number?][]) => pts.map(([x, y, z], i) => `${i ? 'L' : 'M'}${iso(x, y, z ?? 0).join(' ')}`).join(' ');
+export const iso = (x: number, y: number, z = 0): [number, number] => [CX + (x - y) * S * 0.866, CY + (x + y) * S * 0.5 - z * S];
+export const P = (pts: [number, number, number?][]) => pts.map(([x, y, z], i) => `${i ? 'L' : 'M'}${iso(x, y, z ?? 0).join(' ')}`).join(' ') + ' Z';
+export const L = (pts: [number, number, number?][]) => pts.map(([x, y, z], i) => `${i ? 'L' : 'M'}${iso(x, y, z ?? 0).join(' ')}`).join(' ');
 
 // shaded box: top / left / right faces
-const IBox: React.FC<{x: number; y: number; w: number; d: number; h: number; c: [string, string, string]; z?: number}> = ({x, y, w, d, h, c, z = 0}) => (
+export const IBox: React.FC<{x: number; y: number; w: number; d: number; h: number; c: [string, string, string]; z?: number}> = ({x, y, w, d, h, c, z = 0}) => (
   <g>
     <path d={P([[x, y + d, z], [x + w, y + d, z], [x + w, y + d, z + h], [x, y + d, z + h]])} fill={c[1]} />
     <path d={P([[x + w, y, z], [x + w, y + d, z], [x + w, y + d, z + h], [x + w, y, z + h]])} fill={c[2]} />
@@ -22,7 +22,7 @@ const IBox: React.FC<{x: number; y: number; w: number; d: number; h: number; c: 
   </g>
 );
 
-const House: React.FC<{x: number; y: number; lit: number; roof: string}> = ({x, y, lit, roof}) => (
+export const House: React.FC<{x: number; y: number; lit: number; roof: string}> = ({x, y, lit, roof}) => (
   <g>
     <IBox x={x} y={y} w={1.6} d={1.4} h={1.1} c={['#f7e3c4', '#efd2a8', '#d9b88c']} />
     {/* gable roof */}
@@ -36,7 +36,7 @@ const House: React.FC<{x: number; y: number; lit: number; roof: string}> = ({x, 
   </g>
 );
 
-const Callout: React.FC<{at: [number, number]; to: [number, number]; title: string; sub: string; t: number; color?: string}> = ({at, to, title, sub, t, color = '#1f2937'}) => (
+export const Callout: React.FC<{at: [number, number]; to: [number, number]; title: string; sub: string; t: number; color?: string}> = ({at, to, title, sub, t, color = '#1f2937'}) => (
   <g opacity={t}>
     <circle cx={at[0]} cy={at[1]} r={7} fill={color} />
     <path d={`M${at[0]} ${at[1]} L${to[0] < 540 ? to[0] + 330 : to[0] - 300} ${to[1]} L${to[0]} ${to[1]}`} stroke={color} strokeWidth={2.5} fill="none" />

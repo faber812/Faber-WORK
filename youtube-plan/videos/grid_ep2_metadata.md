@@ -14,6 +14,8 @@ Sources:
 • CPUC decision on telecom backup power (industry guidelines: min. 4 hrs): https://docs.cpuc.ca.gov/published/FINAL_DECISION/87681-06.htm
 • Sewerage & Water Board of New Orleans: a water tower holds roughly one day's supply.
 
+Voice: ElevenLabs.
+
 #blackout #powergrid #preparedness #whatif #shorts
 
 **Настройки загрузки:** такие же, как у эпизода 1. Публиковать через 1–2 дня после эпизода 1. В поле «Related video» поставить эпизод 1, а в закреплённом комментарии дать ссылку на эпизод 1.
