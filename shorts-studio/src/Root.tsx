@@ -5,6 +5,7 @@ import timing from './timing.json';
 import {GridEp2} from './GridEp2';
 import {Test3D} from './Test3D';
 import {StylesRoot} from './styles/StylesRoot';
+import {Avatar, Banner} from './Branding';
 import {GridEp3, Ep3Props} from './GridEp3';
 import {GridEp3_3D} from './GridEp3_3D';
 import timing3v from './timing3_vasko.json';
@@ -20,6 +21,8 @@ export const Root: React.FC = () => {
   return (
     <>
     <StylesRoot />
+    <Composition id="Avatar" component={Avatar} width={800} height={800} fps={30} durationInFrames={1} />
+    <Composition id="Banner" component={Banner} width={2560} height={1440} fps={30} durationInFrames={1} />
     <Composition
       id="GridEp3-3D"
       component={GridEp3_3D}
