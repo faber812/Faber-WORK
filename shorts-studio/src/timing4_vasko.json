@@ -1,0 +1,98 @@
+{
+ "duration": 26.08,
+ "audio": "ep4_vasko.mp3",
+ "segments": [
+  {
+   "start": 0,
+   "end": 4.01,
+   "text": ""
+  },
+  {
+   "start": 4.01,
+   "end": 9.73,
+   "text": ""
+  },
+  {
+   "start": 9.73,
+   "end": 16.34,
+   "text": ""
+  },
+  {
+   "start": 16.34,
+   "end": 20.97,
+   "text": ""
+  },
+  {
+   "start": 20.97,
+   "end": 26.08,
+   "text": ""
+  }
+ ],
+ "captions": [
+  {
+   "start": 0,
+   "end": 1.18,
+   "text": "Hour twenty-four."
+  },
+  {
+   "start": 1.67,
+   "end": 2.57,
+   "text": "Turn on your tap..."
+  },
+  {
+   "start": 3.02,
+   "end": 3.62,
+   "text": "and listen."
+  },
+  {
+   "start": 4.01,
+   "end": 5.51,
+   "text": "The water towers are draining,"
+  },
+  {
+   "start": 5.66,
+   "end": 7.85,
+   "text": "and the pumps that refill them have no power."
+  },
+  {
+   "start": 8.11,
+   "end": 9.43,
+   "text": "Pressure starts to drop."
+  },
+  {
+   "start": 9.73,
+   "end": 13.25,
+   "text": "When pressure drops, cities often issue a boil-water notice."
+  },
+  {
+   "start": 13.47,
+   "end": 16.06,
+   "text": "Low pressure can let contamination into the pipes."
+  },
+  {
+   "start": 16.34,
+   "end": 17.53,
+   "text": "Ready.gov says:"
+  },
+  {
+   "start": 17.72,
+   "end": 20.51,
+   "text": "store one gallon of water per person, per day."
+  },
+  {
+   "start": 20.97,
+   "end": 22.24,
+   "text": "And at hour forty-eight..."
+  },
+  {
+   "start": 22.69,
+   "end": 24.27,
+   "text": "the real danger isn't hunger."
+  },
+  {
+   "start": 24.65,
+   "end": 25.86,
+   "text": "Follow for part five."
+  }
+ ]
+}

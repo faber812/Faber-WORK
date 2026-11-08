@@ -5,6 +5,9 @@ import timing from './timing.json';
 import {GridEp2} from './GridEp2';
 import {Test3D} from './Test3D';
 import {StylesRoot} from './styles/StylesRoot';
+import {GridEp4_3D, GridEp5_3D} from './GridEp45_3D';
+import timing4v from './timing4_vasko.json';
+import timing5v from './timing5_vasko.json';
 import {Avatar, Banner} from './Branding';
 import {GridEp3, Ep3Props} from './GridEp3';
 import {GridEp3_3D} from './GridEp3_3D';
@@ -21,6 +24,24 @@ export const Root: React.FC = () => {
   return (
     <>
     <StylesRoot />
+    <Composition
+      id="GridEp4-3D"
+      component={GridEp4_3D}
+      width={1080}
+      height={1920}
+      fps={FPS}
+      durationInFrames={Math.ceil((timing4v.duration + 0.6) * FPS)}
+      defaultProps={{segments: timing4v.segments, captions: timing4v.captions, audio: timing4v.audio} as gridEp1Schema}
+    />
+    <Composition
+      id="GridEp5-3D"
+      component={GridEp5_3D}
+      width={1080}
+      height={1920}
+      fps={FPS}
+      durationInFrames={Math.ceil((timing5v.duration + 0.6) * FPS)}
+      defaultProps={{segments: timing5v.segments, captions: timing5v.captions, audio: timing5v.audio} as gridEp1Schema}
+    />
     <Composition id="Avatar" component={Avatar} width={800} height={800} fps={30} durationInFrames={1} />
     <Composition id="Banner" component={Banner} width={2560} height={1440} fps={30} durationInFrames={1} />
     <Composition

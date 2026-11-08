@@ -1,0 +1,103 @@
+{
+ "duration": 29.04,
+ "audio": "ep5_vasko.mp3",
+ "segments": [
+  {
+   "start": 0,
+   "end": 3.99,
+   "text": ""
+  },
+  {
+   "start": 3.99,
+   "end": 9.35,
+   "text": ""
+  },
+  {
+   "start": 9.35,
+   "end": 17.34,
+   "text": ""
+  },
+  {
+   "start": 17.34,
+   "end": 20.61,
+   "text": ""
+  },
+  {
+   "start": 20.61,
+   "end": 24.22,
+   "text": ""
+  },
+  {
+   "start": 24.22,
+   "end": 29.04,
+   "text": ""
+  }
+ ],
+ "captions": [
+  {
+   "start": 0,
+   "end": 1.2,
+   "text": "Hour forty-eight."
+  },
+  {
+   "start": 1.6,
+   "end": 3.66,
+   "text": "Even a full freezer is giving up now."
+  },
+  {
+   "start": 3.99,
+   "end": 6.16,
+   "text": "So people start cooking however they can."
+  },
+  {
+   "start": 6.52,
+   "end": 7.13,
+   "text": "Grills."
+  },
+  {
+   "start": 7.29,
+   "end": 8.99,
+   "text": "Camp stoves. Generators."
+  },
+  {
+   "start": 9.35,
+   "end": 11.7,
+   "text": "And this is where blackouts turn deadly."
+  },
+  {
+   "start": 12.08,
+   "end": 17.04,
+   "text": "The CDC says: never use them inside your home, your garage, or near a window."
+  },
+  {
+   "start": 17.34,
+   "end": 19.24,
+   "text": "Carbon monoxide has no smell..."
+  },
+  {
+   "start": 19.47,
+   "end": 20.28,
+   "text": "and no color."
+  },
+  {
+   "start": 20.61,
+   "end": 23.81,
+   "text": "Keep a generator at least twenty feet from doors and windows."
+  },
+  {
+   "start": 24.22,
+   "end": 25.6,
+   "text": "And at hour seventy-two..."
+  },
+  {
+   "start": 25.97,
+   "end": 27.16,
+   "text": "the cold moves in."
+  },
+  {
+   "start": 27.61,
+   "end": 28.86,
+   "text": "Follow for part six."
+  }
+ ]
+}

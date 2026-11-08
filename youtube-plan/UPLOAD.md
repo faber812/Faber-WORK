@@ -1,14 +1,16 @@
 # Загрузка эпизодов 1–3 (Lights Out Lab, @lightsoutlabx)
 
-## Расписание публикации
+## Расписание публикации (1 шорт в день)
 
 Публикуем в 19:00 по восточному времени США (ET). В Варшаве это 01:00 следующего дня: в ноябре разница 6 часов.
 
 | Эпизод | Файл | Публикация (ET) | То же по Варшаве |
 |---|---|---|---|
 | 1 · Hour 1 | `videos/grid_ep1_3d.mp4` | пн, 9 ноября, 19:00 | вт, 10 ноября, 01:00 |
-| 2 · Hour 6 | `videos/grid_ep2_3d.mp4` | ср, 11 ноября, 19:00 | чт, 12 ноября, 01:00 |
-| 3 · Hour 12 | `videos/grid_ep3_3d.mp4` | пт, 13 ноября, 19:00 | сб, 14 ноября, 01:00 |
+| 2 · Hour 6 | `videos/grid_ep2_3d.mp4` | вт, 10 ноября, 19:00 | ср, 11 ноября, 01:00 |
+| 3 · Hour 12 | `videos/grid_ep3_3d.mp4` | ср, 11 ноября, 19:00 | чт, 12 ноября, 01:00 |
+| 4 · Hour 24 | `videos/grid_ep4_3d.mp4` | чт, 12 ноября, 19:00 | пт, 13 ноября, 01:00 |
+| 5 · Hour 48 | `videos/grid_ep5_3d.mp4` | пт, 13 ноября, 19:00 | сб, 14 ноября, 01:00 |
 
 Время в YouTube Studio указывается в часовом поясе вашего аккаунта. Если там стоит Варшава, ставьте время из правой колонки.
 
@@ -115,4 +117,66 @@ Voice: ElevenLabs.
 **Закреплённый комментарий:**
 ```
 What % is your phone at right now? 🔋👇
+```
+
+---
+
+## Эпизод 4
+
+**Название:**
+```
+No Power, No Water? Hour 24 of a US Blackout 💧
+```
+
+**Описание:**
+```
+Hour 24 of a nationwide blackout. Water towers are draining, and the pumps that refill them have no power. When pressure drops, cities often issue boil-water notices.
+
+Ready.gov recommends storing one gallon of water per person, per day.
+
+Part 5 (Hour 48) is next. Follow so you don't miss it.
+
+Sources:
+• Ready.gov, "Build a Kit" (1 gallon per person per day): https://www.ready.gov/kit
+• CDC, Drinking Water Advisory Communication Toolbox (pressure loss → boil water advisory): https://www.cdc.gov/water-emergency/media/pdfs/2024/08/dwact-2016.pdf
+
+Voice: ElevenLabs.
+
+#blackout #powergrid #water #preparedness #shorts
+```
+
+**Закреплённый комментарий:**
+```
+How many gallons do you have stored right now? 👇
+```
+
+---
+
+## Эпизод 5
+
+**Название:**
+```
+The Blackout Mistake That Kills — Hour 48 ⚠️
+```
+
+**Описание:**
+```
+Hour 48 of a nationwide blackout. The freezer is done, and people start cooking with grills, camp stoves and generators. That's when carbon monoxide becomes the real danger.
+
+CDC: never use generators, grills or camp stoves inside your home, garage or near windows. Keep generators at least 20 feet from doors and windows. CO has no smell and no color.
+
+Part 6 (Hour 72) is next. Follow so you don't miss it.
+
+Sources:
+• CDC, "Avoiding Carbon Monoxide Poisoning": https://www.cdc.gov/natural-disasters/psa-toolkit/avoiding-carbon-monoxide-poisoning.html
+• Ready.gov, "Power Outages": https://www.ready.gov/power-outages
+
+Voice: ElevenLabs.
+
+#blackout #carbonmonoxide #generator #preparedness #shorts
+```
+
+**Закреплённый комментарий:**
+```
+Do you have a battery CO alarm at home? 👇
 ```
