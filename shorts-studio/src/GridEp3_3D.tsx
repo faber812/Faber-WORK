@@ -2,7 +2,7 @@
 import React from 'react';
 import {ThreeCanvas} from '@remotion/three';
 import {AbsoluteFill, Audio, Easing, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {C, Captions, FONT, gridEp1Schema, Label, TopBar} from './GridEp1';
+import {C, Captions, FONT, gridEp1Schema, Label, LAYOUT, TopBar} from './GridEp1';
 import {Box, Cam, City, clamp, COL, House, Lineman, Stage, Volt} from './three/kit';
 
 const KEYS3 = new Set(['twelve.', 'forty', 'percent...', 'fast.', 'wi-fi', 'router', 'died', 'cell', 'backup', 'power.', 'weaker,', 'harder', 'battery.', 'everyone', 'jams.', "fcc's", 'short,', 'text', "can't.", 'twenty-four...', 'phone.', 'water.', 'four.']);

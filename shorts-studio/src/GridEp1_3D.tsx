@@ -1,7 +1,7 @@
 import React from 'react';
 import {ThreeCanvas} from '@remotion/three';
 import {AbsoluteFill, Audio, Easing, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {C, Captions, FONT, gridEp1Schema, Label, TopBar} from './GridEp1';
+import {C, Captions, FONT, gridEp1Schema, Label, LAYOUT, TopBar} from './GridEp1';
 import {Box, Cam, City, clamp, COL, House, Lineman, Stage, useTextTexture, Volt} from './three/kit';
 
 // One 3D canvas per scene; 2D overlays (clock, captions, labels) on top.
@@ -217,7 +217,7 @@ const S7Outro: React.FC<{dur: number}> = ({dur}) => {
         <spotLight position={[0.6, 1.8, -0.6]} angle={0.35} penumbra={0.5} intensity={30} distance={18} color="#fff3cf" target-position={[0.8, 1, -10]} castShadow />
         <Volt frame={frame} pos={[-1.2, 2.6, -0.3]} glow={0} mood="shock" />
       </Scene3D>
-      <div style={{position: 'absolute', top: 1330, width: '100%', textAlign: 'center', fontFamily: FONT, fontWeight: 900, fontSize: 110, color: C.red, transform: `scale(${s})`, textShadow: `0 0 60px ${C.red}88`}}>
+      <div style={{position: 'absolute', top: 1330 + LAYOUT.labelShift * 2, width: '100%', textAlign: 'center', fontFamily: FONT, fontWeight: 900, fontSize: 110, color: C.red, transform: `scale(${s})`, textShadow: `0 0 60px ${C.red}88`}}>
         PART 2 →
       </div>
     </AbsoluteFill>

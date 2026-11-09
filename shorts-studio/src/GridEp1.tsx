@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  getInputProps,
   AbsoluteFill,
   Audio,
   Easing,
@@ -13,6 +14,11 @@ import {
 } from 'remotion';
 
 // Palette: night navy + amber. Series look for "The Grid Goes Down".
+// Platform layout: default = YouTube Shorts; {"tiktok": true} input prop lifts captions/labels
+// above TikTok's bottom UI and moves the series tag below its top bar.
+const TT = Boolean((getInputProps() as {tiktok?: boolean}).tiktok);
+export const LAYOUT = TT ? {top: 215, captionBottom: 480, labelShift: -130} : {top: 110, captionBottom: 260, labelShift: 0};
+
 export const C = {
   bg: '#0b1020',
   bg2: '#121a33',
@@ -123,7 +129,7 @@ export const TopBar: React.FC<{
     <div
       style={{
         position: 'absolute',
-        top: 110,
+        top: LAYOUT.top,
         left: 0,
         right: 0,
         display: 'flex',
@@ -199,7 +205,7 @@ export const Captions: React.FC<{segments: Segment[]; keys?: Set<string>}> = ({s
         position: 'absolute',
         left: 70,
         right: 70,
-        bottom: 260,
+        bottom: LAYOUT.captionBottom,
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
@@ -246,7 +252,7 @@ export const Label: React.FC<{text: string; color?: string; delay?: number; top?
     <div
       style={{
         position: 'absolute',
-        top,
+        top: top + LAYOUT.labelShift,
         left: 0,
         right: 0,
         textAlign: 'center',

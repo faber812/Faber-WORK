@@ -1,7 +1,7 @@
 import React from 'react';
 import {ThreeCanvas} from '@remotion/three';
 import {AbsoluteFill, Audio, Easing, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {C, Captions, FONT, gridEp1Schema, Label, TopBar} from './GridEp1';
+import {C, Captions, FONT, gridEp1Schema, Label, LAYOUT, TopBar} from './GridEp1';
 import {Box, Cam, City, clamp, COL, Lineman, Stage, Volt} from './three/kit';
 
 const KEYS2 = new Set([
@@ -303,7 +303,7 @@ const S7: React.FC<{dur: number}> = ({dur}) => {
         <Lineman frame={frame} pos={[0, 0, 0]} rotY={0.2} pose={{hold: 'phone', armRx: -1.3, armR: 0.25, lookX: 0.35, phoneGlow: glow, mouth: 'o', brows: 'worried'}} />
         <Volt frame={frame} pos={[-1.4, 3, -0.4]} glow={0} mood="shock" />
       </Scene3D>
-      <div style={{position: 'absolute', top: 1330, width: '100%', textAlign: 'center', fontFamily: FONT, fontWeight: 900, fontSize: 110, color: C.red, transform: `scale(${s})`, textShadow: `0 0 60px ${C.red}88`}}>
+      <div style={{position: 'absolute', top: 1330 + LAYOUT.labelShift * 2, width: '100%', textAlign: 'center', fontFamily: FONT, fontWeight: 900, fontSize: 110, color: C.red, transform: `scale(${s})`, textShadow: `0 0 60px ${C.red}88`}}>
         PART 3 →
       </div>
     </AbsoluteFill>

@@ -2,7 +2,7 @@
 import React from 'react';
 import {ThreeCanvas} from '@remotion/three';
 import {AbsoluteFill, Audio, Easing, interpolate, random, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {C, Captions, FONT, gridEp1Schema, Label, TopBar} from './GridEp1';
+import {C, Captions, FONT, gridEp1Schema, Label, LAYOUT, TopBar} from './GridEp1';
 import {Box, Cam, City, clamp, COL, House, Lineman, Stage, Volt} from './three/kit';
 
 const Scene3D: React.FC<{children: React.ReactNode}> = ({children}) => {
@@ -21,7 +21,7 @@ const Big: React.FC<{text: string; color: string; top: number; delay?: number; s
   const {fps} = useVideoConfig();
   const s = spring({frame: frame - delay, fps, config: {damping: 12}});
   return (
-    <div style={{position: 'absolute', top, width: '100%', textAlign: 'center', scale: String(s), fontFamily: FONT, fontWeight: 900, fontSize: size, color, textShadow: `0 0 50px ${color}88, 0 8px 30px rgba(0,0,0,0.7)`}}>
+    <div style={{position: 'absolute', top: top + (top > 1000 ? LAYOUT.labelShift : 0), width: '100%', textAlign: 'center', scale: String(s), fontFamily: FONT, fontWeight: 900, fontSize: size, color, textShadow: `0 0 50px ${color}88, 0 8px 30px rgba(0,0,0,0.7)`}}>
       {text}
     </div>
   );
