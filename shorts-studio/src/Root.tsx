@@ -9,6 +9,7 @@ import {GridEp4_3D, GridEp5_3D} from './GridEp45_3D';
 import timing4v from './timing4_vasko.json';
 import timing5v from './timing5_vasko.json';
 import {Avatar, Banner} from './Branding';
+import {Cover, COVERS} from './Cover';
 import {GridEp3, Ep3Props} from './GridEp3';
 import {GridEp3_3D} from './GridEp3_3D';
 import timing3v from './timing3_vasko.json';
@@ -24,6 +25,9 @@ export const Root: React.FC = () => {
   return (
     <>
     <StylesRoot />
+    {COVERS.map((c) => (
+      <Composition key={c.ep} id={`Cover-Ep${c.ep}`} component={Cover} width={1080} height={1920} fps={30} durationInFrames={1} defaultProps={c} />
+    ))}
     <Composition
       id="GridEp4-3D"
       component={GridEp4_3D}
