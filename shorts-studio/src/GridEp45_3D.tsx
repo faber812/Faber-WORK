@@ -415,9 +415,64 @@ const E5S6: React.FC<{dur: number}> = ({dur}) => {
   );
 };
 
+
+// ---------- cold-open hooks (first ~1.7 s): strongest image + one bold line, from frame 0 ----------
+
+const HookText: React.FC<{lines: [string, string]; color: string}> = ({lines, color}) => {
+  const frame = useCurrentFrame();
+  const k = interpolate(frame, [0, 5], [1.08, 1], {...clamp, easing: Easing.out(Easing.cubic)});
+  return (
+    <div style={{position: 'absolute', top: 400, left: 50, right: 50, textAlign: 'center', scale: String(k), fontFamily: FONT, fontWeight: 900, lineHeight: 1.02}}>
+      <div style={{fontSize: 92, color: "#fff", textShadow: '0 8px 30px rgba(0,0,0,0.9)'}}>{lines[0]}</div>
+      <div style={{display: 'inline-block', marginTop: 14, fontSize: 92, color: "#0b1020", background: color, padding: '4px 28px', borderRadius: 16}}>{lines[1]}</div>
+    </div>
+  );
+};
+
+const Hook4: React.FC<{dur: number}> = ({dur}) => {
+  const frame = useCurrentFrame();
+  const level = interpolate(frame, [0, dur], [0.95, 0.08], clamp);
+  return (
+    <AbsoluteFill>
+      <Scene3D>
+        <Cam pos={[ease(frame, 0, dur, 2.5, 1.2), 5.2, ease(frame, 0, dur, 10, 8)]} target={[0, 5.2, -3]} />
+        <Stage power={0.9} />
+        <City power={0} count={50} clearRadius={8} />
+        <WaterTower p={[0, 0, -3]} level={level} />
+        <pointLight position={[0, 6, 1]} color="#7cc4ff" intensity={30} distance={10} />
+      </Scene3D>
+      <HookText lines={['YOUR TAP WATER', 'IS NEXT']} color="#7cc4ff" />
+    </AbsoluteFill>
+  );
+};
+
+const Hook5: React.FC<{dur: number}> = ({dur}) => {
+  const frame = useCurrentFrame();
+  return (
+    <AbsoluteFill>
+      <Scene3D>
+        <Cam pos={[ease(frame, 0, dur, 3.2, 2.4), 3.6, ease(frame, 0, dur, 11, 9.5)]} target={[0.4, 1.6, 0]} />
+        <Stage power={0.9} />
+        <City power={0} count={40} clearRadius={9} />
+        <House pos={[-1.2, 0, -1]} lit={0} />
+        <group position={[1.6, 0, -0.8]}>
+          <Box p={[0, 1.1, 0]} s={[2.2, 2.2, 2.4]} c="#2a3563" />
+          <Box p={[0, 1.0, 1.21]} s={[1.8, 1.9, 0.02]} c="#0d111c" />
+          <Generator p={[0, 0, 0.4]} running frame={frame} />
+        </group>
+        <Cloud from={[1.6, 1, 0.6]} dir={[-3.5, 1.6, -1]} frame={frame + 60} color="#ff5a4e" opacity={1} n={22} spread={1.6} />
+        <pointLight position={[0.5, 2, 2]} color="#ff5a4e" intensity={25} distance={9} />
+      </Scene3D>
+      <HookText lines={['THIS KILLS PEOPLE', 'IN BLACKOUTS']} color="#ff5a4e" />
+    </AbsoluteFill>
+  );
+};
+
+const HOOK_FRAMES = 50;
+
 // ---------- episode shell ----------
 
-const makeEpisode = (scenes: React.FC<{dur: number}>[], ep: number, fromMin: number, finalLabel: string, keys: Set<string>) => {
+const makeEpisode = (scenes: React.FC<{dur: number}>[], ep: number, fromMin: number, finalLabel: string, keys: Set<string>, Hook?: React.FC<{dur: number}>) => {
   const Ep: React.FC<gridEp1Schema> = ({segments, captions, audio}) => {
     const {fps, durationInFrames} = useVideoConfig();
     const f = (sec: number) => Math.round(sec * fps);
@@ -434,6 +489,13 @@ const makeEpisode = (scenes: React.FC<{dur: number}>[], ep: number, fromMin: num
             </Sequence>
           );
         })}
+        {Hook && (
+          <Sequence from={0} durationInFrames={HOOK_FRAMES}>
+            <AbsoluteFill style={{background: COL.night}}>
+              <Hook dur={HOOK_FRAMES} />
+            </AbsoluteFill>
+          </Sequence>
+        )}
         <AbsoluteFill style={{background: 'linear-gradient(rgba(11,16,32,0.85) 0%, rgba(11,16,32,0) 18%, rgba(11,16,32,0) 70%, rgba(11,16,32,0.9) 100%)'}} />
         <Sequence from={0} durationInFrames={outro}>
           <TopBar totalFrames={outro} finalHour={false} ep={ep} fromMin={fromMin} toMin={fromMin + 59} />
@@ -449,5 +511,5 @@ const makeEpisode = (scenes: React.FC<{dur: number}>[], ep: number, fromMin: num
   return Ep;
 };
 
-export const GridEp4_3D = makeEpisode([E4S1, E4S2, E4S3, E4S4, E4S5], 4, 24 * 60, 'HOUR 48', new Set(['twenty-four.', 'tap...', 'draining,', 'power.', 'drop.', 'boil-water', 'contamination', 'gallon', 'day.', 'forty-eight...', "isn't", 'hunger.', 'five.']));
-export const GridEp5_3D = makeEpisode([E5S1, E5S2, E5S3, E5S4, E5S5, E5S6], 5, 48 * 60, 'HOUR 72', new Set(['forty-eight.', 'freezer', 'grills.', 'generators.', 'deadly.', 'never', 'inside', 'garage,', 'window.', 'carbon', 'monoxide', 'smell...', 'color.', 'twenty', 'feet', 'seventy-two...', 'cold', 'six.']));
+export const GridEp4_3D = makeEpisode([E4S1, E4S2, E4S3, E4S4, E4S5], 4, 24 * 60, 'HOUR 48', new Set(['twenty-four.', 'tap...', 'draining,', 'power.', 'drop.', 'boil-water', 'contamination', 'gallon', 'day.', 'forty-eight...', "isn't", 'hunger.', 'five.']), Hook4);
+export const GridEp5_3D = makeEpisode([E5S1, E5S2, E5S3, E5S4, E5S5, E5S6], 5, 48 * 60, 'HOUR 72', new Set(['forty-eight.', 'freezer', 'grills.', 'generators.', 'deadly.', 'never', 'inside', 'garage,', 'window.', 'carbon', 'monoxide', 'smell...', 'color.', 'twenty', 'feet', 'seventy-two...', 'cold', 'six.']), Hook5);
