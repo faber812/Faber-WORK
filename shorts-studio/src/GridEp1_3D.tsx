@@ -1,4 +1,5 @@
 import React from 'react';
+import {HookOverlay} from './hooks3d';
 import {ThreeCanvas} from '@remotion/three';
 import {AbsoluteFill, Audio, Easing, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {C, Captions, FONT, gridEp1Schema, Label, LAYOUT, TopBar} from './GridEp1';
@@ -242,6 +243,7 @@ export const GridEp1_3D: React.FC<gridEp1Schema> = ({segments, captions, audio})
         );
       })}
       {/* top gradient so the clock reads over the 3D scene */}
+      <HookOverlay ep={1} />
       <AbsoluteFill style={{background: 'linear-gradient(rgba(11,16,32,0.85) 0%, rgba(11,16,32,0) 18%, rgba(11,16,32,0) 70%, rgba(11,16,32,0.9) 100%)'}} />
       <Sequence from={0} durationInFrames={outroStart}>
         <TopBar totalFrames={outroStart} finalHour={false} />
