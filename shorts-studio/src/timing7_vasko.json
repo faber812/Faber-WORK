@@ -1,137 +1,132 @@
 {
- "duration": 37.52,
- "audio": "ep7_vasko.mp3",
+ "duration": 39.83,
+ "audio": "ep7v2_vasko.mp3",
  "segments": [
   {
    "start": 0,
-   "end": 5.64,
+   "end": 7.95,
    "text": ""
   },
   {
-   "start": 5.64,
-   "end": 11.84,
+   "start": 7.95,
+   "end": 14.15,
    "text": ""
   },
   {
-   "start": 11.84,
-   "end": 21.1,
+   "start": 14.15,
+   "end": 23.41,
    "text": ""
   },
   {
-   "start": 21.1,
-   "end": 25.59,
+   "start": 23.41,
+   "end": 27.9,
    "text": ""
   },
   {
-   "start": 25.59,
-   "end": 32.33,
+   "start": 27.9,
+   "end": 34.64,
    "text": ""
   },
   {
-   "start": 32.33,
-   "end": 37.52,
+   "start": 34.64,
+   "end": 39.83,
    "text": ""
   }
  ],
  "captions": [
   {
    "start": 0,
-   "end": 1.27,
-   "text": "The blackout is over."
+   "end": 2.48,
+   "text": "Never eat from your fridge after a blackout..."
   },
   {
-   "start": 1.61,
-   "end": 2.58,
-   "text": "The lights are back."
+   "start": 2.93,
+   "end": 4.05,
+   "text": "until you know this."
   },
   {
-   "start": 2.95,
-   "end": 3.67,
-   "text": "And this..."
+   "start": 4.44,
+   "end": 7.55,
+   "text": "The moment the power comes back is when people get sick."
   },
   {
-   "start": 3.93,
-   "end": 5.19,
-   "text": "is when people get sick."
-  },
-  {
-   "start": 5.64,
-   "end": 7.02,
+   "start": 7.95,
+   "end": 9.33,
    "text": "Your fridge is humming again."
   },
   {
-   "start": 7.34,
-   "end": 8.62,
+   "start": 9.65,
+   "end": 10.93,
    "text": "The food feels cold."
   },
   {
-   "start": 8.96,
-   "end": 10.05,
+   "start": 11.27,
+   "end": 12.36,
    "text": "So people eat it."
   },
   {
-   "start": 10.43,
-   "end": 11.48,
+   "start": 12.74,
+   "end": 13.79,
    "text": "That's the mistake."
   },
   {
-   "start": 11.84,
-   "end": 16.63,
+   "start": 14.15,
+   "end": 18.94,
    "text": "The USDA says food in a fridge stays safe for only about four hours without power."
   },
   {
-   "start": 16.93,
-   "end": 18.73,
+   "start": 19.24,
+   "end": 21.04,
    "text": "After that, meat, milk,"
   },
   {
-   "start": 18.89,
-   "end": 20.72,
+   "start": 21.2,
+   "end": 23.03,
    "text": "eggs and leftovers have to go."
   },
   {
-   "start": 21.1,
-   "end": 22.26,
+   "start": 23.41,
+   "end": 24.57,
    "text": "Your freezer is different."
   },
   {
-   "start": 22.54,
-   "end": 25.28,
+   "start": 24.85,
+   "end": 27.59,
    "text": "If the food still has ice crystals, you can refreeze it."
   },
   {
-   "start": 25.59,
-   "end": 27.83,
+   "start": 27.9,
+   "end": 30.14,
    "text": "And never taste food to check if it's safe."
   },
   {
-   "start": 28.16,
-   "end": 29.84,
+   "start": 30.47,
+   "end": 32.15,
    "text": "The USDA's rule is simple:"
   },
   {
-   "start": 30.22,
-   "end": 30.81,
+   "start": 32.53,
+   "end": 33.12,
    "text": "when in doubt..."
   },
   {
-   "start": 31.11,
-   "end": 31.81,
+   "start": 33.42,
+   "end": 34.12,
    "text": "throw it out."
   },
   {
-   "start": 32.33,
-   "end": 34.91,
+   "start": 34.64,
+   "end": 37.22,
    "text": "So how does a dead power grid come back to life?"
   },
   {
-   "start": 35.34,
-   "end": 35.93,
+   "start": 37.65,
+   "end": 38.24,
    "text": "That's next."
   },
   {
-   "start": 36.26,
-   "end": 37.28,
+   "start": 38.57,
+   "end": 39.59,
    "text": "Follow for part eight."
   }
  ]

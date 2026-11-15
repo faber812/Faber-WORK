@@ -232,7 +232,7 @@ The Fridge Mistake That Makes People Sick After a Blackout ⚠️
 
 **Описание:**
 ```
-The power is back — and this is when people get sick. The fridge is humming again, the food feels cold, so people eat it.
+Never eat from your fridge after a blackout until you know this. The moment the power comes back is when people get sick: the fridge is humming again, the food feels cold, so people eat it.
 
 USDA: refrigerated food stays safe for only about 4 hours without power. After that, perishables like meat, milk, eggs and leftovers have to go. Frozen food that still has ice crystals can be refrozen. And never taste food to check if it's safe — when in doubt, throw it out.
 
@@ -254,5 +254,5 @@ Be honest: have you ever eaten food after a power outage? 👇
 
 **Описание для TikTok:**
 ```
-The power's back… and this is when people get sick ⚠️ USDA: fridge food is only safe ~4 hours without power. Never taste it to check. When in doubt, throw it out. #foodsafety #blackout #poweroutage #prepping #learnontiktok
+Never eat from your fridge after a blackout until you know this ⚠️ USDA: fridge food is only safe ~4 hours without power. Never taste it to check. When in doubt, throw it out. #foodsafety #blackout #poweroutage #prepping #learnontiktok
 ```

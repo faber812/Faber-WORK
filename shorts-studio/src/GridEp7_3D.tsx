@@ -62,9 +62,9 @@ const Hook: React.FC = () => {
         <Volt frame={frame} pos={[2.0, 3.1, -0.4]} glow={1} mood="shock" />
       </Scene3D>
       <div style={{position: 'absolute', top: 400, left: 50, right: 50, textAlign: 'center', scale: String(k), fontFamily: FONT, fontWeight: 900, lineHeight: 1.05}}>
-        <div style={{display: 'inline-block', fontSize: 88, color: '#fff', background: 'rgba(11,16,32,0.9)', padding: '4px 26px', borderRadius: 16}}>POWER'S BACK.</div>
+        <div style={{display: 'inline-block', fontSize: 76, color: '#fff', background: 'rgba(11,16,32,0.9)', padding: '4px 26px', borderRadius: 16}}>NEVER EAT FROM YOUR FRIDGE</div>
         <br />
-        <div style={{display: 'inline-block', marginTop: 14, fontSize: 88, color: '#fff', background: '#d81e1e', padding: '4px 28px', borderRadius: 16}}>NOW YOU GET SICK</div>
+        <div style={{display: 'inline-block', marginTop: 14, fontSize: 76, color: '#fff', background: '#d81e1e', padding: '4px 28px', borderRadius: 16}}>AFTER A BLACKOUT…</div>
       </div>
     </AbsoluteFill>
   );
@@ -73,7 +73,7 @@ const Hook: React.FC = () => {
 // 1. Street: daylight, houses light up again, hero relieved
 const S1: React.FC<{dur: number}> = ({dur}) => {
   const frame = useCurrentFrame();
-  const lit = frame > dur * 0.25 ? 1 : 0;
+  const lit = frame > 133 ? 1 : 0; // 4.44 s: "the moment the power comes back"
   return (
     <AbsoluteFill>
       <Scene3D>
@@ -86,7 +86,7 @@ const S1: React.FC<{dur: number}> = ({dur}) => {
         <Lineman frame={frame} pos={[0.2, 0, 0.8]} rotY={0.1} pose={{armL: 2.6, armR: 2.6, mouth: 'smile', brows: 'up'}} />
         <Volt frame={frame} pos={[1.4, 3.0, 0.4]} glow={1} mood="happy" />
       </Scene3D>
-      <Big text="⚡ POWER'S BACK" color={C.amber} top={420} delay={Math.round(dur * 0.25)} size={84} />
+      <Big text="⚡ POWER'S BACK" color={C.amber} top={420} delay={133} size={84} />
     </AbsoluteFill>
   );
 };
@@ -252,7 +252,7 @@ const S6: React.FC<{dur: number}> = ({dur}) => {
   );
 };
 
-const KEYS = new Set(['over.', 'back.', 'sick.', 'fridge', 'eat', 'mistake.', 'usda', 'four', 'hours', 'meat,', 'milk,', 'eggs', 'leftovers', 'freezer', 'ice', 'crystals,', 'refreeze', 'never', 'taste', 'doubt...', 'throw', 'out.', 'grid', 'eight.']);
+const KEYS = new Set(['never', 'fridge', 'sick.', 'over.', 'back.', 'sick.', 'fridge', 'eat', 'mistake.', 'usda', 'four', 'hours', 'meat,', 'milk,', 'eggs', 'leftovers', 'freezer', 'ice', 'crystals,', 'refreeze', 'never', 'taste', 'doubt...', 'throw', 'out.', 'grid', 'eight.']);
 
 export const GridEp7_3D: React.FC<gridEp1Schema> = ({segments, captions, audio}) => {
   const {fps, durationInFrames} = useVideoConfig();
