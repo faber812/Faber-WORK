@@ -2,7 +2,7 @@
 
 ## Название: **Lights Out Lab**
 
-- **Хэндл:** `@LightsOutLab`
+- **Хэндл:** `@LightsOutLabX` (настоящий; `@LightsOutLab` был занят)
 - **Слоган:** *What happens when the systems you rely on stop working?*
 
 **Почему это название:**
