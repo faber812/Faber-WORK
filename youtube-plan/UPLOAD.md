@@ -180,3 +180,41 @@ Voice: ElevenLabs.
 ```
 Do you have a battery CO alarm at home? 👇
 ```
+
+---
+
+## Эпизод 6 (эксперимент: светлая картинка)
+
+Файл: `videos/with_music/grid_ep6_music.mp4`. Для TikTok: `videos/tiktok/grid_ep6_tiktok.mp4`.
+
+**Название:**
+```
+Day 3 With No Heat: The Mistake That Kills — Hour 72 ❄️
+```
+
+**Описание:**
+```
+Hour 72 of a nationwide blackout. If it's winter, your house gets colder every hour — and the way many people try to stay warm is dangerous.
+
+FEMA: never use an oven or gas stove to heat your home. Instead: pick one room, close off the rest, cover the windows, layer up and stay together. If it gets dangerously cold, go to a warming center or anywhere with power.
+
+Part 7 (one full week) is next. Follow so you don't miss it.
+
+Sources:
+• Ready.gov / FEMA, "Power Outages": https://www.ready.gov/power-outages
+• FEMA, "Be Prepared for a Power Outage" (V-1008): https://www.ready.gov/sites/default/files/2024-03/ready.gov_power-outage_hazard-info-sheet.pdf
+
+Voice: ElevenLabs.
+
+#blackout #winter #poweroutage #preparedness #shorts
+```
+
+**Закреплённый комментарий:**
+```
+Which room in your house would you pick? 👇
+```
+
+**Описание для TikTok:**
+```
+Day 3 with no heat ❄️ FEMA: never heat your home with the oven. Pick one room, close the doors, cover the windows, stay together. Part 6. #blackout #winter #poweroutage #prepping #safety #learnontiktok
+```
