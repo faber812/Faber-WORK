@@ -6,6 +6,8 @@ import {GridEp2} from './GridEp2';
 import {Test3D} from './Test3D';
 import {StylesRoot} from './styles/StylesRoot';
 import {GridEp6_3D} from './GridEp6_3D';
+import {GridEp7_3D} from './GridEp7_3D';
+import timing7v from './timing7_vasko.json';
 import timing6v from './timing6_vasko.json';
 import {GridEp4_3D, GridEp5_3D} from './GridEp45_3D';
 import timing4v from './timing4_vasko.json';
@@ -27,6 +29,15 @@ export const Root: React.FC = () => {
   return (
     <>
     <StylesRoot />
+    <Composition
+      id="GridEp7-3D"
+      component={GridEp7_3D}
+      width={1080}
+      height={1920}
+      fps={FPS}
+      durationInFrames={Math.ceil((timing7v.duration + 0.6) * FPS)}
+      defaultProps={{segments: timing7v.segments, captions: timing7v.captions, audio: timing7v.audio} as gridEp1Schema}
+    />
     <Composition
       id="GridEp6-3D"
       component={GridEp6_3D}

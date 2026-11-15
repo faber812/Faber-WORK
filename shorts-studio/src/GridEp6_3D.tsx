@@ -5,10 +5,10 @@ import {AbsoluteFill, Audio, Easing, interpolate, random, Sequence, spring, stat
 import {C, Captions, FONT, gridEp1Schema, Label, LAYOUT, TopBar} from './GridEp1';
 import {Box, Cam, clamp, COL, Lineman, useTextTexture, Volt} from './three/kit';
 
-const SKY = '#bfdcf5';
-const HOOK_FRAMES = 50;
+export const SKY = '#bfdcf5';
+export const HOOK_FRAMES = 50;
 
-const Scene3D: React.FC<{children: React.ReactNode}> = ({children}) => {
+export const Scene3D: React.FC<{children: React.ReactNode}> = ({children}) => {
   const {width, height} = useVideoConfig();
   return (
     <ThreeCanvas width={width} height={height} shadows camera={{fov: 52, position: [0, 3, 10]}}>
@@ -16,11 +16,11 @@ const Scene3D: React.FC<{children: React.ReactNode}> = ({children}) => {
     </ThreeCanvas>
   );
 };
-const ease = (frame: number, a: number, b: number, from: number, to: number) =>
+export const ease = (frame: number, a: number, b: number, from: number, to: number) =>
   interpolate(frame, [a, b], [from, to], {...clamp, easing: Easing.inOut(Easing.cubic)});
 
 // bright winter day: pale sky, snow ground, sun
-const Day: React.FC<{frame: number; snow?: boolean}> = ({frame, snow = true}) => (
+export const Day: React.FC<{frame: number; snow?: boolean}> = ({frame, snow = true}) => (
   <>
     <color attach="background" args={[SKY]} />
     <fog attach="fog" args={[SKY, 16, 50]} />
@@ -39,7 +39,7 @@ const Day: React.FC<{frame: number; snow?: boolean}> = ({frame, snow = true}) =>
 );
 
 // warm interior: wooden floor, cream walls, daylight
-const Room: React.FC<{children?: React.ReactNode; w?: number}> = ({children, w = 9}) => (
+export const Room: React.FC<{children?: React.ReactNode; w?: number}> = ({children, w = 9}) => (
   <>
     <color attach="background" args={['#e9dcc6']} />
     <hemisphereLight args={['#ffffff', '#c9b79a', 1.5]} />
@@ -53,7 +53,7 @@ const Room: React.FC<{children?: React.ReactNode; w?: number}> = ({children, w =
   </>
 );
 
-const Pine: React.FC<{p: [number, number, number]; s?: number}> = ({p, s = 1}) => (
+export const Pine: React.FC<{p: [number, number, number]; s?: number}> = ({p, s = 1}) => (
   <group position={p} scale={s}>
     <Box p={[0, 0.4, 0]} s={[0.25, 0.8, 0.25]} c="#6b4630" />
     {[0, 1, 2].map((k) => (
@@ -69,7 +69,7 @@ const Pine: React.FC<{p: [number, number, number]; s?: number}> = ({p, s = 1}) =
   </group>
 );
 
-const Cottage: React.FC<{p: [number, number, number]; lit?: number; color?: string}> = ({p, lit = 0, color = '#d86a4a'}) => (
+export const Cottage: React.FC<{p: [number, number, number]; lit?: number; color?: string}> = ({p, lit = 0, color = '#d86a4a'}) => (
   <group position={p}>
     <Box p={[0, 1.4, 0]} s={[3.4, 2.8, 2.8]} c={color} />
     <mesh position={[0, 3.45, 0]} rotation={[0, Math.PI / 4, 0]} castShadow>
@@ -82,7 +82,7 @@ const Cottage: React.FC<{p: [number, number, number]; lit?: number; color?: stri
   </group>
 );
 
-const Big: React.FC<{text: string; color: string; top: number; delay?: number; size?: number}> = ({text, color, top, delay = 0, size = 92}) => {
+export const Big: React.FC<{text: string; color: string; top: number; delay?: number; size?: number}> = ({text, color, top, delay = 0, size = 92}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const s = spring({frame: frame - delay, fps, config: {damping: 12}});

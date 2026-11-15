@@ -218,3 +218,41 @@ Which room in your house would you pick? 👇
 ```
 Day 3 with no heat ❄️ FEMA: never heat your home with the oven. Pick one room, close the doors, cover the windows, stay together. Part 6. #blackout #winter #poweroutage #prepping #safety #learnontiktok
 ```
+
+---
+
+## Эпизод 7 (новые правила: первая фраза — последствие, светлая картинка)
+
+Файл: `videos/with_music/grid_ep7_music.mp4`. Для TikTok: `videos/tiktok/grid_ep7_tiktok.mp4`.
+
+**Название:**
+```
+The Fridge Mistake That Makes People Sick After a Blackout ⚠️
+```
+
+**Описание:**
+```
+The power is back — and this is when people get sick. The fridge is humming again, the food feels cold, so people eat it.
+
+USDA: refrigerated food stays safe for only about 4 hours without power. After that, perishables like meat, milk, eggs and leftovers have to go. Frozen food that still has ice crystals can be refrozen. And never taste food to check if it's safe — when in doubt, throw it out.
+
+Next: how a dead power grid comes back to life. Follow so you don't miss it.
+
+Sources:
+• USDA FSIS, "Keep Your Food Safe During Emergencies": https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/emergencies/keep-your-food-safe-during-emergencies
+• FoodSafety.gov, "Food Safety During Power Outage": https://www.foodsafety.gov/food-safety-charts/food-safety-during-power-outage
+
+Voice: ElevenLabs.
+
+#blackout #poweroutage #foodsafety #preparedness #shorts
+```
+
+**Закреплённый комментарий:**
+```
+Be honest: have you ever eaten food after a power outage? 👇
+```
+
+**Описание для TikTok:**
+```
+The power's back… and this is when people get sick ⚠️ USDA: fridge food is only safe ~4 hours without power. Never taste it to check. When in doubt, throw it out. #foodsafety #blackout #poweroutage #prepping #learnontiktok
+```
