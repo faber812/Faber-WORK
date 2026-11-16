@@ -63,25 +63,28 @@ for b in BLOCKS:
     ph = phrases(b['text'])
     total = sum(weight(p) for p in ph)
     # speech occupies dur minus trailing silence; estimate boundaries
+    # monotonic matching: every boundary takes the nearest pause after the previous boundary
     bounds = []
     acc = 0
-    used = set()
+    last_i, last_t = -1, 0.0
     for p in ph[:-1]:
         acc += weight(p)
-        est = dur * acc / total
+        est = max(dur * acc / total, last_t + 0.5)
         best = None
-        for i, (s, e) in enumerate(sil):
-            if i in used:
+        for i in range(last_i + 1, len(sil)):
+            s_, e_ = sil[i]
+            mid = (s_ + e_) / 2
+            if s_ < last_t + 0.45:
                 continue
-            mid = (s + e) / 2
-            if best is None or abs(mid - est) < abs(best[1] - est):
-                best = (i, mid, s, e)
-        if best and abs(best[1] - est) < 1.6:
-            used.add(best[0])
-            bounds.append((best[2], best[3]))
+            score = abs(mid - est) - 0.6 * min(e_ - s_, 0.6)  # prefer longer pauses
+            if best is None or score < best[0]:
+                best = (score, i, mid, s_, e_)
+        if best and abs(best[2] - est) < 1.8:
+            last_i, last_t = best[1], best[4]
+            bounds.append((best[3], best[4]))
         else:
+            last_t = est
             bounds.append((est, est))
-    bounds.sort()
     starts = [0.0] + [e for _, e in bounds]
     ends = [s for s, _ in bounds] + [dur]
     caps = []

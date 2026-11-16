@@ -305,7 +305,7 @@ const StationSet: React.FC<{f: number; gen?: boolean}> = ({f, gen}) => (
     )}
   </>
 );
-export const GasSurface = (v: 'wide' | 'pump' | 'gen' | 'row'): Shot => ({d}) => {
+export const GasSurface = (v: 'wide' | 'pump' | 'gen' | 'row', chip?: {text: string; color?: string}): Shot => ({d}) => {
   const f = useCurrentFrame();
   const cam: V3 = v === 'pump' ? [ease(f, 0, d, 0.6, 0), 2.2, ease(f, 0, d, 5, 4.2)] : v === 'row' ? [ease(f, 0, d, -6, 4), 5, 20] : [ease(f, 0, d, 6, 4.4), 3.4, ease(f, 0, d, 12, 10.5)];
   const tgt: V3 = v === 'pump' ? [-1.2, 1.7, 0] : v === 'row' ? [0, 2, 0] : [0.4, 2, 0];
@@ -326,10 +326,7 @@ export const GasSurface = (v: 'wide' | 'pump' | 'gen' | 'row'): Shot => ({d}) =>
         )}
         {(v === 'wide' || v === 'gen') && <Hero f={f} pos={[-3.2, 0, 2.2]} rotY={0.5} pose={v === 'gen' ? {mouth: 'smile', brows: 'up', armR: 1.2} : {armR: 2.6, brows: 'worried'}} volt={v === 'gen' ? 'happy' : 'worried'} glow={v === 'gen' ? 0.6 : 0} voltPos={[-4.6, 3, 1.6]} />}
       </Night>
-      {v === 'pump' && <Chip text="PUMP DISPLAY: DEAD" color={UI.red} top={300} right={150} size={62} delay={8} />}
-      {v === 'wide' && <Chip text="NOT OUT OF GAS" color={UI.amber} top={300} left={150} size={72} delay={10} />}
-      {v === 'gen' && <Chip text="GENERATOR-READY" color={UI.green} top={300} left={150} size={72} delay={10} />}
-      {v === 'row' && <Chip text="MOST STATES: NO SUCH RULE" color={UI.red} top={300} center size={66} delay={10} />}
+      {chip && <Chip text={chip.text} color={chip.color} top={300} left={150} size={68} delay={8} />}
     </AbsoluteFill>
   );
 };

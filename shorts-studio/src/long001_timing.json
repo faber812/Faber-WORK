@@ -191,30 +191,30 @@
   },
   {
    "start": 40.96,
-   "end": 41.26,
-   "text": "Then the gas station.",
-   "block": "b01"
-  },
-  {
-   "start": 40.49,
    "end": 42.17,
-   "text": "Here's the part that surprises people.",
+   "text": "Then the gas station.",
    "block": "b01"
   },
   {
    "start": 42.6,
    "end": 44.2,
-   "text": "The station isn't out of gas.",
+   "text": "Here's the part that surprises people.",
    "block": "b01"
   },
   {
    "start": 44.6,
    "end": 46.16,
-   "text": "The tanks under the ground are full.",
+   "text": "The station isn't out of gas.",
    "block": "b01"
   },
   {
    "start": 46.42,
+   "end": 47.95,
+   "text": "The tanks under the ground are full.",
+   "block": "b01"
+  },
+  {
+   "start": 48.33,
    "end": 51.83,
    "text": "But the only thing that lifts that fuel to your car is an electric pump.",
    "block": "b01"
