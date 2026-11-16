@@ -1,0 +1,482 @@
+{
+ "blocks": [
+  {
+   "id": "b00",
+   "title": "COLD OPEN \u2014 0:00",
+   "audio": "long001/b00.mp3",
+   "start": 0.0,
+   "duration": 26.75,
+   "phrases": 13
+  },
+  {
+   "id": "b01",
+   "title": "HOUR 1 \u2014 money and fuel",
+   "audio": "long001/b01.mp3",
+   "start": 27.1,
+   "duration": 39.63,
+   "phrases": 18
+  },
+  {
+   "id": "b02",
+   "title": "HOUR 6 \u2014 food, phone, roads, water",
+   "audio": "long001/b02.mp3",
+   "start": 67.08,
+   "duration": 50.68,
+   "phrases": 18
+  },
+  {
+   "id": "b03",
+   "title": "HOUR 12 \u2014 the phone",
+   "audio": "long001/b03.mp3",
+   "start": 118.1,
+   "duration": 39.63,
+   "phrases": 19
+  },
+  {
+   "id": "b04",
+   "title": "HOUR 24 \u2014 water",
+   "missing": true
+  },
+  {
+   "id": "b05",
+   "title": "HOUR 48 \u2014 carbon monoxide",
+   "missing": true
+  },
+  {
+   "id": "b06",
+   "title": "HOUR 72 \u2014 cold",
+   "missing": true
+  },
+  {
+   "id": "b07",
+   "title": "DAY 5 \u2014 fuel, stores, sewage",
+   "missing": true
+  },
+  {
+   "id": "b08",
+   "title": "DAY 7 \u2014 hospitals and restarting the grid",
+   "missing": true
+  },
+  {
+   "id": "b09",
+   "title": "POWER BACK \u2014 the fridge (the payoff promised at 0:12)",
+   "missing": true
+  },
+  {
+   "id": "b10",
+   "title": "CLOSE \u2014 the first ten minutes",
+   "missing": true
+  }
+ ],
+ "captions": [
+  {
+   "start": 0.0,
+   "end": 2.3,
+   "text": "Your tap still runs when the power dies.",
+   "block": "b00"
+  },
+  {
+   "start": 2.74,
+   "end": 5.49,
+   "text": "But why does it stop after about twenty-four hours...",
+   "block": "b00"
+  },
+  {
+   "start": 5.75,
+   "end": 7.01,
+   "text": "and what do you lose first?",
+   "block": "b00"
+  },
+  {
+   "start": 7.49,
+   "end": 8.83,
+   "text": "This is a what-if.",
+   "block": "b00"
+  },
+  {
+   "start": 9.1,
+   "end": 10.94,
+   "text": "Most blackouts end in hours.",
+   "block": "b00"
+  },
+  {
+   "start": 11.22,
+   "end": 12.2,
+   "text": "This one doesn't.",
+   "block": "b00"
+  },
+  {
+   "start": 12.44,
+   "end": 14.46,
+   "text": "We're going to follow it for seven days...",
+   "block": "b00"
+  },
+  {
+   "start": 14.66,
+   "end": 15.7,
+   "text": "hour by hour...",
+   "block": "b00"
+  },
+  {
+   "start": 15.86,
+   "end": 19.25,
+   "text": "using the rules from the CDC, FEMA and the USDA.",
+   "block": "b00"
+  },
+  {
+   "start": 19.52,
+   "end": 20.44,
+   "text": "And stay to the end.",
+   "block": "b00"
+  },
+  {
+   "start": 20.66,
+   "end": 23.48,
+   "text": "Because the most dangerous moment isn't when the lights go out.",
+   "block": "b00"
+  },
+  {
+   "start": 23.72,
+   "end": 24.94,
+   "text": "It's when they come back on...",
+   "block": "b00"
+  },
+  {
+   "start": 25.25,
+   "end": 26.75,
+   "text": "and you open the fridge.",
+   "block": "b00"
+  },
+  {
+   "start": 27.1,
+   "end": 29.29,
+   "text": "Hour one. Your lights go out.",
+   "block": "b01"
+  },
+  {
+   "start": 29.71,
+   "end": 31.25,
+   "text": "That's the part everyone expects.",
+   "block": "b01"
+  },
+  {
+   "start": 31.7,
+   "end": 32.62,
+   "text": "What comes next...",
+   "block": "b01"
+  },
+  {
+   "start": 32.84,
+   "end": 33.99,
+   "text": "is what nobody does.",
+   "block": "b01"
+  },
+  {
+   "start": 34.52,
+   "end": 35.8,
+   "text": "Your card stops working.",
+   "block": "b01"
+  },
+  {
+   "start": 36.26,
+   "end": 38.99,
+   "text": "Card readers and ATMs need power and a network.",
+   "block": "b01"
+  },
+  {
+   "start": 39.21,
+   "end": 40.48,
+   "text": "So it's cash only.",
+   "block": "b01"
+  },
+  {
+   "start": 40.96,
+   "end": 41.26,
+   "text": "Then the gas station.",
+   "block": "b01"
+  },
+  {
+   "start": 40.49,
+   "end": 42.17,
+   "text": "Here's the part that surprises people.",
+   "block": "b01"
+  },
+  {
+   "start": 42.6,
+   "end": 44.2,
+   "text": "The station isn't out of gas.",
+   "block": "b01"
+  },
+  {
+   "start": 44.6,
+   "end": 46.16,
+   "text": "The tanks under the ground are full.",
+   "block": "b01"
+  },
+  {
+   "start": 46.42,
+   "end": 51.83,
+   "text": "But the only thing that lifts that fuel to your car is an electric pump.",
+   "block": "b01"
+  },
+  {
+   "start": 52.27,
+   "end": 52.87,
+   "text": "No power... no pump.",
+   "block": "b01"
+  },
+  {
+   "start": 53.22,
+   "end": 53.75,
+   "text": "A few states plan for this.",
+   "block": "b01"
+  },
+  {
+   "start": 54.28,
+   "end": 61.55,
+   "text": "Florida, for example, requires many stations near highways and evacuation routes to be wired for a generator.",
+   "block": "b01"
+  },
+  {
+   "start": 61.96,
+   "end": 63.91,
+   "text": "Most of the country has no rule like that.",
+   "block": "b01"
+  },
+  {
+   "start": 64.45,
+   "end": 65.12,
+   "text": "And your fridge?",
+   "block": "b01"
+  },
+  {
+   "start": 65.48,
+   "end": 66.73,
+   "text": "It starts a countdown.",
+   "block": "b01"
+  },
+  {
+   "start": 67.08,
+   "end": 70.66,
+   "text": "Hour six. Your fridge just passed its four-hour mark.",
+   "block": "b02"
+  },
+  {
+   "start": 70.95,
+   "end": 75.51,
+   "text": "The USDA rule: food in a closed fridge stays safe for about four hours.",
+   "block": "b02"
+  },
+  {
+   "start": 75.74,
+   "end": 79.38,
+   "text": "After that, meat, milk, eggs and leftovers have to go.",
+   "block": "b02"
+  },
+  {
+   "start": 79.66,
+   "end": 81.4,
+   "text": "Your freezer is your best friend now.",
+   "block": "b02"
+  },
+  {
+   "start": 81.67,
+   "end": 83.85,
+   "text": "A full one holds for about forty-eight hours.",
+   "block": "b02"
+  },
+  {
+   "start": 84.06,
+   "end": 84.55,
+   "text": "Half full? Just twenty-four.",
+   "block": "b02"
+  },
+  {
+   "start": 84.82,
+   "end": 85.64,
+   "text": "Every traffic light is dark.",
+   "block": "b02"
+  },
+  {
+   "start": 86.3,
+   "end": 89.86,
+   "text": "Many states write it into law: a dead signal means an all-way stop.",
+   "block": "b02"
+  },
+  {
+   "start": 90.09,
+   "end": 92.22,
+   "text": "And your phone still has signal...",
+   "block": "b02"
+  },
+  {
+   "start": 92.52,
+   "end": 94.82,
+   "text": "for now. Here's why that won't last.",
+   "block": "b02"
+  },
+  {
+   "start": 95.14,
+   "end": 96.42,
+   "text": "A cell tower looks like a pole.",
+   "block": "b02"
+  },
+  {
+   "start": 96.71,
+   "end": 98.26,
+   "text": "It's really a small building...",
+   "block": "b02"
+  },
+  {
+   "start": 98.59,
+   "end": 102.09,
+   "text": "with a room full of batteries at the bottom.",
+   "block": "b02"
+  },
+  {
+   "start": 102.41,
+   "end": 107.06,
+   "text": "Industry guidelines have called for as little as four hours of backup, with eight as the goal.",
+   "block": "b02"
+  },
+  {
+   "start": 107.32,
+   "end": 111.82,
+   "text": "After Hurricane Katrina, the FCC tried to require eight hours nationwide.",
+   "block": "b02"
+  },
+  {
+   "start": 112.05,
+   "end": 113.45,
+   "text": "That rule never took effect.",
+   "block": "b02"
+  },
+  {
+   "start": 113.69,
+   "end": 115.39,
+   "text": "So the towers are draining.",
+   "block": "b02"
+  },
+  {
+   "start": 115.67,
+   "end": 117.75,
+   "text": "And so is something you can't see.",
+   "block": "b02"
+  },
+  {
+   "start": 118.1,
+   "end": 121.1,
+   "text": "Hour twelve. Your phone is at forty percent...",
+   "block": "b03"
+  },
+  {
+   "start": 121.44,
+   "end": 122.7,
+   "text": "and it's dropping fast.",
+   "block": "b03"
+  },
+  {
+   "start": 123.1,
+   "end": 125.57,
+   "text": "Your Wi-Fi router died the moment the power did.",
+   "block": "b03"
+  },
+  {
+   "start": 125.87,
+   "end": 127.75,
+   "text": "So your phone leans on the cell network.",
+   "block": "b03"
+  },
+  {
+   "start": 128.08,
+   "end": 129.54,
+   "text": "But the towers are weaker now.",
+   "block": "b03"
+  },
+  {
+   "start": 129.91,
+   "end": 133.78,
+   "text": "As the signal drops, your phone works harder to stay connected...",
+   "block": "b03"
+  },
+  {
+   "start": 133.94,
+   "end": 135.11,
+   "text": "and that burns battery.",
+   "block": "b03"
+  },
+  {
+   "start": 135.29,
+   "end": 136.8,
+   "text": "And everyone is calling at once.",
+   "block": "b03"
+  },
+  {
+   "start": 137.08,
+   "end": 138.22,
+   "text": "The network jams.",
+   "block": "b03"
+  },
+  {
+   "start": 138.69,
+   "end": 142.24,
+   "text": "The FCC's advice: keep calls short, and text instead.",
+   "block": "b03"
+  },
+  {
+   "start": 142.54,
+   "end": 144.63,
+   "text": "A text can get through when a call can't.",
+   "block": "b03"
+  },
+  {
+   "start": 145.01,
+   "end": 146.6,
+   "text": "You can charge your phone in your car.",
+   "block": "b03"
+  },
+  {
+   "start": 146.82,
+   "end": 149.26,
+   "text": "But only with the car outside, in the open.",
+   "block": "b03"
+  },
+  {
+   "start": 149.47,
+   "end": 150.63,
+   "text": "Never in the garage.",
+   "block": "b03"
+  },
+  {
+   "start": 151.0,
+   "end": 151.68,
+   "text": "Hold that thought...",
+   "block": "b03"
+  },
+  {
+   "start": 151.97,
+   "end": 153.16,
+   "text": "it matters on day two.",
+   "block": "b03"
+  },
+  {
+   "start": 153.49,
+   "end": 154.85,
+   "text": "But by hour twenty-four...",
+   "block": "b03"
+  },
+  {
+   "start": 155.04,
+   "end": 156.34,
+   "text": "the problem isn't your phone.",
+   "block": "b03"
+  },
+  {
+   "start": 156.64,
+   "end": 157.73,
+   "text": "It's your water.",
+   "block": "b03"
+  }
+ ],
+ "duration": 158.08
+}
