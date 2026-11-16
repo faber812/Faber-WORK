@@ -1,8 +1,32 @@
 // Shared 3D kit for "The Grid Goes Down": characters, set pieces, camera, stage.
 import React, {useMemo} from 'react';
 import {useThree} from '@react-three/fiber';
-import {interpolate, random} from 'remotion';
+import {ThreeCanvas} from '@remotion/three';
+import {interpolate, random, useVideoConfig} from 'remotion';
 import * as THREE from 'three';
+
+// One 3D canvas per scene. Episodes are authored for 1080×1920. In a landscape composition the
+// episode is placed in a 1080×1920 box scaled to the frame height (see Long.tsx); the canvas
+// breaks out of that box and fills the full 16:9 frame, while 2D overlays stay in the centre column.
+export const Scene3D: React.FC<{children: React.ReactNode}> = ({children}) => {
+  const {width, height} = useVideoConfig();
+  const cam = {fov: 52, position: [0, 3, 10] as [number, number, number]};
+  if (width <= height) {
+    return (
+      <ThreeCanvas width={width} height={height} shadows camera={cam}>
+        {children}
+      </ThreeCanvas>
+    );
+  }
+  const k = height / 1920; // scale applied to the 1080×1920 box
+  return (
+    <div style={{position: 'absolute', left: 540 - width / 2, top: 960 - height / 2, width, height, transform: `scale(${1 / k})`, transformOrigin: 'center'}}>
+      <ThreeCanvas width={width} height={height} shadows camera={cam}>
+        {children}
+      </ThreeCanvas>
+    </div>
+  );
+};
 
 export const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 export const COL = {

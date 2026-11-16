@@ -3,18 +3,10 @@ import React from 'react';
 import {ThreeCanvas} from '@remotion/three';
 import {AbsoluteFill, Easing, interpolate, Sequence, useCurrentFrame, useVideoConfig} from 'remotion';
 import {FONT} from './GridEp1';
-import {Box, Cam, City, clamp, COL, Lineman, Stage, Volt} from './three/kit';
+import {Box, Cam, City, clamp, COL, Lineman, Stage, Volt, Scene3D} from './three/kit';
 
 export const HOOK_FRAMES = 50;
 
-const Scene3D: React.FC<{children: React.ReactNode}> = ({children}) => {
-  const {width, height} = useVideoConfig();
-  return (
-    <ThreeCanvas width={width} height={height} shadows camera={{fov: 52, position: [0, 3, 10]}}>
-      {children}
-    </ThreeCanvas>
-  );
-};
 const ease = (frame: number, a: number, b: number, from: number, to: number) =>
   interpolate(frame, [a, b], [from, to], {...clamp, easing: Easing.inOut(Easing.cubic)});
 

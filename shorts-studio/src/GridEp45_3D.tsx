@@ -3,16 +3,8 @@ import React from 'react';
 import {ThreeCanvas} from '@remotion/three';
 import {AbsoluteFill, Audio, Easing, interpolate, random, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {C, Captions, FONT, gridEp1Schema, Label, LAYOUT, TopBar} from './GridEp1';
-import {Box, Cam, City, clamp, COL, House, Lineman, Stage, Volt} from './three/kit';
+import {Box, Cam, City, clamp, COL, House, Lineman, Stage, Volt, Scene3D} from './three/kit';
 
-const Scene3D: React.FC<{children: React.ReactNode}> = ({children}) => {
-  const {width, height} = useVideoConfig();
-  return (
-    <ThreeCanvas width={width} height={height} shadows camera={{fov: 52, position: [0, 3, 10]}}>
-      {children}
-    </ThreeCanvas>
-  );
-};
 const ease = (frame: number, a: number, b: number, from: number, to: number) =>
   interpolate(frame, [a, b], [from, to], {...clamp, easing: Easing.inOut(Easing.cubic)});
 
@@ -496,7 +488,7 @@ const makeEpisode = (scenes: React.FC<{dur: number}>[], ep: number, fromMin: num
             </AbsoluteFill>
           </Sequence>
         )}
-        <AbsoluteFill style={{background: 'linear-gradient(rgba(11,16,32,0.85) 0%, rgba(11,16,32,0) 18%, rgba(11,16,32,0) 70%, rgba(11,16,32,0.9) 100%)'}} />
+        <AbsoluteFill style={{left: -1500, right: -1500, width: 'auto', background: 'linear-gradient(rgba(11,16,32,0.85) 0%, rgba(11,16,32,0) 18%, rgba(11,16,32,0) 70%, rgba(11,16,32,0.9) 100%)'}} />
         <Sequence from={0} durationInFrames={outro}>
           <TopBar totalFrames={outro} finalHour={false} ep={ep} fromMin={fromMin} toMin={fromMin + 59} />
         </Sequence>

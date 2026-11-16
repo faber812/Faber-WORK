@@ -3,21 +3,13 @@ import {HookOverlay} from './hooks3d';
 import {ThreeCanvas} from '@remotion/three';
 import {AbsoluteFill, Audio, Easing, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {C, Captions, FONT, gridEp1Schema, Label, LAYOUT, TopBar} from './GridEp1';
-import {Box, Cam, City, clamp, COL, Lineman, Stage, Volt} from './three/kit';
+import {Box, Cam, City, clamp, COL, Lineman, Stage, Volt, Scene3D} from './three/kit';
 
 const KEYS2 = new Set([
   'six.', 'still', 'down.', 'fridge', 'usda', '40°f', 'two', 'hours...', 'throw', 'freezer', '48', 'hours.', '24.',
   'vanish.', 'four', 'running', 'out.', 'dark.', 'all-way', 'stop.', 'tap', 'gravity,', "day's", 'power.', 'twelve...', 'phone', 'three.',
 ]);
 
-const Scene3D: React.FC<{children: React.ReactNode}> = ({children}) => {
-  const {width, height} = useVideoConfig();
-  return (
-    <ThreeCanvas width={width} height={height} shadows camera={{fov: 52, position: [0, 3, 10]}}>
-      {children}
-    </ThreeCanvas>
-  );
-};
 const ease = (frame: number, a: number, b: number, from: number, to: number) =>
   interpolate(frame, [a, b], [from, to], {...clamp, easing: Easing.inOut(Easing.cubic)});
 
@@ -329,7 +321,7 @@ export const GridEp2_3D: React.FC<gridEp1Schema> = ({segments, captions, audio})
         );
       })}
       <HookOverlay ep={2} />
-      <AbsoluteFill style={{background: 'linear-gradient(rgba(11,16,32,0.85) 0%, rgba(11,16,32,0) 18%, rgba(11,16,32,0) 70%, rgba(11,16,32,0.9) 100%)'}} />
+      <AbsoluteFill style={{left: -1500, right: -1500, width: 'auto', background: 'linear-gradient(rgba(11,16,32,0.85) 0%, rgba(11,16,32,0) 18%, rgba(11,16,32,0) 70%, rgba(11,16,32,0.9) 100%)'}} />
       <Sequence from={0} durationInFrames={outroStart}>
         <TopBar totalFrames={outroStart} finalHour={false} ep={2} fromMin={360} toMin={419} />
       </Sequence>

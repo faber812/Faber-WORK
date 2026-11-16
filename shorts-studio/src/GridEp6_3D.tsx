@@ -3,19 +3,11 @@ import React from 'react';
 import {ThreeCanvas} from '@remotion/three';
 import {AbsoluteFill, Audio, Easing, interpolate, random, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {C, Captions, FONT, gridEp1Schema, Label, LAYOUT, TopBar} from './GridEp1';
-import {Box, Cam, clamp, COL, Lineman, useTextTexture, Volt} from './three/kit';
+import {Box, Cam, clamp, COL, Lineman, useTextTexture, Volt, Scene3D} from './three/kit';
 
 export const SKY = '#bfdcf5';
 export const HOOK_FRAMES = 50;
 
-export const Scene3D: React.FC<{children: React.ReactNode}> = ({children}) => {
-  const {width, height} = useVideoConfig();
-  return (
-    <ThreeCanvas width={width} height={height} shadows camera={{fov: 52, position: [0, 3, 10]}}>
-      {children}
-    </ThreeCanvas>
-  );
-};
 export const ease = (frame: number, a: number, b: number, from: number, to: number) =>
   interpolate(frame, [a, b], [from, to], {...clamp, easing: Easing.inOut(Easing.cubic)});
 
@@ -48,7 +40,7 @@ export const Room: React.FC<{children?: React.ReactNode; w?: number}> = ({childr
       <planeGeometry args={[40, 40]} />
       <meshStandardMaterial color="#b98a5e" />
     </mesh>
-    <Box p={[0, 3, -2.6]} s={[w, 6, 0.2]} c="#efe4cf" />
+    <Box p={[0, 3, -2.6]} s={[w * 3, 6, 0.2]} c="#efe4cf" />
     {children}
   </>
 );
@@ -306,7 +298,7 @@ export const GridEp6_3D: React.FC<gridEp1Schema> = ({segments, captions, audio})
         </AbsoluteFill>
       </Sequence>
       {/* lighter bands than the night episodes: just enough for the clock and captions */}
-      <AbsoluteFill style={{background: 'linear-gradient(rgba(11,16,32,0.8) 0%, rgba(11,16,32,0) 17%, rgba(11,16,32,0) 68%, rgba(11,16,32,0.8) 82%, rgba(11,16,32,0.85) 100%)'}} />
+      <AbsoluteFill style={{left: -1500, right: -1500, width: 'auto', background: 'linear-gradient(rgba(11,16,32,0.8) 0%, rgba(11,16,32,0) 17%, rgba(11,16,32,0) 68%, rgba(11,16,32,0.8) 82%, rgba(11,16,32,0.85) 100%)'}} />
       <Sequence from={0} durationInFrames={outro}>
         <TopBar totalFrames={outro} finalHour={false} ep={6} fromMin={72 * 60} toMin={72 * 60 + 59} />
       </Sequence>
@@ -318,3 +310,5 @@ export const GridEp6_3D: React.FC<gridEp1Schema> = ({segments, captions, audio})
     </AbsoluteFill>
   );
 };
+
+export {Scene3D};

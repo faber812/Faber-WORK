@@ -275,7 +275,7 @@ export const GridEp7_3D: React.FC<gridEp1Schema> = ({segments, captions, audio})
           <Hook />
         </AbsoluteFill>
       </Sequence>
-      <AbsoluteFill style={{background: 'linear-gradient(rgba(11,16,32,0.8) 0%, rgba(11,16,32,0) 17%, rgba(11,16,32,0) 68%, rgba(11,16,32,0.8) 82%, rgba(11,16,32,0.85) 100%)'}} />
+      <AbsoluteFill style={{left: -1500, right: -1500, width: 'auto', background: 'linear-gradient(rgba(11,16,32,0.8) 0%, rgba(11,16,32,0) 17%, rgba(11,16,32,0) 68%, rgba(11,16,32,0.8) 82%, rgba(11,16,32,0.85) 100%)'}} />
       <Sequence from={0} durationInFrames={outro}>
         <TopBar totalFrames={outro} finalHour ep={7} finalLabel="POWER BACK" />
       </Sequence>
