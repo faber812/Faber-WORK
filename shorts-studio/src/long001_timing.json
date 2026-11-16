@@ -43,7 +43,10 @@
   {
    "id": "b05",
    "title": "HOUR 48 \u2014 carbon monoxide",
-   "missing": true
+   "audio": "long001/b05.mp3",
+   "start": 225.91,
+   "duration": 58.2,
+   "phrases": 20
   },
   {
    "id": "b06",
@@ -653,7 +656,127 @@
    "end": 225.56,
    "text": "the real danger isn't hunger.",
    "block": "b04"
+  },
+  {
+   "start": 225.91,
+   "end": 227.03,
+   "text": "Hour forty-eight.",
+   "block": "b05"
+  },
+  {
+   "start": 227.54,
+   "end": 229.6,
+   "text": "Even a full freezer is giving up now.",
+   "block": "b05"
+  },
+  {
+   "start": 229.99,
+   "end": 232.19,
+   "text": "So people start cooking however they can.",
+   "block": "b05"
+  },
+  {
+   "start": 232.62,
+   "end": 233.19,
+   "text": "Grills. Camp stoves.",
+   "block": "b05"
+  },
+  {
+   "start": 233.36,
+   "end": 235.14,
+   "text": "Generators. And this is where blackouts turn deadly.",
+   "block": "b05"
+  },
+  {
+   "start": 235.6,
+   "end": 237.95,
+   "text": "Carbon monoxide has no smell...",
+   "block": "b05"
+  },
+  {
+   "start": 238.46,
+   "end": 241.62,
+   "text": "and no color. It doesn't make you cough.",
+   "block": "b05"
+  },
+  {
+   "start": 241.99,
+   "end": 243.06,
+   "text": "The first signs are a headache...",
+   "block": "b05"
+  },
+  {
+   "start": 243.5,
+   "end": 245.1,
+   "text": "dizziness... feeling tired.",
+   "block": "b05"
+  },
+  {
+   "start": 245.35,
+   "end": 249.01,
+   "text": "In the dark, on day two, that feels normal.",
+   "block": "b05"
+  },
+  {
+   "start": 249.27,
+   "end": 250.11,
+   "text": "So people lie down.",
+   "block": "b05"
+  },
+  {
+   "start": 250.49,
+   "end": 251.74,
+   "text": "And the garage isn't the safe spot people think it is.",
+   "block": "b05"
+  },
+  {
+   "start": 252.15,
+   "end": 257.19,
+   "text": "The CDC says don't even run a car in an attached garage...",
+   "block": "b05"
+  },
+  {
+   "start": 257.19,
+   "end": 259.8,
+   "text": "with the door open.",
+   "block": "b05"
+  },
+  {
+   "start": 260.21,
+   "end": 266.5,
+   "text": "The CDC counts more than four hundred deaths a year in the US from carbon monoxide that has nothing to do with fires.",
+   "block": "b05"
+  },
+  {
+   "start": 266.88,
+   "end": 273.51,
+   "text": "The rule: never run a generator, a grill or a camp stove inside your home, your garage, or near a window.",
+   "block": "b05"
+  },
+  {
+   "start": 273.88,
+   "end": 276.86,
+   "text": "Keep a generator at least twenty feet from doors and windows.",
+   "block": "b05"
+  },
+  {
+   "start": 277.19,
+   "end": 280.6,
+   "text": "And a battery-powered CO alarm is the only thing that will warn you.",
+   "block": "b05"
+  },
+  {
+   "start": 281.05,
+   "end": 282.3,
+   "text": "And at hour seventy-two...",
+   "block": "b05"
+  },
+  {
+   "start": 282.72,
+   "end": 284.11,
+   "text": "the cold moves in.",
+   "block": "b05"
   }
  ],
- "duration": 225.91
+ "duration": 284.46
 }
