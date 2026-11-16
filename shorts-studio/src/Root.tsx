@@ -5,6 +5,7 @@ import timing from './timing.json';
 import {GridEp2} from './GridEp2';
 import {Test3D} from './Test3D';
 import {StylesRoot} from './styles/StylesRoot';
+import {Gallery} from './long/Gallery';
 import {Long001, L1_FRAMES, L1_FPS} from './Long001';
 import {LongDraft, LONG_FRAMES, LONG_FPS} from './Long';
 import {GridEp6_3D} from './GridEp6_3D';
@@ -31,6 +32,7 @@ export const Root: React.FC = () => {
   return (
     <>
     <StylesRoot />
+    <Composition id="L1Gallery" component={Gallery as any} width={1920} height={1080} fps={30} durationInFrames={90} defaultProps={{i: 0}} />
     <Composition id="Long001" component={Long001} width={1920} height={1080} fps={L1_FPS} durationInFrames={L1_FRAMES} />
     <Composition id="LongDraft" component={LongDraft} width={1920} height={1080} fps={LONG_FPS} durationInFrames={LONG_FRAMES} />
     <Composition

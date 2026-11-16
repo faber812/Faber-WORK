@@ -7,6 +7,7 @@ import {clamp} from './three/kit';
 import {FONT, UI} from './long/props';
 import * as S from './long/scenes';
 import * as T from './long/scenes2';
+import * as U from './long/scenes3';
 
 export const L1_FPS = 30;
 export const L1_END_SCREEN = 20; // seconds kept free for the YouTube end screen
@@ -129,6 +130,93 @@ const SHOTS = [
   sh('b04', 26, T.FillAll(2), 0.3),
   sh('b04', 27, S.Title('HOUR 48', 'COMING UP', R)),
   sh('b04', 28, T.Tease48),
+  // ---- hour 48
+  sh('b05', 0, S.Title('HOUR 48', 'CARBON MONOXIDE', R)),
+  sh('b05', 1, S.FreezerShot(2)),
+  sh('b05', 2, U.Cooking),
+  sh('b05', 4, U.COHouse('invisible'), 0.45),
+  sh('b05', 5, U.COHouse('invisible')),
+  sh('b05', 6, U.COHouse('reveal'), 0.4),
+  sh('b05', 7, U.Symptoms(1)),
+  sh('b05', 8, U.Symptoms(3)),
+  sh('b05', 9, S.CityShot(0, 0, 'low', {text: 'DAY 2: FEELS NORMAL', color: A})),
+  sh('b05', 10, U.COHouse('sleep')),
+  sh('b05', 11, U.COHouse('garage')),
+  sh('b05', 12, S.CardShot('CDC', ["Don't run a car in an", 'attached garage,', 'even with the door open.'], R)),
+  sh('b05', 13, U.COHouse('door')),
+  sh('b05', 14, U.BigStat('400+', 'deaths a year in the US', 'CDC · NON-FIRE CARBON MONOXIDE')),
+  sh('b05', 15, U.NeverInside),
+  sh('b05', 16, U.TwentyFeet),
+  sh('b05', 17, U.COAlarm),
+  sh('b05', 18, S.Title('HOUR 72', 'COMING UP', B)),
+  sh('b05', 19, U.ColdHouse('cold')),
+  // ---- hour 72
+  sh('b06', 0, S.Title('HOUR 72', 'COLD', B)),
+  sh('b06', 1, U.ColdHouse('cold')),
+  sh('b06', 2, U.ColdHouse('oven')),
+  sh('b06', 3, S.CardShot('READY.GOV', ['Never use a gas stove or oven', 'to heat your home.'], R)),
+  sh('b06', 4, U.ColdHouse('oneRoom')),
+  sh('b06', 5, U.ColdHouse('close')),
+  sh('b06', 6, U.ColdHouse('cover')),
+  sh('b06', 7, U.ColdHouse('huddle')),
+  sh('b06', 8, U.ColdHouse('huddle'), 0.5),
+  sh('b06', 9, U.Candle(false)),
+  sh('b06', 10, U.Candle(true)),
+  sh('b06', 11, U.Candle(false), 0.2),
+  sh('b06', 12, U.SignsList),
+  sh('b06', 13, U.ColdHouse('cold')),
+  sh('b06', 14, U.WarmingCenter),
+  // ---- day 5
+  sh('b07', 0, U.FuelGauge),
+  sh('b07', 1, S.GasSurface('row', {text: 'STILL CAN\'T PUMP', color: R})),
+  sh('b07', 2, U.Shelves(false)),
+  sh('b07', 3, U.Shelves(true)),
+  sh('b07', 4, S.CityShot(0, 0, 'side', {text: 'NOBODY THINKS ABOUT THIS', color: A})),
+  sh('b07', 5, U.LiftStation(0)),
+  sh('b07', 6, U.LiftStation(1)),
+  sh('b07', 7, U.LiftStation(2)),
+  sh('b07', 8, S.CardReader('cash')),
+  sh('b07', 9, S.HeroShot({armL: 0.5, armR: 0.5, brows: 'worried', mouth: 'frown'}, 'worried', {text: 'IF YOU HAVE ANY', size: 90}, true)),
+  // ---- day 7
+  sh('b08', 0, S.Title('DAY 7', 'ONE WEEK', A)),
+  sh('b08', 1, U.Hospital(0)),
+  sh('b08', 2, U.Hospital(1)),
+  sh('b08', 3, U.Hospital(2)),
+  sh('b08', 4, S.CityShot(0, 0, 'high', {text: 'HOW DO YOU RESTART IT?', color: A})),
+  sh('b08', 6, U.BlackStart('need')),
+  sh('b08', 7, U.BlackStart('special')),
+  sh('b08', 8, U.BlackStart('name')),
+  sh('b08', 9, U.BlackStart('line')),
+  sh('b08', 10, U.BlackStart('next')),
+  sh('b08', 11, U.BlackStart('rebuild')),
+  sh('b08', 12, S.CityShot(0.2, 0.5, 'side', {text: 'IT TAKES TIME', color: A})),
+  sh('b08', 13, U.BigStat('50M', 'people · US & Canada · 2003', 'U.S.-CANADA OUTAGE TASK FORCE', A)),
+  sh('b08', 14, U.BigStat('4 DAYS', 'some areas waited for power', 'FINAL REPORT, 2004', A)),
+  // ---- power back
+  sh('b09', 0, S.CityShot(0, 1, 'low', {text: 'POWER BACK', color: G})),
+  sh('b09', 1, U.FridgeBack('hum')),
+  sh('b09', 2, U.FridgeBack('cold')),
+  sh('b09', 3, U.FridgeBack('eat')),
+  sh('b09', 4, U.FridgeBack('mistake')),
+  sh('b09', 5, U.FridgeBack('notcold')),
+  sh('b09', 6, S.FridgeShot({open: 1, lit: 1, spoiled: true, chips: ['MEAT', 'MILK', 'EGGS', 'LEFTOVERS'], timer: [4 * 3600 + 120, 4 * 3600 + 400]})),
+  sh('b09', 7, S.FreezerShot(0)),
+  sh('b09', 8, U.IceCrystals(false)),
+  sh('b09', 9, S.HeroShot({armR: 2.6, brows: 'up', mouth: 'smile'}, 'happy', {text: 'NEXT TIME, KNOW FOR SURE', color: G, size: 76})),
+  sh('b09', 10, U.IceCrystals(true)),
+  sh('b09', 12, U.NoTaste),
+  sh('b09', 13, U.DoubtOut),
+  // ---- close
+  sh('b10', 0, S.CityShot(1, 0, 'high', {text: 'IF YOUR LIGHTS GO OUT TONIGHT', color: A})),
+  sh('b10', 1, U.Checklist(1)),
+  sh('b10', 2, U.Checklist(2)),
+  sh('b10', 3, U.Checklist(3)),
+  sh('b10', 4, U.Checklist(4)),
+  sh('b10', 5, U.Checklist(5)),
+  sh('b10', 6, U.Finale('lit')),
+  sh('b10', 7, U.Finale('lit'), 0.4),
+  sh('b10', 8, U.Finale('dark')),
+  sh('b10', 8, U.Finale('end'), 2.2),
 ];
 
 // ---------- status board ----------
@@ -142,6 +230,12 @@ const CHANGES: {b: string; p: number; sys: (typeof SYSTEMS)[number]; to: Lamp}[]
   {b: 'b03', p: 0, sys: 'PHONE', to: 'a'},
   {b: 'b04', p: 18, sys: 'WATER', to: 'a'},
   {b: 'b04', p: 21, sys: 'WATER', to: 'r'},
+  {b: 'b05', p: 1, sys: 'FOOD', to: 'r'},
+  {b: 'b06', p: 1, sys: 'HEAT', to: 'r'},
+  {b: 'b07', p: 6, sys: 'SEWER', to: 'r'},
+  {b: 'b08', p: 8, sys: 'POWER', to: 'a'},
+  ...SYSTEMS.map((sys) => ({b: 'b09', p: 0, sys, to: 'g' as Lamp})),
+  ...SYSTEMS.map((sys) => ({b: 'b10', p: 8, sys, to: 'r' as Lamp})),
 ];
 const LAMP = {g: UI.green, a: UI.amber, r: UI.red};
 // clock: hours since the blackout at the start of each block
@@ -158,7 +252,7 @@ const StatusBoard: React.FC = () => {
   const ck = CLOCK[blk.id];
   const hrs = ck ? interpolate(t, [blk.start ?? 0, (blk.start ?? 0) + (blk.duration ?? 1)], [ck[1], ck[2]], clamp) : 0;
   const hh = Math.floor(hrs), mm = Math.floor((hrs % 1) * 60);
-  const inn = spring({frame: f - Math.round((at('b00', 2) ?? 0) * fps), fps, config: {damping: 16}});
+  const inn = spring({frame: f - Math.round((at('b00', 2) ?? 0) * fps), fps, config: {damping: 16}}) * interpolate(t, [timing.duration + 1.5, timing.duration + 2.5], [1, 0], clamp);
   return (
     <div style={{position: 'absolute', top: 28 - 190 * (1 - inn), left: 40, right: 40, height: 132, borderRadius: 26, background: UI.panel, border: '3px solid #2f3c70', display: 'flex', alignItems: 'center', fontFamily: FONT, padding: '0 26px', boxSizing: 'border-box'}}>
       <div style={{width: 330, borderRight: '3px solid #2f3c70', marginRight: 22}}>
