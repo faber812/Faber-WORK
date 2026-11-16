@@ -35,7 +35,10 @@
   {
    "id": "b04",
    "title": "HOUR 24 \u2014 water",
-   "missing": true
+   "audio": "long001/b04.mp3",
+   "start": 158.08,
+   "duration": 67.47,
+   "phrases": 29
   },
   {
    "id": "b05",
@@ -476,7 +479,181 @@
    "end": 157.73,
    "text": "It's your water.",
    "block": "b03"
+  },
+  {
+   "start": 158.08,
+   "end": 159.38,
+   "text": "Hour twenty-four.",
+   "block": "b04"
+  },
+  {
+   "start": 159.91,
+   "end": 162.42,
+   "text": "So why did your tap keep running all this time?",
+   "block": "b04"
+  },
+  {
+   "start": 162.77,
+   "end": 164.37,
+   "text": "Follow the pipe under your street.",
+   "block": "b04"
+  },
+  {
+   "start": 164.68,
+   "end": 165.65,
+   "text": "It climbs a hill...",
+   "block": "b04"
+  },
+  {
+   "start": 165.86,
+   "end": 167.11,
+   "text": "to a tank on legs.",
+   "block": "b04"
+  },
+  {
+   "start": 167.42,
+   "end": 168.26,
+   "text": "A water tower.",
+   "block": "b04"
+  },
+  {
+   "start": 168.58,
+   "end": 169.94,
+   "text": "The water up there is heavy.",
+   "block": "b04"
+  },
+  {
+   "start": 170.22,
+   "end": 172.93,
+   "text": "Its own weight pushes it through every pipe in town.",
+   "block": "b04"
+  },
+  {
+   "start": 173.24,
+   "end": 174.45,
+   "text": "That's your water pressure.",
+   "block": "b04"
+  },
+  {
+   "start": 174.75,
+   "end": 175.36,
+   "text": "No motor. Just gravity.",
+   "block": "b04"
+  },
+  {
+   "start": 175.61,
+   "end": 176.39,
+   "text": "Unless you live up high.",
+   "block": "b04"
+  },
+  {
+   "start": 176.77,
+   "end": 181.95,
+   "text": "Many tall buildings use electric pumps to push water to the upper floors.",
+   "block": "b04"
+  },
+  {
+   "start": 182.2,
+   "end": 184.62,
+   "text": "Up there, the tap can quit in the first hour.",
+   "block": "b04"
+  },
+  {
+   "start": 184.9,
+   "end": 187.15,
+   "text": "But something had to lift that water up there.",
+   "block": "b04"
+  },
+  {
+   "start": 187.49,
+   "end": 188.5,
+   "text": "Electric pumps.",
+   "block": "b04"
+  },
+  {
+   "start": 188.79,
+   "end": 190.28,
+   "text": "And they stopped when the lights did.",
+   "block": "b04"
+  },
+  {
+   "start": 190.58,
+   "end": 194.75,
+   "text": "Many systems are built to hold about one day of normal use up high.",
+   "block": "b04"
+  },
+  {
+   "start": 195.02,
+   "end": 196.74,
+   "text": "So turn on your tap...",
+   "block": "b04"
+  },
+  {
+   "start": 197.11,
+   "end": 199.7,
+   "text": "and listen. As the tower drains, the pressure drops.",
+   "block": "b04"
+  },
+  {
+   "start": 199.96,
+   "end": 201.98,
+   "text": "And pressure is what keeps the pipes clean.",
+   "block": "b04"
+  },
+  {
+   "start": 202.27,
+   "end": 205.81,
+   "text": "When it falls, dirty water can seep in through tiny cracks.",
+   "block": "b04"
+  },
+  {
+   "start": 206.04,
+   "end": 209.64,
+   "text": "That's when a boil-water notice goes out.",
+   "block": "b04"
+  },
+  {
+   "start": 209.91,
+   "end": 211.99,
+   "text": "The CDC's rule: a rolling boil for one full minute.",
+   "block": "b04"
+  },
+  {
+   "start": 212.31,
+   "end": 216.0,
+   "text": "This is why the first thing to do in a blackout...",
+   "block": "b04"
+  },
+  {
+   "start": 216.26,
+   "end": 218.33,
+   "text": "is fill everything.",
+   "block": "b04"
+  },
+  {
+   "start": 218.58,
+   "end": 219.08,
+   "text": "Pots. Bottles.",
+   "block": "b04"
+  },
+  {
+   "start": 219.08,
+   "end": 221.74,
+   "text": "The bathtub. Ready.gov says one gallon per person, per day.",
+   "block": "b04"
+  },
+  {
+   "start": 222.06,
+   "end": 223.24,
+   "text": "And at hour forty-eight...",
+   "block": "b04"
+  },
+  {
+   "start": 223.54,
+   "end": 225.56,
+   "text": "the real danger isn't hunger.",
+   "block": "b04"
   }
  ],
- "duration": 158.08
+ "duration": 225.91
 }

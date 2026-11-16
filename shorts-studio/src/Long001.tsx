@@ -6,6 +6,7 @@ import timing from './long001_timing.json';
 import {clamp} from './three/kit';
 import {FONT, UI} from './long/props';
 import * as S from './long/scenes';
+import * as T from './long/scenes2';
 
 export const L1_FPS = 30;
 export const L1_END_SCREEN = 20; // seconds kept free for the YouTube end screen
@@ -99,6 +100,35 @@ const SHOTS = [
   sh('b03', 16, S.CityShot(0, 0, 'high', {text: 'BY HOUR 24…', color: A})),
   sh('b03', 17, S.PhoneShot({pct: [21, 20], bars: [1, 1], chip: {text: 'NOT THE PROBLEM'}})),
   sh('b03', 18, S.TowerShot(0.22, 0.08, {text: "IT'S YOUR WATER", color: R})),
+  // ---- hour 24
+  sh('b04', 0, S.Title('HOUR 24', 'WATER', B)),
+  sh('b04', 1, T.TapFlow('strong')),
+  sh('b04', 2, T.PipeCut('pipe')),
+  sh('b04', 3, T.PipeCut('hill')),
+  sh('b04', 4, T.PipeCut('tower')),
+  sh('b04', 6, T.Heavy),
+  sh('b04', 7, T.PipeCut('gravity')),
+  sh('b04', 8, T.PipeCut('pressure')),
+  sh('b04', 9, T.PipeCut('gravity')),
+  sh('b04', 10, T.HighRise(0)),
+  sh('b04', 11, T.HighRise(0), 0.5),
+  sh('b04', 12, T.HighRise(1)),
+  sh('b04', 13, S.TowerShot(0.8, 0.75, {text: 'WHO FILLED THE TOWER?', color: A})),
+  sh('b04', 14, T.PipeCut('pumps')),
+  sh('b04', 16, T.PipeCut('drain')),
+  sh('b04', 16, S.TowerShot(0.5, 0.3, {text: '~1 DAY OF NORMAL USE', color: A}), 0.55),
+  sh('b04', 17, T.TapFlow('listen')),
+  sh('b04', 18, T.TapFlow('sputter'), 0.35),
+  sh('b04', 19, T.Cracks(false)),
+  sh('b04', 20, T.Cracks(true)),
+  sh('b04', 21, T.BoilNotice(0)),
+  sh('b04', 22, T.BoilNotice(1)),
+  sh('b04', 23, S.CityShot(0, 0, 'low', {text: 'FIRST THING TO DO', color: B})),
+  sh('b04', 24, T.FillAll(0)),
+  sh('b04', 25, T.FillAll(1)),
+  sh('b04', 26, T.FillAll(2), 0.3),
+  sh('b04', 27, S.Title('HOUR 48', 'COMING UP', R)),
+  sh('b04', 28, T.Tease48),
 ];
 
 // ---------- status board ----------
@@ -110,6 +140,8 @@ const CHANGES: {b: string; p: number; sys: (typeof SYSTEMS)[number]; to: Lamp}[]
   {b: 'b01', p: 12, sys: 'FUEL', to: 'r'},
   {b: 'b02', p: 2, sys: 'FOOD', to: 'a'},
   {b: 'b03', p: 0, sys: 'PHONE', to: 'a'},
+  {b: 'b04', p: 18, sys: 'WATER', to: 'a'},
+  {b: 'b04', p: 21, sys: 'WATER', to: 'r'},
 ];
 const LAMP = {g: UI.green, a: UI.amber, r: UI.red};
 // clock: hours since the blackout at the start of each block
