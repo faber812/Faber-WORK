@@ -1,0 +1,57 @@
+[
+ {
+  "id": "b00",
+  "title": "COLD OPEN — 0:00",
+  "text": "Your tap still runs when the power dies. But why does it stop after about twenty-four hours... and what do you lose first?\n\nThis is a what-if. Most blackouts end in hours. This one doesn't. We're going to follow it for seven days... hour by hour... using the rules from the CDC, FEMA and the USDA.\n\nAnd stay to the end. Because the most dangerous moment isn't when the lights go out. It's when they come back on... and you open the fridge."
+ },
+ {
+  "id": "b01",
+  "title": "HOUR 1 — money and fuel",
+  "text": "Hour one. Your lights go out. That's the part everyone expects. What comes next... is what nobody does.\n\nYour card stops working. Card readers and ATMs need power and a network. So it's cash only.\n\nThen the gas station. Here's the part that surprises people. The station isn't out of gas. The tanks under the ground are full. But the only thing that lifts that fuel to your car is an electric pump. No power... no pump.\n\nA few states plan for this. Florida, for example, requires many stations near highways and evacuation routes to be wired for a generator. Most of the country has no rule like that.\n\nAnd your fridge? It starts a countdown."
+ },
+ {
+  "id": "b02",
+  "title": "HOUR 6 — food, phone, roads, water",
+  "text": "Hour six. Your fridge just passed its four-hour mark. The USDA rule: food in a closed fridge stays safe for about four hours. After that, meat, milk, eggs and leftovers have to go.\n\nYour freezer is your best friend now. A full one holds for about forty-eight hours. Half full? Just twenty-four.\n\nEvery traffic light is dark. Many states write it into law: a dead signal means an all-way stop.\n\nAnd your phone still has signal... for now. Here's why that won't last. A cell tower looks like a pole. It's really a small building... with a room full of batteries at the bottom. Industry guidelines have called for as little as four hours of backup, with eight as the goal. After Hurricane Katrina, the FCC tried to require eight hours nationwide. That rule never took effect.\n\nSo the towers are draining. And so is something you can't see."
+ },
+ {
+  "id": "b03",
+  "title": "HOUR 12 — the phone",
+  "text": "Hour twelve. Your phone is at forty percent... and it's dropping fast.\n\nYour Wi-Fi router died the moment the power did. So your phone leans on the cell network. But the towers are weaker now. As the signal drops, your phone works harder to stay connected... and that burns battery. And everyone is calling at once. The network jams.\n\nThe FCC's advice: keep calls short, and text instead. A text can get through when a call can't.\n\nYou can charge your phone in your car. But only with the car outside, in the open. Never in the garage. Hold that thought... it matters on day two.\n\nBut by hour twenty-four... the problem isn't your phone. It's your water."
+ },
+ {
+  "id": "b04",
+  "title": "HOUR 24 — water",
+  "text": "Hour twenty-four. So why did your tap keep running all this time?\n\nFollow the pipe under your street. It climbs a hill... to a tank on legs. A water tower. The water up there is heavy. Its own weight pushes it through every pipe in town. That's your water pressure. No motor. Just gravity.\n\nUnless you live up high. Many tall buildings use electric pumps to push water to the upper floors. Up there, the tap can quit in the first hour.\n\nBut something had to lift that water up there. Electric pumps. And they stopped when the lights did. Many systems are built to hold about one day of normal use up high.\n\nSo turn on your tap... and listen. As the tower drains, the pressure drops. And pressure is what keeps the pipes clean. When it falls, dirty water can seep in through tiny cracks. That's when a boil-water notice goes out. The CDC's rule: a rolling boil for one full minute.\n\nThis is why the first thing to do in a blackout... is fill everything. Pots. Bottles. The bathtub. Ready.gov says one gallon per person, per day.\n\nAnd at hour forty-eight... the real danger isn't hunger."
+ },
+ {
+  "id": "b05",
+  "title": "HOUR 48 — carbon monoxide",
+  "text": "Hour forty-eight. Even a full freezer is giving up now. So people start cooking however they can. Grills. Camp stoves. Generators.\n\nAnd this is where blackouts turn deadly. Carbon monoxide has no smell... and no color. It doesn't make you cough. The first signs are a headache... dizziness... feeling tired. In the dark, on day two, that feels normal. So people lie down.\n\nAnd the garage isn't the safe spot people think it is. The CDC says don't even run a car in an attached garage... with the door open.\n\nThe CDC counts more than four hundred deaths a year in the US from carbon monoxide that has nothing to do with fires.\n\nThe rule: never run a generator, a grill or a camp stove inside your home, your garage, or near a window. Keep a generator at least twenty feet from doors and windows. And a battery-powered CO alarm is the only thing that will warn you.\n\nAnd at hour seventy-two... the cold moves in."
+ },
+ {
+  "id": "b06",
+  "title": "HOUR 72 — cold",
+  "text": "Hour seventy-two. Day three. If it's winter, your house gets colder every hour.\n\nNever use your oven or gas stove to heat your home. Ready.gov warns against it.\n\nInstead: pick one room. Close off the rest. Cover the windows. Layer up, and keep everyone together. A small closed room holds the heat of a few people far longer than a whole house.\n\nAnd skip the candles. Ready.gov's advice is flashlights and lanterns. A candle next to blankets, in a dark house full of tired people, is a fire waiting to happen.\n\nWatch for the warning signs the CDC lists: shivering, exhaustion, confusion, fumbling hands, slurred speech, drowsiness. If you see those, you don't wait it out. You go to a warming center, or anywhere that still has power."
+ },
+ {
+  "id": "b07",
+  "title": "DAY 5 — fuel, stores, sewage",
+  "text": "Day five. The gas in your tank is running low... and the stations still can't pump.\n\nMost stores depend on constant deliveries. Without fuel and power, the shelves stay empty.\n\nAnd there's a problem almost nobody thinks about. Sewage. Sewer systems rely on electric pumps called lift stations. FEMA warns that in a long outage, sewage levels rise... and can back up.\n\nCash is the only payment that still works. If you have any."
+ },
+ {
+  "id": "b08",
+  "title": "DAY 7 — hospitals and restarting the grid",
+  "text": "Day seven. One week. Hospitals switch to generators. Many plan for about ninety-six hours on their own. After that, everything depends on fuel deliveries.\n\nSo how do you restart a dead grid? Here's the strange part. Most big power plants need electricity to start. A few special plants don't. It's called a black start. They energize one line... wake up the next plant... and rebuild the grid, piece by piece.\n\nIt takes time. In two thousand three, a blackout hit about fifty million people in the US and Canada. Some areas waited four days for power."
+ },
+ {
+  "id": "b09",
+  "title": "POWER BACK — the fridge (the payoff promised at 0:12)",
+  "text": "And then... the lights come back on. Your fridge is humming again. The food feels cold. So people eat it.\n\nThat's the mistake. Cold now doesn't mean it stayed cold. If your fridge was off for more than four hours, meat, milk, eggs and leftovers have to go.\n\nYour freezer is different. If the food still has ice crystals, you can refreeze it. Here's how to know for sure next time. Keep a cheap appliance thermometer in your freezer. If it still reads forty degrees or below, the USDA says that food is safe to refreeze.\n\nAnd never taste food to check if it's safe. The USDA's rule is simple: when in doubt, throw it out."
+ },
+ {
+  "id": "b10",
+  "title": "CLOSE — the first ten minutes",
+  "text": "So if your lights go out tonight, here's the first ten minutes. Fill the tub and every pot. Keep the fridge and freezer shut. Get cash while the ATM still works. Charge your phone, and switch to texts. And make sure your CO alarm runs on batteries.\n\nSeven days. Eight systems. All of it runs on one thing... until it doesn't."
+ }
+]
