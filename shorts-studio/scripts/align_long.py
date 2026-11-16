@@ -1,25 +1,58 @@
 #!/usr/bin/env python3
-"""Align narration blocks to their script text without a speech recogniser.
+"""Align narration blocks to their script text with forced alignment (pocketsphinx, offline).
 
-For each recorded block (public/long001/bNN.mp3) the script text is split into caption
-phrases. Phrase boundaries are estimated by character share of the block duration and then
-snapped to the nearest pause found by ffmpeg silencedetect. Output: src/long001_timing.json
-with absolute times for the whole video (blocks laid end to end with a small gap).
+For each recorded block (public/long001/bNN.mp3) the known script is aligned word by word to the
+audio. Word times are cached in public/long001/bNN.align.json. Caption phrases then start at
+their first word and end where the next phrase starts. Output: src/long001_timing.json.
 
-usage: python3 scripts/align_long.py   (run from shorts-studio/)
+usage: pip install pocketsphinx; python3 scripts/align_long.py   (run from shorts-studio/)
 """
-import json, os, re, subprocess
+import json, os, re, subprocess, tempfile
 
 BLOCKS = json.load(open('../youtube-plan/long-001/blocks.json'))
 GAP = 0.35  # silence between blocks, seconds
+KEEP_CAPS = {'FEMA'}  # acronyms read as words
 
 
-def silences(path):
-    out = subprocess.run(['ffmpeg', '-hide_banner', '-i', path, '-af', 'silencedetect=noise=-32dB:d=0.14', '-f', 'null', '-'],
-                         capture_output=True, text=True).stderr
-    st = [float(x) for x in re.findall(r'silence_start: ([\d.]+)', out)]
-    en = [float(x) for x in re.findall(r'silence_end: ([\d.]+)', out)]
-    return list(zip(st, en))
+def tokens(text):
+    """Words as the narrator says them, in decoder spelling."""
+    text = re.sub(r'\[[^\]]*\]\s*', '', text)
+    text = re.sub(r'(?i)ready\.gov', 'Ready dot gov', text)
+    text = re.sub(r'(?i)wi-fi', 'why fi', text)
+    out = []
+    for raw in re.findall(r"[A-Za-z][A-Za-z']*", text.replace('-', ' ')):
+        base = raw[:-2] if raw.endswith("'s") else raw
+        poss = raw.endswith("'s")
+        if base.isupper() and len(base) >= 2 and base not in KEEP_CAPS:
+            out += list(base.lower()) + (['s'] if poss else [])
+        elif base.endswith('s') and base[:-1].isupper() and len(base) > 2:  # ATMs
+            out += list(base[:-1].lower()) + ['s']
+        elif raw.lower() == 'refreeze':
+            out += ['re', 'freeze']
+        else:
+            out.append(raw.lower())
+    return out
+
+
+def align(path):
+    cache = path.replace('.mp3', '.align.json')
+    if os.path.exists(cache) and os.path.getmtime(cache) > os.path.getmtime(path):
+        return json.load(open(cache))
+    from pocketsphinx import Decoder
+    bid = os.path.basename(path)[:-4]
+    text = [b for b in BLOCKS if b['id'] == bid][0]['text']
+    with tempfile.NamedTemporaryFile(suffix='.raw') as tmp:
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', path, '-ar', '16000', '-ac', '1', '-f', 's16le', tmp.name], check=True)
+        data = open(tmp.name, 'rb').read()
+    d = Decoder(loglevel='FATAL', samprate=16000, bestpath=False)
+    d.set_align_text(' '.join(tokens(text)))
+    d.start_utt(); d.process_raw(data, full_utt=True); d.end_utt()
+    d.set_alignment()
+    d.start_utt(); d.process_raw(data, full_utt=True); d.end_utt()
+    words = [[re.sub(r'\(\d+\)$', '', w.name), w.start / 100, (w.start + w.duration) / 100] for w in d.get_alignment()]
+    words = [w for w in words if not w[0].startswith(('<', '['))]
+    json.dump(words, open(cache, 'w'))
+    return words
 
 
 def duration(path):
@@ -31,24 +64,17 @@ def phrases(text):
     text = re.sub(r'\[[^\]]*\]\s*', '', text)
     parts = []
     for para in text.split('\n\n'):
-        # split after sentence enders and ellipses, keep the punctuation
         for p in re.split(r'(?<=[.?!])\s+|(?<=\.\.\.)\s+', para.strip()):
             p = p.strip()
             if p:
                 parts.append(p)
-    # merge very short fragments into the next one so captions don't flicker
     merged = []
-    for p in parts:
+    for p in parts:  # merge very short fragments so captions don't flicker
         if merged and len(merged[-1]) < 14:
             merged[-1] = merged[-1] + ' ' + p
         else:
             merged.append(p)
     return merged
-
-
-def weight(p):
-    # spoken length: characters plus a pause allowance for punctuation
-    return len(p) + 6 * p.count('...') + 3 * (p.count(',') + p.count(':'))
 
 
 result = {'blocks': [], 'captions': []}
@@ -59,39 +85,23 @@ for b in BLOCKS:
         result['blocks'].append({'id': b['id'], 'title': b['title'], 'missing': True})
         continue
     dur = duration(path)
-    sil = [(s, e) for s, e in silences(path) if s > 0.2 and e < dur - 0.05]
+    words = align(path)
     ph = phrases(b['text'])
-    total = sum(weight(p) for p in ph)
-    # speech occupies dur minus trailing silence; estimate boundaries
-    # monotonic matching: every boundary takes the nearest pause after the previous boundary
-    bounds = []
-    acc = 0
-    last_i, last_t = -1, 0.0
-    for p in ph[:-1]:
-        acc += weight(p)
-        est = max(dur * acc / total, last_t + 0.5)
-        best = None
-        for i in range(last_i + 1, len(sil)):
-            s_, e_ = sil[i]
-            mid = (s_ + e_) / 2
-            if s_ < last_t + 0.45:
-                continue
-            score = abs(mid - est) - 0.6 * min(e_ - s_, 0.6)  # prefer longer pauses
-            if best is None or score < best[0]:
-                best = (score, i, mid, s_, e_)
-        if best and abs(best[2] - est) < 1.8:
-            last_i, last_t = best[1], best[4]
-            bounds.append((best[3], best[4]))
-        else:
-            last_t = est
-            bounds.append((est, est))
-    starts = [0.0] + [e for _, e in bounds]
-    ends = [s for s, _ in bounds] + [dur]
+    counts = [len(tokens(p)) for p in ph]
+    assert sum(counts) == len(words), (b['id'], sum(counts), len(words))
+    starts, k = [], 0
+    for c in counts:
+        starts.append(words[k][1])
+        k += c
+    starts[0] = 0.0
+    lasts, k = [], 0
+    for c in counts:
+        k += c
+        lasts.append(words[k - 1][2])
     caps = []
-    for p, s, e in zip(ph, starts, ends):
-        if e <= s:
-            e = s + 0.3
-        caps.append({'start': round(t0 + s, 2), 'end': round(t0 + e, 2), 'text': p, 'block': b['id']})
+    for i, p in enumerate(ph):
+        end = starts[i + 1] if i + 1 < len(ph) else min(dur, lasts[i] + 0.4)
+        caps.append({'start': round(t0 + max(0, starts[i] - 0.05), 2), 'end': round(t0 + end, 2), 'text': p, 'block': b['id']})
     result['blocks'].append({'id': b['id'], 'title': b['title'], 'audio': f"long001/{b['id']}.mp3", 'start': round(t0, 2), 'duration': round(dur, 2), 'phrases': len(ph)})
     result['captions'] += caps
     t0 += dur + GAP

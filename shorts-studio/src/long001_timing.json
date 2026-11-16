@@ -77,702 +77,702 @@
  "captions": [
   {
    "start": 0.0,
-   "end": 2.3,
+   "end": 2.69,
    "text": "Your tap still runs when the power dies.",
    "block": "b00"
   },
   {
-   "start": 2.74,
-   "end": 5.49,
+   "start": 2.64,
+   "end": 5.73,
    "text": "But why does it stop after about twenty-four hours...",
    "block": "b00"
   },
   {
-   "start": 5.75,
-   "end": 7.01,
+   "start": 5.68,
+   "end": 7.44,
    "text": "and what do you lose first?",
    "block": "b00"
   },
   {
-   "start": 7.49,
-   "end": 8.83,
+   "start": 7.39,
+   "end": 9.07,
    "text": "This is a what-if.",
    "block": "b00"
   },
   {
-   "start": 9.1,
-   "end": 10.94,
+   "start": 9.02,
+   "end": 11.17,
    "text": "Most blackouts end in hours.",
    "block": "b00"
   },
   {
-   "start": 11.22,
-   "end": 12.2,
+   "start": 11.12,
+   "end": 12.41,
    "text": "This one doesn't.",
    "block": "b00"
   },
   {
-   "start": 12.44,
-   "end": 14.46,
+   "start": 12.36,
+   "end": 14.66,
    "text": "We're going to follow it for seven days...",
    "block": "b00"
   },
   {
-   "start": 14.66,
-   "end": 15.7,
+   "start": 14.61,
+   "end": 15.84,
    "text": "hour by hour...",
    "block": "b00"
   },
   {
-   "start": 15.86,
-   "end": 19.25,
+   "start": 15.79,
+   "end": 19.49,
    "text": "using the rules from the CDC, FEMA and the USDA.",
    "block": "b00"
   },
   {
-   "start": 19.52,
-   "end": 20.44,
+   "start": 19.44,
+   "end": 20.61,
    "text": "And stay to the end.",
    "block": "b00"
   },
   {
-   "start": 20.66,
-   "end": 23.48,
+   "start": 20.56,
+   "end": 23.7,
    "text": "Because the most dangerous moment isn't when the lights go out.",
    "block": "b00"
   },
   {
-   "start": 23.72,
-   "end": 24.94,
+   "start": 23.65,
+   "end": 25.23,
    "text": "It's when they come back on...",
    "block": "b00"
   },
   {
-   "start": 25.25,
+   "start": 25.18,
    "end": 26.75,
    "text": "and you open the fridge.",
    "block": "b00"
   },
   {
    "start": 27.1,
-   "end": 29.29,
+   "end": 29.7,
    "text": "Hour one. Your lights go out.",
    "block": "b01"
   },
   {
-   "start": 29.71,
-   "end": 31.25,
+   "start": 29.65,
+   "end": 31.67,
    "text": "That's the part everyone expects.",
    "block": "b01"
   },
   {
-   "start": 31.7,
-   "end": 32.62,
+   "start": 31.62,
+   "end": 32.83,
    "text": "What comes next...",
    "block": "b01"
   },
   {
-   "start": 32.84,
-   "end": 33.99,
+   "start": 32.78,
+   "end": 34.45,
    "text": "is what nobody does.",
    "block": "b01"
   },
   {
-   "start": 34.52,
-   "end": 35.8,
+   "start": 34.4,
+   "end": 36.21,
    "text": "Your card stops working.",
    "block": "b01"
   },
   {
-   "start": 36.26,
-   "end": 38.99,
+   "start": 36.16,
+   "end": 39.2,
    "text": "Card readers and ATMs need power and a network.",
    "block": "b01"
   },
   {
-   "start": 39.21,
-   "end": 40.48,
+   "start": 39.15,
+   "end": 40.97,
    "text": "So it's cash only.",
    "block": "b01"
   },
   {
-   "start": 40.96,
-   "end": 42.17,
+   "start": 40.92,
+   "end": 42.58,
    "text": "Then the gas station.",
    "block": "b01"
   },
   {
-   "start": 42.6,
-   "end": 44.2,
+   "start": 42.53,
+   "end": 44.57,
    "text": "Here's the part that surprises people.",
    "block": "b01"
   },
   {
-   "start": 44.6,
-   "end": 46.16,
+   "start": 44.52,
+   "end": 46.38,
    "text": "The station isn't out of gas.",
    "block": "b01"
   },
   {
-   "start": 46.42,
-   "end": 47.95,
+   "start": 46.33,
+   "end": 48.27,
    "text": "The tanks under the ground are full.",
    "block": "b01"
   },
   {
-   "start": 48.33,
-   "end": 51.83,
+   "start": 48.22,
+   "end": 52.24,
    "text": "But the only thing that lifts that fuel to your car is an electric pump.",
    "block": "b01"
   },
   {
-   "start": 52.27,
-   "end": 52.87,
+   "start": 52.19,
+   "end": 54.26,
    "text": "No power... no pump.",
    "block": "b01"
   },
   {
-   "start": 53.22,
-   "end": 53.75,
+   "start": 54.21,
+   "end": 55.87,
    "text": "A few states plan for this.",
    "block": "b01"
   },
   {
-   "start": 54.28,
-   "end": 61.55,
+   "start": 55.82,
+   "end": 61.94,
    "text": "Florida, for example, requires many stations near highways and evacuation routes to be wired for a generator.",
    "block": "b01"
   },
   {
-   "start": 61.96,
-   "end": 63.91,
+   "start": 61.89,
+   "end": 64.4,
    "text": "Most of the country has no rule like that.",
    "block": "b01"
   },
   {
-   "start": 64.45,
-   "end": 65.12,
+   "start": 64.35,
+   "end": 65.46,
    "text": "And your fridge?",
    "block": "b01"
   },
   {
-   "start": 65.48,
+   "start": 65.41,
    "end": 66.73,
    "text": "It starts a countdown.",
    "block": "b01"
   },
   {
    "start": 67.08,
-   "end": 70.66,
+   "end": 70.94,
    "text": "Hour six. Your fridge just passed its four-hour mark.",
    "block": "b02"
   },
   {
-   "start": 70.95,
-   "end": 75.51,
+   "start": 70.89,
+   "end": 75.72,
    "text": "The USDA rule: food in a closed fridge stays safe for about four hours.",
    "block": "b02"
   },
   {
-   "start": 75.74,
-   "end": 79.38,
+   "start": 75.67,
+   "end": 79.64,
    "text": "After that, meat, milk, eggs and leftovers have to go.",
    "block": "b02"
   },
   {
-   "start": 79.66,
-   "end": 81.4,
+   "start": 79.59,
+   "end": 81.65,
    "text": "Your freezer is your best friend now.",
    "block": "b02"
   },
   {
-   "start": 81.67,
-   "end": 83.85,
+   "start": 81.6,
+   "end": 84.04,
    "text": "A full one holds for about forty-eight hours.",
    "block": "b02"
   },
   {
-   "start": 84.06,
-   "end": 84.55,
+   "start": 83.99,
+   "end": 86.29,
    "text": "Half full? Just twenty-four.",
    "block": "b02"
   },
   {
-   "start": 84.82,
-   "end": 85.64,
+   "start": 86.24,
+   "end": 88.29,
    "text": "Every traffic light is dark.",
    "block": "b02"
   },
   {
-   "start": 86.3,
-   "end": 89.86,
+   "start": 88.24,
+   "end": 92.49,
    "text": "Many states write it into law: a dead signal means an all-way stop.",
    "block": "b02"
   },
   {
-   "start": 90.09,
-   "end": 92.22,
+   "start": 92.44,
+   "end": 94.34,
    "text": "And your phone still has signal...",
    "block": "b02"
   },
   {
-   "start": 92.52,
-   "end": 94.82,
+   "start": 94.29,
+   "end": 96.7,
    "text": "for now. Here's why that won't last.",
    "block": "b02"
   },
   {
-   "start": 95.14,
-   "end": 96.42,
+   "start": 96.65,
+   "end": 98.57,
    "text": "A cell tower looks like a pole.",
    "block": "b02"
   },
   {
-   "start": 96.71,
-   "end": 98.26,
+   "start": 98.52,
+   "end": 99.93,
    "text": "It's really a small building...",
    "block": "b02"
   },
   {
-   "start": 98.59,
-   "end": 102.09,
+   "start": 99.88,
+   "end": 102.4,
    "text": "with a room full of batteries at the bottom.",
    "block": "b02"
   },
   {
-   "start": 102.41,
-   "end": 107.06,
+   "start": 102.35,
+   "end": 107.31,
    "text": "Industry guidelines have called for as little as four hours of backup, with eight as the goal.",
    "block": "b02"
   },
   {
-   "start": 107.32,
-   "end": 111.82,
+   "start": 107.26,
+   "end": 112.05,
    "text": "After Hurricane Katrina, the FCC tried to require eight hours nationwide.",
    "block": "b02"
   },
   {
-   "start": 112.05,
-   "end": 113.45,
+   "start": 112.0,
+   "end": 113.66,
    "text": "That rule never took effect.",
    "block": "b02"
   },
   {
-   "start": 113.69,
-   "end": 115.39,
+   "start": 113.61,
+   "end": 115.63,
    "text": "So the towers are draining.",
    "block": "b02"
   },
   {
-   "start": 115.67,
+   "start": 115.58,
    "end": 117.75,
    "text": "And so is something you can't see.",
    "block": "b02"
   },
   {
    "start": 118.1,
-   "end": 121.1,
+   "end": 121.39,
    "text": "Hour twelve. Your phone is at forty percent...",
    "block": "b03"
   },
   {
-   "start": 121.44,
-   "end": 122.7,
+   "start": 121.34,
+   "end": 123.04,
    "text": "and it's dropping fast.",
    "block": "b03"
   },
   {
-   "start": 123.1,
-   "end": 125.57,
+   "start": 122.99,
+   "end": 125.85,
    "text": "Your Wi-Fi router died the moment the power did.",
    "block": "b03"
   },
   {
-   "start": 125.87,
-   "end": 127.75,
+   "start": 125.8,
+   "end": 128.01,
    "text": "So your phone leans on the cell network.",
    "block": "b03"
   },
   {
-   "start": 128.08,
-   "end": 129.54,
+   "start": 127.96,
+   "end": 129.9,
    "text": "But the towers are weaker now.",
    "block": "b03"
   },
   {
-   "start": 129.91,
-   "end": 133.78,
+   "start": 129.85,
+   "end": 133.12,
    "text": "As the signal drops, your phone works harder to stay connected...",
    "block": "b03"
   },
   {
-   "start": 133.94,
-   "end": 135.11,
+   "start": 133.07,
+   "end": 134.99,
    "text": "and that burns battery.",
    "block": "b03"
   },
   {
-   "start": 135.29,
-   "end": 136.8,
+   "start": 134.94,
+   "end": 137.05,
    "text": "And everyone is calling at once.",
    "block": "b03"
   },
   {
-   "start": 137.08,
-   "end": 138.22,
+   "start": 137.0,
+   "end": 138.64,
    "text": "The network jams.",
    "block": "b03"
   },
   {
-   "start": 138.69,
-   "end": 142.24,
+   "start": 138.59,
+   "end": 142.51,
    "text": "The FCC's advice: keep calls short, and text instead.",
    "block": "b03"
   },
   {
-   "start": 142.54,
-   "end": 144.63,
+   "start": 142.46,
+   "end": 144.96,
    "text": "A text can get through when a call can't.",
    "block": "b03"
   },
   {
-   "start": 145.01,
-   "end": 146.6,
+   "start": 144.91,
+   "end": 146.76,
    "text": "You can charge your phone in your car.",
    "block": "b03"
   },
   {
-   "start": 146.82,
-   "end": 149.26,
+   "start": 146.71,
+   "end": 149.45,
    "text": "But only with the car outside, in the open.",
    "block": "b03"
   },
   {
-   "start": 149.47,
-   "end": 150.63,
+   "start": 149.4,
+   "end": 150.99,
    "text": "Never in the garage.",
    "block": "b03"
   },
   {
-   "start": 151.0,
-   "end": 151.68,
+   "start": 150.94,
+   "end": 151.9,
    "text": "Hold that thought...",
    "block": "b03"
   },
   {
-   "start": 151.97,
-   "end": 153.16,
+   "start": 151.85,
+   "end": 153.42,
    "text": "it matters on day two.",
    "block": "b03"
   },
   {
-   "start": 153.49,
-   "end": 154.85,
+   "start": 153.37,
+   "end": 154.98,
    "text": "But by hour twenty-four...",
    "block": "b03"
   },
   {
-   "start": 155.04,
-   "end": 156.34,
+   "start": 154.93,
+   "end": 156.59,
    "text": "the problem isn't your phone.",
    "block": "b03"
   },
   {
-   "start": 156.64,
+   "start": 156.54,
    "end": 157.73,
    "text": "It's your water.",
    "block": "b03"
   },
   {
    "start": 158.08,
-   "end": 159.38,
+   "end": 159.88,
    "text": "Hour twenty-four.",
    "block": "b04"
   },
   {
-   "start": 159.91,
-   "end": 162.42,
+   "start": 159.83,
+   "end": 162.72,
    "text": "So why did your tap keep running all this time?",
    "block": "b04"
   },
   {
-   "start": 162.77,
-   "end": 164.37,
+   "start": 162.67,
+   "end": 164.63,
    "text": "Follow the pipe under your street.",
    "block": "b04"
   },
   {
-   "start": 164.68,
-   "end": 165.65,
+   "start": 164.58,
+   "end": 165.8,
    "text": "It climbs a hill...",
    "block": "b04"
   },
   {
-   "start": 165.86,
-   "end": 167.11,
+   "start": 165.75,
+   "end": 167.4,
    "text": "to a tank on legs.",
    "block": "b04"
   },
   {
-   "start": 167.42,
-   "end": 168.26,
+   "start": 167.35,
+   "end": 168.54,
    "text": "A water tower.",
    "block": "b04"
   },
   {
-   "start": 168.58,
-   "end": 169.94,
+   "start": 168.49,
+   "end": 170.23,
    "text": "The water up there is heavy.",
    "block": "b04"
   },
   {
-   "start": 170.22,
-   "end": 172.93,
+   "start": 170.18,
+   "end": 173.25,
    "text": "Its own weight pushes it through every pipe in town.",
    "block": "b04"
   },
   {
-   "start": 173.24,
-   "end": 174.45,
+   "start": 173.2,
+   "end": 174.73,
    "text": "That's your water pressure.",
    "block": "b04"
   },
   {
-   "start": 174.75,
-   "end": 175.36,
+   "start": 174.68,
+   "end": 176.74,
    "text": "No motor. Just gravity.",
    "block": "b04"
   },
   {
-   "start": 175.61,
-   "end": 176.39,
+   "start": 176.69,
+   "end": 178.18,
    "text": "Unless you live up high.",
    "block": "b04"
   },
   {
-   "start": 176.77,
-   "end": 181.95,
+   "start": 178.13,
+   "end": 182.18,
    "text": "Many tall buildings use electric pumps to push water to the upper floors.",
    "block": "b04"
   },
   {
-   "start": 182.2,
-   "end": 184.62,
+   "start": 182.13,
+   "end": 184.85,
    "text": "Up there, the tap can quit in the first hour.",
    "block": "b04"
   },
   {
-   "start": 184.9,
-   "end": 187.15,
+   "start": 184.8,
+   "end": 187.47,
    "text": "But something had to lift that water up there.",
    "block": "b04"
   },
   {
-   "start": 187.49,
-   "end": 188.5,
+   "start": 187.42,
+   "end": 188.78,
    "text": "Electric pumps.",
    "block": "b04"
   },
   {
-   "start": 188.79,
-   "end": 190.28,
+   "start": 188.73,
+   "end": 190.58,
    "text": "And they stopped when the lights did.",
    "block": "b04"
   },
   {
-   "start": 190.58,
-   "end": 194.75,
+   "start": 190.53,
+   "end": 194.44,
    "text": "Many systems are built to hold about one day of normal use up high.",
    "block": "b04"
   },
   {
-   "start": 195.02,
-   "end": 196.74,
+   "start": 194.39,
+   "end": 196.21,
    "text": "So turn on your tap...",
    "block": "b04"
   },
   {
-   "start": 197.11,
-   "end": 199.7,
+   "start": 196.16,
+   "end": 199.92,
    "text": "and listen. As the tower drains, the pressure drops.",
    "block": "b04"
   },
   {
-   "start": 199.96,
-   "end": 201.98,
+   "start": 199.87,
+   "end": 202.27,
    "text": "And pressure is what keeps the pipes clean.",
    "block": "b04"
   },
   {
-   "start": 202.27,
-   "end": 205.81,
+   "start": 202.22,
+   "end": 206.04,
    "text": "When it falls, dirty water can seep in through tiny cracks.",
    "block": "b04"
   },
   {
-   "start": 206.04,
-   "end": 209.64,
+   "start": 205.99,
+   "end": 208.35,
    "text": "That's when a boil-water notice goes out.",
    "block": "b04"
   },
   {
-   "start": 209.91,
-   "end": 211.99,
+   "start": 208.3,
+   "end": 212.28,
    "text": "The CDC's rule: a rolling boil for one full minute.",
    "block": "b04"
   },
   {
-   "start": 212.31,
-   "end": 216.0,
+   "start": 212.23,
+   "end": 214.62,
    "text": "This is why the first thing to do in a blackout...",
    "block": "b04"
   },
   {
-   "start": 216.26,
-   "end": 218.33,
+   "start": 214.57,
+   "end": 216.24,
    "text": "is fill everything.",
    "block": "b04"
   },
   {
-   "start": 218.58,
-   "end": 219.08,
+   "start": 216.19,
+   "end": 217.58,
    "text": "Pots. Bottles.",
    "block": "b04"
   },
   {
-   "start": 219.08,
-   "end": 221.74,
+   "start": 217.53,
+   "end": 222.03,
    "text": "The bathtub. Ready.gov says one gallon per person, per day.",
    "block": "b04"
   },
   {
-   "start": 222.06,
-   "end": 223.24,
+   "start": 221.98,
+   "end": 223.5,
    "text": "And at hour forty-eight...",
    "block": "b04"
   },
   {
-   "start": 223.54,
+   "start": 223.45,
    "end": 225.56,
    "text": "the real danger isn't hunger.",
    "block": "b04"
   },
   {
    "start": 225.91,
-   "end": 227.03,
+   "end": 227.51,
    "text": "Hour forty-eight.",
    "block": "b05"
   },
   {
-   "start": 227.54,
-   "end": 229.6,
+   "start": 227.46,
+   "end": 229.99,
    "text": "Even a full freezer is giving up now.",
    "block": "b05"
   },
   {
-   "start": 229.99,
-   "end": 232.19,
+   "start": 229.94,
+   "end": 232.6,
    "text": "So people start cooking however they can.",
    "block": "b05"
   },
   {
-   "start": 232.62,
-   "end": 233.19,
+   "start": 232.55,
+   "end": 234.42,
    "text": "Grills. Camp stoves.",
    "block": "b05"
   },
   {
-   "start": 233.36,
-   "end": 235.14,
+   "start": 234.37,
+   "end": 238.44,
    "text": "Generators. And this is where blackouts turn deadly.",
    "block": "b05"
   },
   {
-   "start": 235.6,
-   "end": 237.95,
+   "start": 238.39,
+   "end": 240.55,
    "text": "Carbon monoxide has no smell...",
    "block": "b05"
   },
   {
-   "start": 238.46,
-   "end": 241.62,
+   "start": 240.5,
+   "end": 243.48,
    "text": "and no color. It doesn't make you cough.",
    "block": "b05"
   },
   {
-   "start": 241.99,
-   "end": 243.06,
+   "start": 243.43,
+   "end": 245.32,
    "text": "The first signs are a headache...",
    "block": "b05"
   },
   {
-   "start": 243.5,
-   "end": 245.1,
+   "start": 245.27,
+   "end": 247.49,
    "text": "dizziness... feeling tired.",
    "block": "b05"
   },
   {
-   "start": 245.35,
-   "end": 249.01,
+   "start": 247.44,
+   "end": 250.49,
    "text": "In the dark, on day two, that feels normal.",
    "block": "b05"
   },
   {
-   "start": 249.27,
-   "end": 250.11,
+   "start": 250.44,
+   "end": 252.11,
    "text": "So people lie down.",
    "block": "b05"
   },
   {
-   "start": 250.49,
-   "end": 251.74,
+   "start": 252.06,
+   "end": 255.24,
    "text": "And the garage isn't the safe spot people think it is.",
    "block": "b05"
   },
   {
-   "start": 252.15,
-   "end": 257.19,
+   "start": 255.19,
+   "end": 258.62,
    "text": "The CDC says don't even run a car in an attached garage...",
    "block": "b05"
   },
   {
-   "start": 257.19,
-   "end": 259.8,
+   "start": 258.57,
+   "end": 260.19,
    "text": "with the door open.",
    "block": "b05"
   },
   {
-   "start": 260.21,
-   "end": 266.5,
+   "start": 260.14,
+   "end": 266.82,
    "text": "The CDC counts more than four hundred deaths a year in the US from carbon monoxide that has nothing to do with fires.",
    "block": "b05"
   },
   {
-   "start": 266.88,
-   "end": 273.51,
+   "start": 266.77,
+   "end": 273.83,
    "text": "The rule: never run a generator, a grill or a camp stove inside your home, your garage, or near a window.",
    "block": "b05"
   },
   {
-   "start": 273.88,
-   "end": 276.86,
+   "start": 273.78,
+   "end": 277.15,
    "text": "Keep a generator at least twenty feet from doors and windows.",
    "block": "b05"
   },
   {
-   "start": 277.19,
-   "end": 280.6,
+   "start": 277.1,
+   "end": 281.01,
    "text": "And a battery-powered CO alarm is the only thing that will warn you.",
    "block": "b05"
   },
   {
-   "start": 281.05,
-   "end": 282.3,
+   "start": 280.96,
+   "end": 282.67,
    "text": "And at hour seventy-two...",
    "block": "b05"
   },
   {
-   "start": 282.72,
+   "start": 282.62,
    "end": 284.11,
    "text": "the cold moves in.",
    "block": "b05"
