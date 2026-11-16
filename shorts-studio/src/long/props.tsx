@@ -27,19 +27,22 @@ export const Night: React.FC<{cam: V3; tgt: V3; power?: number; fov?: number; ch
   <Canvas>
     <Cam pos={cam} target={tgt} fov={fov} />
     <Stage power={power} fogNear={18} fogFar={70} />
+    {/* moonlight: keeps the blackout readable on a phone screen */}
+    <hemisphereLight args={['#9fb4ff', '#202a4a', 0.9]} />
+    <directionalLight position={[-6, 10, 6]} intensity={0.7} color="#b8c8ff" />
     {children}
   </Canvas>
 );
 
 // interior room (dark when lit=0, warm when lit=1)
 export const Room: React.FC<{cam: V3; tgt: V3; lit?: number; fov?: number; children?: React.ReactNode}> = ({cam, tgt, lit = 0, fov = 35, children}) => {
-  const wall = lit > 0.5 ? '#e9dcc6' : '#232b47';
+  const wall = lit > 0.5 ? '#e9dcc6' : '#2c3658';
   const floor = lit > 0.5 ? '#b98a5e' : '#1a2036';
   return (
     <Canvas>
       <Cam pos={cam} target={tgt} fov={fov} />
       <color attach="background" args={[wall]} />
-      <hemisphereLight args={['#ffffff', lit > 0.5 ? '#c9b79a' : '#1a2244', 0.75 + lit * 0.8]} />
+      <hemisphereLight args={['#ffffff', lit > 0.5 ? '#c9b79a' : '#2a3460', 1.15 + lit * 0.4]} />
       <directionalLight position={[4, 8, 8]} intensity={0.5 + lit * 1.0} color={lit > 0.5 ? '#fff1d6' : '#9db8ff'} castShadow shadow-mapSize={[1024, 1024]} />
       <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[60, 60]} />

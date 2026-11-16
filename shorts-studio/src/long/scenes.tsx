@@ -339,7 +339,7 @@ export const TankCut = (stage: 0 | 1 | 2): Shot => ({d}) => {
   const rise = stage === 0 ? 0 : (f * 0.04) % 1;
   return (
     <AbsoluteFill>
-      <Cutaway cam={[ease(f, 0, d, 1.5, 0.3), stage === 2 ? -0.6 : 0.2, stage === 2 ? 9 : 13]} tgt={[0, stage === 2 ? -1.6 : -1.2, 0]}>
+      <Cutaway cam={[ease(f, 0, d, 1.5, 0.3), stage === 2 ? -0.9 : -0.4, stage === 2 ? 11 : 15]} tgt={[0, stage === 2 ? -2.0 : -1.8, 0]}>
         <GasPump p={[0, 0, 0.4]} />
         <Car p={[2.6, 0, 0.6]} r={-Math.PI / 2} c="#4e7fff" lights={1} />
         {/* tank */}
