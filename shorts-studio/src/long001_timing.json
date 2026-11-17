@@ -51,7 +51,10 @@
   {
    "id": "b06",
    "title": "HOUR 72 \u2014 cold",
-   "missing": true
+   "audio": "long001/b06.mp3",
+   "start": 284.46,
+   "duration": 46.76,
+   "phrases": 15
   },
   {
    "id": "b07",
@@ -776,7 +779,97 @@
    "end": 284.11,
    "text": "the cold moves in.",
    "block": "b05"
+  },
+  {
+   "start": 284.46,
+   "end": 286.18,
+   "text": "Hour seventy-two.",
+   "block": "b06"
+  },
+  {
+   "start": 286.13,
+   "end": 290.76,
+   "text": "Day three. If it's winter, your house gets colder every hour.",
+   "block": "b06"
+  },
+  {
+   "start": 290.71,
+   "end": 293.66,
+   "text": "Never use your oven or gas stove to heat your home.",
+   "block": "b06"
+  },
+  {
+   "start": 293.61,
+   "end": 295.77,
+   "text": "Ready.gov warns against it.",
+   "block": "b06"
+  },
+  {
+   "start": 295.72,
+   "end": 297.69,
+   "text": "Instead: pick one room.",
+   "block": "b06"
+  },
+  {
+   "start": 297.64,
+   "end": 298.93,
+   "text": "Close off the rest.",
+   "block": "b06"
+  },
+  {
+   "start": 298.88,
+   "end": 300.08,
+   "text": "Cover the windows.",
+   "block": "b06"
+  },
+  {
+   "start": 300.03,
+   "end": 302.5,
+   "text": "Layer up, and keep everyone together.",
+   "block": "b06"
+  },
+  {
+   "start": 302.45,
+   "end": 307.05,
+   "text": "A small closed room holds the heat of a few people far longer than a whole house.",
+   "block": "b06"
+  },
+  {
+   "start": 307.0,
+   "end": 308.42,
+   "text": "And skip the candles.",
+   "block": "b06"
+  },
+  {
+   "start": 308.37,
+   "end": 311.46,
+   "text": "Ready.gov's advice is flashlights and lanterns.",
+   "block": "b06"
+  },
+  {
+   "start": 311.41,
+   "end": 316.88,
+   "text": "A candle next to blankets, in a dark house full of tired people, is a fire waiting to happen.",
+   "block": "b06"
+  },
+  {
+   "start": 316.83,
+   "end": 325.43,
+   "text": "Watch for the warning signs the CDC lists: shivering, exhaustion, confusion, fumbling hands, slurred speech, drowsiness.",
+   "block": "b06"
+  },
+  {
+   "start": 325.38,
+   "end": 327.67,
+   "text": "If you see those, you don't wait it out.",
+   "block": "b06"
+  },
+  {
+   "start": 327.62,
+   "end": 331.22,
+   "text": "You go to a warming center, or anywhere that still has power.",
+   "block": "b06"
   }
  ],
- "duration": 284.46
+ "duration": 331.57
 }
