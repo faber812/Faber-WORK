@@ -27,6 +27,8 @@ def tokens(text):
             out += list(base.lower()) + (['s'] if poss else [])
         elif base.endswith('s') and base[:-1].isupper() and len(base) > 2:  # ATMs
             out += list(base[:-1].lower()) + ['s']
+        elif raw.lower() == "usda's":
+            out += ['u', 's', 'd', 'a', 's']
         elif raw.lower() == "gov's":
             out.append('gov')
         elif raw.lower() == 'refreeze':

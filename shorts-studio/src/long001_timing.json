@@ -59,22 +59,34 @@
   {
    "id": "b07",
    "title": "DAY 5 \u2014 fuel, stores, sewage",
-   "missing": true
+   "audio": "long001/b07.mp3",
+   "start": 331.57,
+   "duration": 26.91,
+   "phrases": 10
   },
   {
    "id": "b08",
    "title": "DAY 7 \u2014 hospitals and restarting the grid",
-   "missing": true
+   "audio": "long001/b08.mp3",
+   "start": 358.82,
+   "duration": 35.87,
+   "phrases": 15
   },
   {
    "id": "b09",
    "title": "POWER BACK \u2014 the fridge (the payoff promised at 0:12)",
-   "missing": true
+   "audio": "long001/b09.mp3",
+   "start": 395.04,
+   "duration": 38.11,
+   "phrases": 14
   },
   {
    "id": "b10",
    "title": "CLOSE \u2014 the first ten minutes",
-   "missing": true
+   "audio": "long001/b10.mp3",
+   "start": 433.5,
+   "duration": 20.92,
+   "phrases": 9
   }
  ],
  "captions": [
@@ -869,7 +881,295 @@
    "end": 331.22,
    "text": "You go to a warming center, or anywhere that still has power.",
    "block": "b06"
+  },
+  {
+   "start": 331.57,
+   "end": 335.19,
+   "text": "Day five. The gas in your tank is running low...",
+   "block": "b07"
+  },
+  {
+   "start": 335.14,
+   "end": 337.21,
+   "text": "and the stations still can't pump.",
+   "block": "b07"
+  },
+  {
+   "start": 337.16,
+   "end": 339.93,
+   "text": "Most stores depend on constant deliveries.",
+   "block": "b07"
+  },
+  {
+   "start": 339.88,
+   "end": 342.82,
+   "text": "Without fuel and power, the shelves stay empty.",
+   "block": "b07"
+  },
+  {
+   "start": 342.77,
+   "end": 345.51,
+   "text": "And there's a problem almost nobody thinks about.",
+   "block": "b07"
+  },
+  {
+   "start": 345.46,
+   "end": 350.11,
+   "text": "Sewage. Sewer systems rely on electric pumps called lift stations.",
+   "block": "b07"
+  },
+  {
+   "start": 350.06,
+   "end": 353.67,
+   "text": "FEMA warns that in a long outage, sewage levels rise...",
+   "block": "b07"
+  },
+  {
+   "start": 353.62,
+   "end": 354.77,
+   "text": "and can back up.",
+   "block": "b07"
+  },
+  {
+   "start": 354.72,
+   "end": 357.52,
+   "text": "Cash is the only payment that still works.",
+   "block": "b07"
+  },
+  {
+   "start": 357.47,
+   "end": 358.47,
+   "text": "If you have any.",
+   "block": "b07"
+  },
+  {
+   "start": 358.82,
+   "end": 361.34,
+   "text": "Day seven. One week.",
+   "block": "b08"
+  },
+  {
+   "start": 361.29,
+   "end": 363.37,
+   "text": "Hospitals switch to generators.",
+   "block": "b08"
+  },
+  {
+   "start": 363.32,
+   "end": 366.35,
+   "text": "Many plan for about ninety-six hours on their own.",
+   "block": "b08"
+  },
+  {
+   "start": 366.3,
+   "end": 369.53,
+   "text": "After that, everything depends on fuel deliveries.",
+   "block": "b08"
+  },
+  {
+   "start": 369.48,
+   "end": 372.2,
+   "text": "So how do you restart a dead grid?",
+   "block": "b08"
+  },
+  {
+   "start": 372.15,
+   "end": 373.57,
+   "text": "Here's the strange part.",
+   "block": "b08"
+  },
+  {
+   "start": 373.52,
+   "end": 376.68,
+   "text": "Most big power plants need electricity to start.",
+   "block": "b08"
+  },
+  {
+   "start": 376.63,
+   "end": 378.6,
+   "text": "A few special plants don't.",
+   "block": "b08"
+  },
+  {
+   "start": 378.55,
+   "end": 380.27,
+   "text": "It's called a black start.",
+   "block": "b08"
+  },
+  {
+   "start": 380.22,
+   "end": 381.93,
+   "text": "They energize one line...",
+   "block": "b08"
+  },
+  {
+   "start": 381.88,
+   "end": 383.2,
+   "text": "wake up the next plant...",
+   "block": "b08"
+  },
+  {
+   "start": 383.15,
+   "end": 385.88,
+   "text": "and rebuild the grid, piece by piece.",
+   "block": "b08"
+  },
+  {
+   "start": 385.83,
+   "end": 386.99,
+   "text": "It takes time.",
+   "block": "b08"
+  },
+  {
+   "start": 386.94,
+   "end": 392.04,
+   "text": "In two thousand three, a blackout hit about fifty million people in the US and Canada.",
+   "block": "b08"
+  },
+  {
+   "start": 391.99,
+   "end": 394.69,
+   "text": "Some areas waited four days for power.",
+   "block": "b08"
+  },
+  {
+   "start": 395.04,
+   "end": 397.74,
+   "text": "And then... the lights come back on.",
+   "block": "b09"
+  },
+  {
+   "start": 397.69,
+   "end": 399.41,
+   "text": "Your fridge is humming again.",
+   "block": "b09"
+  },
+  {
+   "start": 399.36,
+   "end": 401.06,
+   "text": "The food feels cold.",
+   "block": "b09"
+  },
+  {
+   "start": 401.01,
+   "end": 402.47,
+   "text": "So people eat it.",
+   "block": "b09"
+  },
+  {
+   "start": 402.42,
+   "end": 403.92,
+   "text": "That's the mistake.",
+   "block": "b09"
+  },
+  {
+   "start": 403.87,
+   "end": 406.59,
+   "text": "Cold now doesn't mean it stayed cold.",
+   "block": "b09"
+  },
+  {
+   "start": 406.54,
+   "end": 412.43,
+   "text": "If your fridge was off for more than four hours, meat, milk, eggs and leftovers have to go.",
+   "block": "b09"
+  },
+  {
+   "start": 412.38,
+   "end": 413.87,
+   "text": "Your freezer is different.",
+   "block": "b09"
+  },
+  {
+   "start": 413.82,
+   "end": 416.98,
+   "text": "If the food still has ice crystals, you can refreeze it.",
+   "block": "b09"
+  },
+  {
+   "start": 416.93,
+   "end": 418.96,
+   "text": "Here's how to know for sure next time.",
+   "block": "b09"
+  },
+  {
+   "start": 418.91,
+   "end": 421.57,
+   "text": "Keep a cheap appliance thermometer in your freezer.",
+   "block": "b09"
+  },
+  {
+   "start": 421.52,
+   "end": 426.88,
+   "text": "If it still reads forty degrees or below, the USDA says that food is safe to refreeze.",
+   "block": "b09"
+  },
+  {
+   "start": 426.83,
+   "end": 429.45,
+   "text": "And never taste food to check if it's safe.",
+   "block": "b09"
+  },
+  {
+   "start": 429.4,
+   "end": 433.15,
+   "text": "The USDA's rule is simple: when in doubt, throw it out.",
+   "block": "b09"
+  },
+  {
+   "start": 433.5,
+   "end": 437.35,
+   "text": "So if your lights go out tonight, here's the first ten minutes.",
+   "block": "b10"
+  },
+  {
+   "start": 437.3,
+   "end": 439.47,
+   "text": "Fill the tub and every pot.",
+   "block": "b10"
+  },
+  {
+   "start": 439.42,
+   "end": 441.64,
+   "text": "Keep the fridge and freezer shut.",
+   "block": "b10"
+  },
+  {
+   "start": 441.59,
+   "end": 444.08,
+   "text": "Get cash while the ATM still works.",
+   "block": "b10"
+  },
+  {
+   "start": 444.03,
+   "end": 446.41,
+   "text": "Charge your phone, and switch to texts.",
+   "block": "b10"
+  },
+  {
+   "start": 446.36,
+   "end": 449.19,
+   "text": "And make sure your CO alarm runs on batteries.",
+   "block": "b10"
+  },
+  {
+   "start": 449.14,
+   "end": 451.44,
+   "text": "Seven days. Eight systems.",
+   "block": "b10"
+  },
+  {
+   "start": 451.39,
+   "end": 453.39,
+   "text": "All of it runs on one thing...",
+   "block": "b10"
+  },
+  {
+   "start": 453.34,
+   "end": 454.43,
+   "text": "until it doesn't.",
+   "block": "b10"
   }
  ],
- "duration": 331.57
+ "duration": 454.78
 }
