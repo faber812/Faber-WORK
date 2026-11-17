@@ -136,8 +136,8 @@ const C2: React.FC = () => (
       <Volt frame={12} pos={[0.95, 3.2, -0.8]} glow={0} mood="shock" />
     </Room>
     <div style={{position: 'absolute', top: 40, left: 44}}>
-      <Outline size={170}>7 DAYS</Outline>
-      <Outline size={150} color="#ffd21f">NO POWER</Outline>
+      <Outline size={150}>WHAT DIES</Outline>
+      <Outline size={170} color="#ffd21f">FIRST?</Outline>
     </div>
     <div style={{position: 'absolute', left: 44, bottom: 44, display: 'flex', gap: 12}}>
       {['CARD', 'GAS', 'WATER', 'FOOD', 'HEAT'].map((t) => (
