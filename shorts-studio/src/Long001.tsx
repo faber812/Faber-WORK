@@ -199,7 +199,8 @@ const SHOTS = [
   sh('b09', 3, U.FridgeBack('eat')),
   sh('b09', 4, U.FridgeBack('mistake')),
   sh('b09', 5, U.FridgeBack('notcold')),
-  sh('b09', 6, S.FridgeShot({open: 1, lit: 1, spoiled: true, chips: ['MEAT', 'MILK', 'EGGS', 'LEFTOVERS'], timer: [4 * 3600 + 120, 4 * 3600 + 400]})),
+  sh('b09', 6, S.FridgeShot({open: 1, lit: 1, timer: [4 * 3600 + 120, 4 * 3600 + 400], hero: null})),
+  sh('b09', 6, S.FridgeShot({open: 1, lit: 1, spoiled: true, chips: ['MEAT', 'MILK', 'EGGS', 'LEFTOVERS']}), 0.45),
   sh('b09', 7, S.FreezerShot(0)),
   sh('b09', 8, U.IceCrystals(false)),
   sh('b09', 9, S.HeroShot({armR: 2.6, brows: 'up', mouth: 'smile'}, 'happy', {text: 'NEXT TIME, KNOW FOR SURE', color: G, size: 76})),
@@ -256,7 +257,7 @@ const StatusBoard: React.FC = () => {
   return (
     <div style={{position: 'absolute', top: 28 - 190 * (1 - inn), left: 40, right: 40, height: 132, borderRadius: 26, background: UI.panel, border: '3px solid #2f3c70', display: 'flex', alignItems: 'center', fontFamily: FONT, padding: '0 26px', boxSizing: 'border-box'}}>
       <div style={{width: 330, borderRight: '3px solid #2f3c70', marginRight: 22}}>
-        <div style={{fontWeight: 900, fontSize: 50, color: UI.amber, lineHeight: 1}}>{ck ? ck[0] : 'WHAT IF…'}</div>
+        <div style={{fontWeight: 900, fontSize: ck && ck[0].length > 8 ? 40 : 50, color: UI.amber, lineHeight: 1, whiteSpace: 'nowrap'}}>{ck ? ck[0] : 'WHAT IF…'}</div>
         <div style={{fontWeight: 800, fontSize: 30, color: UI.dim, marginTop: 6, fontVariantNumeric: 'tabular-nums', letterSpacing: 2}}>
           {ck ? `T+ ${String(hh).padStart(3, '0')}:${String(mm).padStart(2, '0')}` : 'T+ 000:00'}
         </div>
