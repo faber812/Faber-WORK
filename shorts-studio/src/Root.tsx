@@ -33,7 +33,7 @@ export const Root: React.FC = () => {
   return (
     <>
     <StylesRoot />
-    <Composition id="Thumb001" component={Thumb001} width={1280} height={720} fps={30} durationInFrames={1} />
+    <Composition id="Thumb001" component={Thumb001 as any} width={1280} height={720} fps={30} durationInFrames={1} defaultProps={{v: "A"}} />
     <Composition id="L1Gallery" component={Gallery as any} width={1920} height={1080} fps={30} durationInFrames={90} defaultProps={{i: 0}} />
     <Composition id="Long001" component={Long001} width={1920} height={1080} fps={L1_FPS} durationInFrames={L1_FRAMES} />
     <Composition id="LongDraft" component={LongDraft} width={1920} height={1080} fps={LONG_FPS} durationInFrames={LONG_FRAMES} />
