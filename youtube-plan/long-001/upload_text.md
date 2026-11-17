@@ -44,3 +44,7 @@ This video is for general information, not professional safety advice. In an eme
 **Category:** Education · **Made for kids:** No · **Altered or synthetic content:** No · **Language:** English
 **Thumbnail:** thumb_A_dont_eat_this.png · **Subtitles:** long001_en.srt
 **Schedule:** today 00:00 Poland time (23:00 UTC, 6 pm New York)
+
+## Published
+
+- YouTube: https://www.youtube.com/watch?v=9NFEdWd3DoI (uploaded 2026-11-17 via vidIQ, scheduled public 2026-11-17 23:00 UTC; master 3.1 Mbps, -14.6 LUFS)
