@@ -59,7 +59,7 @@ const SHOTS = [
   sh('b01', 14, S.GasSurface('gen', {text: 'A FEW STATES PLAN FOR THIS', color: G}), -0.14),
   sh('b01', 14, S.CardShot('FLORIDA · STATUTE 526.143', ['Many stations near highways', 'and evacuation routes must be', 'wired for a backup generator.'], G), 0.22),
   sh('b01', 14, S.GasSurface('gen', {text: 'GENERATOR-READY', color: G}), 0.7),
-  sh('b01', 15, S.GasSurface('row', {text: 'MOST STATES: NO SUCH RULE', color: R})),
+  sh('b01', 15, S.GasSurface('row', {text: 'MOST OF THE COUNTRY: NO SUCH RULE', color: R})),
   sh('b01', 16, S.FridgeShot({chip: {text: 'AND YOUR FRIDGE?', color: A}})),
   sh('b01', 17, S.FridgeShot({timer: [0, 1500], hero: null})),
   // ---- hour 6
@@ -78,8 +78,8 @@ const SHOTS = [
   sh('b02', 11, S.TowerShotCell('base')),
   sh('b02', 12, S.BatteryRoom(false)),
   sh('b02', 13, S.BatteryRoom(true)),
-  sh('b02', 14, S.CardShot('FCC · AFTER HURRICANE KATRINA', ['Proposed rule:', '8 hours of backup power', 'at cell sites, nationwide.'], B)),
-  sh('b02', 15, S.CardShot('FCC · AFTER HURRICANE KATRINA', ['Proposed rule:', '8 hours of backup power', 'at cell sites, nationwide.'], B, 'NEVER TOOK EFFECT')),
+  sh('b02', 14, S.CardShot('FCC · 2007', ['8-hour backup rule', 'for cell sites,', 'after Hurricane Katrina.'], B)),
+  sh('b02', 15, S.CardShot('FCC · 2007', ['8-hour backup rule', 'for cell sites,', 'after Hurricane Katrina.'], B, 'NEVER TOOK EFFECT')),
   sh('b02', 16, S.TowerShotCell('dying')),
   sh('b02', 17, S.TowerShot(0.62, 0.5, {text: 'ALSO DRAINING', color: R})),
   // ---- hour 12
@@ -202,7 +202,7 @@ const SHOTS = [
   sh('b09', 6, S.FridgeShot({open: 1, lit: 1, timer: [4 * 3600 + 120, 4 * 3600 + 400], hero: null})),
   sh('b09', 6, S.FridgeShot({open: 1, lit: 1, spoiled: true, chips: ['MEAT', 'MILK', 'EGGS', 'LEFTOVERS']}), 0.45),
   sh('b09', 7, S.FreezerShot(0)),
-  sh('b09', 8, U.IceCrystals(false)),
+  sh('b09', 8, U.FreezerIce),
   sh('b09', 9, S.HeroShot({armR: 2.6, brows: 'up', mouth: 'smile'}, 'happy', {text: 'NEXT TIME, KNOW FOR SURE', color: G, size: 76})),
   sh('b09', 10, U.IceCrystals(true)),
   sh('b09', 12, U.NoTaste),

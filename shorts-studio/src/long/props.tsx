@@ -16,9 +16,11 @@ export const pop = (f: number, fps: number, delay = 0, damping = 12) => spring({
 export const Canvas: React.FC<{children: React.ReactNode}> = ({children}) => {
   const {width, height} = useVideoConfig();
   return (
-    <ThreeCanvas width={width} height={height} shadows camera={{fov: 35, position: [0, 2.4, 10]}}>
-      {children}
-    </ThreeCanvas>
+    <div style={{position: 'absolute', inset: 0, filter: 'brightness(1.2) saturate(1.06)'}}>
+      <ThreeCanvas width={width} height={height} shadows camera={{fov: 35, position: [0, 2.4, 10]}}>
+        {children}
+      </ThreeCanvas>
+    </div>
   );
 };
 
@@ -28,7 +30,7 @@ export const Night: React.FC<{cam: V3; tgt: V3; power?: number; fov?: number; ch
     <Cam pos={cam} target={tgt} fov={fov} />
     <Stage power={power} fogNear={18} fogFar={70} />
     {/* moonlight: keeps the blackout readable on a phone screen */}
-    <hemisphereLight args={['#9fb4ff', '#202a4a', 0.9]} />
+    <hemisphereLight args={['#9fb4ff', '#202a4a', 1.1]} />
     <directionalLight position={[-6, 10, 6]} intensity={0.7} color="#b8c8ff" />
     {children}
   </Canvas>
@@ -124,17 +126,33 @@ export const Counter: React.FC<{p: V3; w?: number}> = ({p, w = 2.6}) => (
   </group>
 );
 
-export const Faucet: React.FC<{p: V3; flow: number}> = ({p, flow}) => (
-  <group position={p}>
-    <Box p={[0, 0.05, 0.05]} s={[0.9, 0.08, 0.6]} c="#8c94a8" />
-    <Box p={[0, 0.42, -0.3]} s={[0.1, 0.8, 0.1]} c="#c9ccd6" />
-    <Box p={[0, 0.8, -0.12]} s={[0.1, 0.1, 0.45]} c="#c9ccd6" />
-    <mesh position={[0, 0.4, 0.08]}>
-      <cylinderGeometry args={[0.04 * flow, 0.04 * flow, 0.8, 8]} />
-      <meshStandardMaterial color="#7cc4ff" emissive="#3a8dde" emissiveIntensity={1.2} transparent opacity={0.9} />
-    </mesh>
-  </group>
-);
+export const Faucet: React.FC<{p: V3; flow: number}> = ({p, flow}) => {
+  const f = useCurrentFrame();
+  return (
+    <group position={p}>
+      <Box p={[0, 0.05, 0.05]} s={[0.9, 0.08, 0.6]} c="#8c94a8" />
+      <Box p={[0, 0.42, -0.3]} s={[0.1, 0.8, 0.1]} c="#6f778c" />
+      <Box p={[0, 0.8, 0.0]} s={[0.1, 0.1, 0.7]} c="#6f778c" />
+      {flow > 0.02 && (
+        <>
+          <mesh position={[0, 0.4, 0.3]}>
+            <cylinderGeometry args={[0.1 * flow, 0.08 * flow, 0.8, 12]} />
+            <meshStandardMaterial color="#2f8cff" emissive="#1565d8" emissiveIntensity={0.9} transparent opacity={0.9} />
+          </mesh>
+          {[0, 1, 2, 3, 4].map((i) => {
+            const v = (f * 0.07 + i / 5) % 1;
+            return <Box key={`r${i}`} p={[0, 0.78 - v * 0.7, 0.3]} s={[0.17 * flow, 0.05, 0.17 * flow]} c="#bfe3ff" e={1.5} />;
+          })}
+          {[0, 1, 2, 3].map((i) => {
+            const u = ((f * 0.09 + i / 4) % 1);
+            return <Box key={i} p={[Math.sin(i * 2.3) * 0.22 * u, 0.12 + u * 0.12, 0.3 + Math.cos(i * 2.3) * 0.22 * u]} s={[0.05, 0.05, 0.05]} c="#cfeaff" e={2} />;
+          })}
+          <pointLight position={[0, 0.5, 0.7]} color="#7cc4ff" intensity={3 * flow} distance={2.5} />
+        </>
+      )}
+    </group>
+  );
+};
 
 export const WaterTower: React.FC<{p: V3; level: number; scale?: number}> = ({p, level, scale = 1}) => (
   <group position={p} scale={scale}>
@@ -224,6 +242,7 @@ export const Chip: React.FC<{text: string; color?: string; top: number; left?: n
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
   const s = pop(f, fps, delay);
+  size = Math.max(size, 66); // readable on a phone
   return (
     <div style={{position: 'absolute', top, left: center ? 0 : left, right: center ? 0 : right, textAlign: center ? 'center' : undefined, scale: String(s), transformOrigin: center ? 'center' : left !== undefined ? 'left center' : 'right center'}}>
       <span style={{fontFamily: FONT, fontWeight: 900, fontSize: size, color, background: bg, padding: `${size * 0.14}px ${size * 0.5}px`, borderRadius: size * 0.32, whiteSpace: 'pre', display: 'inline-block', lineHeight: 1.15}}>{text}</span>

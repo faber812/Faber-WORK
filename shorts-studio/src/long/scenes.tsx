@@ -79,7 +79,7 @@ export const TapDark: Shot = ({d}) => {
   const icons = ['💡', '📶', '🧊'];
   return (
     <AbsoluteFill>
-      <Room cam={[ease(f, 0, d, 2.4, 1.2), 2.6, ease(f, 0, d, 6.4, 5.2)]} tgt={[0, 1.5, 0]} lit={0}>
+      <Room cam={[ease(f, 0, d, 3.0, 2.5), ease(f, 0, d, 2.2, 2.0), ease(f, 0, d, 3.4, 3.0)]} tgt={[0, 1.55, 0.2]} lit={0}>
         <Counter p={[0, 0, 0]} w={4.2} />
         <Faucet p={[0, 1.16, 0]} flow={1} />
         <pointLight position={[0.6, 2.2, 1.4]} color="#7cc4ff" intensity={6} distance={5} />
@@ -98,7 +98,7 @@ export const TapDark: Shot = ({d}) => {
           );
         })}
       </div>
-      <Chip text="TAP: STILL RUNNING" color={UI.blue} top={640} left={150} size={62} delay={10} />
+      <Chip text="TAP: STILL RUNNING" color={UI.blue} top={640} left={150} size={72} delay={-20} />
     </AbsoluteFill>
   );
 };
@@ -358,7 +358,7 @@ export const TankCut = (stage: 0 | 1 | 2): Shot => ({d}) => {
         {stage > 0 && <RedX p={[0, -2.3, 1.1]} k={x} size={1.1} />}
       </Cutaway>
       {stage === 0 && <Chip text="TANK: FULL" color={UI.amber} top={690} left={220} size={70} delay={8} />}
-      {stage === 1 && <Chip text="ELECTRIC PUMP" color={UI.red} top={560} right={380} size={60} delay={Math.round(d * 0.3)} />}
+      {stage === 1 && <Chip text="ELECTRIC PUMP" color={UI.red} top={300} right={170} size={84} delay={Math.round(d * 0.3)} />}
       {stage === 2 && <Chip text="NO POWER = NO PUMP" color={UI.red} top={290} center size={96} delay={4} />}
     </AbsoluteFill>
   );

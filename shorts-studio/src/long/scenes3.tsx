@@ -2,7 +2,7 @@
 import React from 'react';
 import {AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 import {Box, City, clamp, House, Lineman, Pose, Volt} from '../three/kit';
-import {Bar, Car, Card, Chip, Counter, Cutaway, ease, FONT, Fridge, Garage, Night, pop, RedX, Room, UI} from './props';
+import {Bar, Car, Card, Chip, Counter, Cutaway, ease, FONT, Freezer, Fridge, Garage, Night, pop, RedX, Room, UI} from './props';
 import type {Shot} from './scenes';
 
 type V3 = [number, number, number];
@@ -129,8 +129,8 @@ export const Symptoms = (n: 1 | 3): Shot => ({d}) => {
       </Room>
       <div style={{position: 'absolute', top: 240, left: 150, display: 'flex', flexDirection: 'column', gap: 22}}>
         {items.slice(0, n).map(([ic, t], i) => (
-          <div key={t} style={{display: 'flex', alignItems: 'center', gap: 22, background: UI.panel, borderRadius: 24, padding: '12px 30px', fontFamily: FONT, fontWeight: 900, fontSize: 56, color: UI.ink, scale: String(pop(f, fps, n === 1 ? 4 : 2 + i * Math.round(d / 4))), transformOrigin: 'left center'}}>
-            <span style={{fontSize: 70}}>{ic}</span>
+          <div key={t} style={{display: 'flex', alignItems: 'center', gap: 22, background: UI.panel, borderRadius: 24, padding: '14px 34px', fontFamily: FONT, fontWeight: 900, fontSize: 76, color: UI.ink, scale: String(pop(f, fps, n === 1 ? 4 : 2 + i * Math.round(d / 4))), transformOrigin: 'left center'}}>
+            <span style={{fontSize: 90}}>{ic}</span>
             {t}
           </div>
         ))}
@@ -628,6 +628,36 @@ export const Finale = (stage: 'lit' | 'dark' | 'end'): Shot => ({d}) => {
           LIGHTS OUT LAB
         </div>
       )}
+    </AbsoluteFill>
+  );
+};
+
+// open chest freezer, food still glittering with ice crystals, big green check
+export const FreezerIce: Shot = ({d}) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const ok = pop(f, fps, Math.round(d * 0.35), 10);
+  return (
+    <AbsoluteFill>
+      <Room cam={[ease(f, 0, d, 1.2, 0.5), ease(f, 0, d, 3.6, 3.2), ease(f, 0, d, 5.2, 4.4)]} tgt={[-0.6, 0.8, -0.6]} lit={1}>
+        <Freezer p={[-0.6, 0, -0.6]} lid={1} />
+        {[[-1.1, -0.85], [-0.6, -0.6], [-0.1, -0.85], [-0.85, -0.35], [-0.3, -0.35]].map(([x, z], i) => (
+          <group key={i} position={[x, 1.3, z]}>
+            <Box s={[0.38, 0.22, 0.3]} c={['#c44a4a', '#d6a23a', '#e8ebf2', '#8a5acd', '#3c8f5a'][i]} />
+            {[0, 1, 2].map((k) => {
+              const tw = 0.6 + 0.4 * Math.sin(f / 4 + i * 2 + k * 3);
+              return <Box key={k} p={[(k - 1) * 0.11, 0.13, Math.sin(k + i) * 0.08]} s={[0.06, 0.06, 0.06]} c="#eaf6ff" e={2.5 * tw} />;
+            })}
+          </group>
+        ))}
+        <pointLight position={[-0.6, 2, 0.6]} color="#cfe6ff" intensity={6} distance={5} />
+      </Room>
+      <Chip text="❄ ICE CRYSTALS = SAFE TO REFREEZE" color={UI.green} top={240} left={150} size={66} delay={4} />
+      <div style={{position: 'absolute', right: 230, top: 430, width: 260, height: 260, borderRadius: 130, background: UI.green, scale: String(ok), display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: `0 0 80px ${UI.green}88`}}>
+        <svg width={170} height={170} viewBox="0 0 100 100">
+          <path d="M20 52 L42 72 L80 30" stroke="#0b1020" strokeWidth={14} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </div>
     </AbsoluteFill>
   );
 };
