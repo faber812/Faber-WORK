@@ -1,0 +1,819 @@
+1
+00:00:00,000 --> 00:00:02,670
+Your tap still runs when the power dies.
+
+2
+00:00:02,640 --> 00:00:05,710
+But why does it stop after about twenty-
+four hours...
+
+3
+00:00:05,680 --> 00:00:07,420
+and what do you lose first?
+
+4
+00:00:07,390 --> 00:00:09,050
+This is a what-if.
+
+5
+00:00:09,020 --> 00:00:11,150
+Most blackouts end in hours.
+
+6
+00:00:11,120 --> 00:00:12,390
+This one doesn't.
+
+7
+00:00:12,360 --> 00:00:14,640
+We're going to follow it for seven days...
+
+8
+00:00:14,610 --> 00:00:15,820
+hour by hour...
+
+9
+00:00:15,790 --> 00:00:19,470
+using the rules from the CDC, FEMA and the
+USDA.
+
+10
+00:00:19,440 --> 00:00:20,590
+And stay to the end.
+
+11
+00:00:20,560 --> 00:00:23,680
+Because the most dangerous moment isn't
+when the lights go out.
+
+12
+00:00:23,650 --> 00:00:25,210
+It's when they come back on...
+
+13
+00:00:25,180 --> 00:00:26,730
+and you open the fridge.
+
+14
+00:00:27,100 --> 00:00:29,680
+Hour one. Your lights go out.
+
+15
+00:00:29,650 --> 00:00:31,650
+That's the part everyone expects.
+
+16
+00:00:31,620 --> 00:00:32,810
+What comes next...
+
+17
+00:00:32,780 --> 00:00:34,430
+is what nobody does.
+
+18
+00:00:34,400 --> 00:00:36,190
+Your card stops working.
+
+19
+00:00:36,160 --> 00:00:39,180
+Card readers and ATMs need power and a
+network.
+
+20
+00:00:39,150 --> 00:00:40,950
+So it's cash only.
+
+21
+00:00:40,920 --> 00:00:42,560
+Then the gas station.
+
+22
+00:00:42,530 --> 00:00:44,550
+Here's the part that surprises people.
+
+23
+00:00:44,520 --> 00:00:46,360
+The station isn't out of gas.
+
+24
+00:00:46,330 --> 00:00:48,250
+The tanks under the ground are full.
+
+25
+00:00:48,220 --> 00:00:52,220
+But the only thing that lifts that fuel to
+your car is an electric pump.
+
+26
+00:00:52,190 --> 00:00:54,240
+No power... no pump.
+
+27
+00:00:54,210 --> 00:00:55,850
+A few states plan for this.
+
+28
+00:00:55,820 --> 00:00:59,937
+Florida, for example, requires many
+stations near highways and evacuation
+
+29
+00:00:59,957 --> 00:01:01,920
+routes to be wired for a generator.
+
+30
+00:01:01,890 --> 00:01:04,380
+Most of the country has no rule like that.
+
+31
+00:01:04,350 --> 00:01:05,440
+And your fridge?
+
+32
+00:01:05,410 --> 00:01:06,710
+It starts a countdown.
+
+33
+00:01:07,080 --> 00:01:10,920
+Hour six. Your fridge just passed its
+four-hour mark.
+
+34
+00:01:10,890 --> 00:01:15,700
+The USDA rule: food in a closed fridge
+stays safe for about four hours.
+
+35
+00:01:15,670 --> 00:01:19,620
+After that, meat, milk, eggs and leftovers
+have to go.
+
+36
+00:01:19,590 --> 00:01:21,630
+Your freezer is your best friend now.
+
+37
+00:01:21,600 --> 00:01:24,020
+A full one holds for about forty-eight
+hours.
+
+38
+00:01:23,990 --> 00:01:26,270
+Half full? Just twenty-four.
+
+39
+00:01:26,240 --> 00:01:28,270
+Every traffic light is dark.
+
+40
+00:01:28,240 --> 00:01:32,470
+Many states write it into law: a dead
+signal means an all-way stop.
+
+41
+00:01:32,440 --> 00:01:34,320
+And your phone still has signal...
+
+42
+00:01:34,290 --> 00:01:36,680
+for now. Here's why that won't last.
+
+43
+00:01:36,650 --> 00:01:38,550
+A cell tower looks like a pole.
+
+44
+00:01:38,520 --> 00:01:39,910
+It's really a small building...
+
+45
+00:01:39,880 --> 00:01:42,380
+with a room full of batteries at the
+bottom.
+
+46
+00:01:42,350 --> 00:01:46,650
+Industry guidelines have called for as
+little as four hours of backup, with eight
+
+47
+00:01:46,670 --> 00:01:47,290
+as the goal.
+
+48
+00:01:47,260 --> 00:01:52,030
+After Hurricane Katrina, the FCC tried to
+require eight hours nationwide.
+
+49
+00:01:52,000 --> 00:01:53,640
+That rule never took effect.
+
+50
+00:01:53,610 --> 00:01:55,610
+So the towers are draining.
+
+51
+00:01:55,580 --> 00:01:57,730
+And so is something you can't see.
+
+52
+00:01:58,100 --> 00:02:01,370
+Hour twelve. Your phone is at forty
+percent...
+
+53
+00:02:01,340 --> 00:02:03,020
+and it's dropping fast.
+
+54
+00:02:02,990 --> 00:02:05,830
+Your Wi-Fi router died the moment the
+power did.
+
+55
+00:02:05,800 --> 00:02:07,990
+So your phone leans on the cell network.
+
+56
+00:02:07,960 --> 00:02:09,880
+But the towers are weaker now.
+
+57
+00:02:09,850 --> 00:02:13,100
+As the signal drops, your phone works
+harder to stay connected...
+
+58
+00:02:13,070 --> 00:02:14,970
+and that burns battery.
+
+59
+00:02:14,940 --> 00:02:17,030
+And everyone is calling at once.
+
+60
+00:02:17,000 --> 00:02:18,620
+The network jams.
+
+61
+00:02:18,590 --> 00:02:22,490
+The FCC's advice: keep calls short, and
+text instead.
+
+62
+00:02:22,460 --> 00:02:24,940
+A text can get through when a call can't.
+
+63
+00:02:24,910 --> 00:02:26,740
+You can charge your phone in your car.
+
+64
+00:02:26,710 --> 00:02:29,430
+But only with the car outside, in the
+open.
+
+65
+00:02:29,400 --> 00:02:30,970
+Never in the garage.
+
+66
+00:02:30,940 --> 00:02:31,880
+Hold that thought...
+
+67
+00:02:31,850 --> 00:02:33,400
+it matters on day two.
+
+68
+00:02:33,370 --> 00:02:34,960
+But by hour twenty-four...
+
+69
+00:02:34,930 --> 00:02:36,570
+the problem isn't your phone.
+
+70
+00:02:36,540 --> 00:02:37,710
+It's your water.
+
+71
+00:02:38,080 --> 00:02:39,860
+Hour twenty-four.
+
+72
+00:02:39,830 --> 00:02:42,700
+So why did your tap keep running all this
+time?
+
+73
+00:02:42,670 --> 00:02:44,610
+Follow the pipe under your street.
+
+74
+00:02:44,580 --> 00:02:45,780
+It climbs a hill...
+
+75
+00:02:45,750 --> 00:02:47,380
+to a tank on legs.
+
+76
+00:02:47,350 --> 00:02:48,520
+A water tower.
+
+77
+00:02:48,490 --> 00:02:50,210
+The water up there is heavy.
+
+78
+00:02:50,180 --> 00:02:53,230
+Its own weight pushes it through every
+pipe in town.
+
+79
+00:02:53,200 --> 00:02:54,710
+That's your water pressure.
+
+80
+00:02:54,680 --> 00:02:56,720
+No motor. Just gravity.
+
+81
+00:02:56,690 --> 00:02:58,160
+Unless you live up high.
+
+82
+00:02:58,130 --> 00:03:02,160
+Many tall buildings use electric pumps to
+push water to the upper floors.
+
+83
+00:03:02,130 --> 00:03:04,830
+Up there, the tap can quit in the first
+hour.
+
+84
+00:03:04,800 --> 00:03:07,450
+But something had to lift that water up
+there.
+
+85
+00:03:07,420 --> 00:03:08,760
+Electric pumps.
+
+86
+00:03:08,730 --> 00:03:10,560
+And they stopped when the lights did.
+
+87
+00:03:10,530 --> 00:03:14,420
+Many systems are built to hold about one
+day of normal use up high.
+
+88
+00:03:14,390 --> 00:03:16,190
+So turn on your tap...
+
+89
+00:03:16,160 --> 00:03:19,900
+and listen. As the tower drains, the
+pressure drops.
+
+90
+00:03:19,870 --> 00:03:22,250
+And pressure is what keeps the pipes
+clean.
+
+91
+00:03:22,220 --> 00:03:26,020
+When it falls, dirty water can seep in
+through tiny cracks.
+
+92
+00:03:25,990 --> 00:03:28,330
+That's when a boil-water notice goes out.
+
+93
+00:03:28,300 --> 00:03:32,260
+The CDC's rule: a rolling boil for one
+full minute.
+
+94
+00:03:32,230 --> 00:03:34,600
+This is why the first thing to do in a
+blackout...
+
+95
+00:03:34,570 --> 00:03:36,220
+is fill everything.
+
+96
+00:03:36,190 --> 00:03:37,560
+Pots. Bottles.
+
+97
+00:03:37,530 --> 00:03:42,010
+The bathtub. Ready.gov says one gallon per
+person, per day.
+
+98
+00:03:41,980 --> 00:03:43,480
+And at hour forty-eight...
+
+99
+00:03:43,450 --> 00:03:45,540
+the real danger isn't hunger.
+
+100
+00:03:45,910 --> 00:03:47,490
+Hour forty-eight.
+
+101
+00:03:47,460 --> 00:03:49,970
+Even a full freezer is giving up now.
+
+102
+00:03:49,940 --> 00:03:52,580
+So people start cooking however they can.
+
+103
+00:03:52,550 --> 00:03:54,400
+Grills. Camp stoves.
+
+104
+00:03:54,370 --> 00:03:58,420
+Generators. And this is where blackouts
+turn deadly.
+
+105
+00:03:58,390 --> 00:04:00,530
+Carbon monoxide has no smell...
+
+106
+00:04:00,500 --> 00:04:03,460
+and no color. It doesn't make you cough.
+
+107
+00:04:03,430 --> 00:04:05,300
+The first signs are a headache...
+
+108
+00:04:05,270 --> 00:04:07,470
+dizziness... feeling tired.
+
+109
+00:04:07,440 --> 00:04:10,470
+In the dark, on day two, that feels
+normal.
+
+110
+00:04:10,440 --> 00:04:12,090
+So people lie down.
+
+111
+00:04:12,060 --> 00:04:15,220
+And the garage isn't the safe spot people
+think it is.
+
+112
+00:04:15,190 --> 00:04:18,600
+The CDC says don't even run a car in an
+attached garage...
+
+113
+00:04:18,570 --> 00:04:20,170
+with the door open.
+
+114
+00:04:20,140 --> 00:04:24,324
+The CDC counts more than four hundred
+deaths a year in the US from carbon
+
+115
+00:04:24,344 --> 00:04:26,800
+monoxide that has nothing to do with
+fires.
+
+116
+00:04:26,770 --> 00:04:32,113
+The rule: never run a generator, a grill
+or a camp stove inside your home, your
+
+117
+00:04:32,133 --> 00:04:33,810
+garage, or near a window.
+
+118
+00:04:33,780 --> 00:04:37,130
+Keep a generator at least twenty feet from
+doors and windows.
+
+119
+00:04:37,100 --> 00:04:40,990
+And a battery-powered CO alarm is the only
+thing that will warn you.
+
+120
+00:04:40,960 --> 00:04:42,650
+And at hour seventy-two...
+
+121
+00:04:42,620 --> 00:04:44,090
+the cold moves in.
+
+122
+00:04:44,460 --> 00:04:46,160
+Hour seventy-two.
+
+123
+00:04:46,130 --> 00:04:50,740
+Day three. If it's winter, your house gets
+colder every hour.
+
+124
+00:04:50,710 --> 00:04:53,640
+Never use your oven or gas stove to heat
+your home.
+
+125
+00:04:53,610 --> 00:04:55,750
+Ready.gov warns against it.
+
+126
+00:04:55,720 --> 00:04:57,670
+Instead: pick one room.
+
+127
+00:04:57,640 --> 00:04:58,910
+Close off the rest.
+
+128
+00:04:58,880 --> 00:05:00,060
+Cover the windows.
+
+129
+00:05:00,030 --> 00:05:02,480
+Layer up, and keep everyone together.
+
+130
+00:05:02,450 --> 00:05:07,030
+A small closed room holds the heat of a
+few people far longer than a whole house.
+
+131
+00:05:07,000 --> 00:05:08,400
+And skip the candles.
+
+132
+00:05:08,370 --> 00:05:11,440
+Ready.gov's advice is flashlights and
+lanterns.
+
+133
+00:05:11,410 --> 00:05:16,444
+A candle next to blankets, in a dark house
+full of tired people, is a fire waiting to
+
+134
+00:05:16,464 --> 00:05:16,860
+happen.
+
+135
+00:05:16,830 --> 00:05:22,953
+Watch for the warning signs the CDC lists:
+shivering, exhaustion, confusion, fumbling
+
+136
+00:05:22,973 --> 00:05:25,410
+hands, slurred speech, drowsiness.
+
+137
+00:05:25,380 --> 00:05:27,650
+If you see those, you don't wait it out.
+
+138
+00:05:27,620 --> 00:05:31,200
+You go to a warming center, or anywhere
+that still has power.
+
+139
+00:05:31,570 --> 00:05:35,170
+Day five. The gas in your tank is running
+low...
+
+140
+00:05:35,140 --> 00:05:37,190
+and the stations still can't pump.
+
+141
+00:05:37,160 --> 00:05:39,910
+Most stores depend on constant deliveries.
+
+142
+00:05:39,880 --> 00:05:42,800
+Without fuel and power, the shelves stay
+empty.
+
+143
+00:05:42,770 --> 00:05:45,490
+And there's a problem almost nobody thinks
+about.
+
+144
+00:05:45,460 --> 00:05:50,090
+Sewage. Sewer systems rely on electric
+pumps called lift stations.
+
+145
+00:05:50,060 --> 00:05:53,650
+FEMA warns that in a long outage, sewage
+levels rise...
+
+146
+00:05:53,620 --> 00:05:54,750
+and can back up.
+
+147
+00:05:54,720 --> 00:05:57,500
+Cash is the only payment that still works.
+
+148
+00:05:57,470 --> 00:05:58,450
+If you have any.
+
+149
+00:05:58,820 --> 00:06:01,320
+Day seven. One week.
+
+150
+00:06:01,290 --> 00:06:03,350
+Hospitals switch to generators.
+
+151
+00:06:03,320 --> 00:06:06,330
+Many plan for about ninety-six hours on
+their own.
+
+152
+00:06:06,300 --> 00:06:09,510
+After that, everything depends on fuel
+deliveries.
+
+153
+00:06:09,480 --> 00:06:12,180
+So how do you restart a dead grid?
+
+154
+00:06:12,150 --> 00:06:13,550
+Here's the strange part.
+
+155
+00:06:13,520 --> 00:06:16,660
+Most big power plants need electricity to
+start.
+
+156
+00:06:16,630 --> 00:06:18,580
+A few special plants don't.
+
+157
+00:06:18,550 --> 00:06:20,250
+It's called a black start.
+
+158
+00:06:20,220 --> 00:06:21,910
+They energize one line...
+
+159
+00:06:21,880 --> 00:06:23,180
+wake up the next plant...
+
+160
+00:06:23,150 --> 00:06:25,860
+and rebuild the grid, piece by piece.
+
+161
+00:06:25,830 --> 00:06:26,970
+It takes time.
+
+162
+00:06:26,940 --> 00:06:31,600
+In two thousand three, a blackout hit
+about fifty million people in the US and
+
+163
+00:06:31,620 --> 00:06:32,020
+Canada.
+
+164
+00:06:31,990 --> 00:06:34,670
+Some areas waited four days for power.
+
+165
+00:06:35,040 --> 00:06:37,720
+And then... the lights come back on.
+
+166
+00:06:37,690 --> 00:06:39,390
+Your fridge is humming again.
+
+167
+00:06:39,360 --> 00:06:41,040
+The food feels cold.
+
+168
+00:06:41,010 --> 00:06:42,450
+So people eat it.
+
+169
+00:06:42,420 --> 00:06:43,900
+That's the mistake.
+
+170
+00:06:43,870 --> 00:06:46,570
+Cold now doesn't mean it stayed cold.
+
+171
+00:06:46,540 --> 00:06:52,017
+If your fridge was off for more than four
+hours, meat, milk, eggs and leftovers have
+
+172
+00:06:52,037 --> 00:06:52,410
+to go.
+
+173
+00:06:52,380 --> 00:06:53,850
+Your freezer is different.
+
+174
+00:06:53,820 --> 00:06:56,960
+If the food still has ice crystals, you
+can refreeze it.
+
+175
+00:06:56,930 --> 00:06:58,940
+Here's how to know for sure next time.
+
+176
+00:06:58,910 --> 00:07:01,550
+Keep a cheap appliance thermometer in your
+freezer.
+
+177
+00:07:01,520 --> 00:07:06,292
+If it still reads forty degrees or below,
+the USDA says that food is safe to
+
+178
+00:07:06,312 --> 00:07:06,860
+refreeze.
+
+179
+00:07:06,830 --> 00:07:09,430
+And never taste food to check if it's
+safe.
+
+180
+00:07:09,400 --> 00:07:13,130
+The USDA's rule is simple: when in doubt,
+throw it out.
+
+181
+00:07:13,500 --> 00:07:17,330
+So if your lights go out tonight, here's
+the first ten minutes.
+
+182
+00:07:17,300 --> 00:07:19,450
+Fill the tub and every pot.
+
+183
+00:07:19,420 --> 00:07:21,620
+Keep the fridge and freezer shut.
+
+184
+00:07:21,590 --> 00:07:24,060
+Get cash while the ATM still works.
+
+185
+00:07:24,030 --> 00:07:26,390
+Charge your phone, and switch to texts.
+
+186
+00:07:26,360 --> 00:07:29,170
+And make sure your CO alarm runs on
+batteries.
+
+187
+00:07:29,140 --> 00:07:31,420
+Seven days. Eight systems.
+
+188
+00:07:31,390 --> 00:07:33,370
+All of it runs on one thing...
+
+189
+00:07:33,340 --> 00:07:34,410
+until it doesn't.
