@@ -91,4 +91,64 @@ const C: React.FC = () => (
   </AbsoluteFill>
 );
 
-export const Thumb001: React.FC<{v?: 'A' | 'B' | 'C'}> = ({v = 'A'}) => (v === 'B' ? <B /> : v === 'C' ? <C /> : <A />);
+// bright versions after the competitor review: daylight, exaggerated emotion, outlined text
+const Outline: React.FC<{children: React.ReactNode; size: number; color?: string; style?: React.CSSProperties}> = ({children, size, color = '#fff', style}) => (
+  <div style={{fontFamily: FONT, fontWeight: 900, fontSize: size, lineHeight: 0.95, color, letterSpacing: -2, WebkitTextStroke: `${Math.round(size / 9)}px #111`, paintOrder: 'stroke fill', textShadow: '0 8px 0 rgba(0,0,0,0.35)', ...style}}>{children}</div>
+);
+const Sweat: React.FC<{p: [number, number, number]}> = ({p}) => (
+  <group position={p}>
+    <Box s={[0.09, 0.14, 0.05]} c="#7cc4ff" e={0.8} />
+    <Box p={[0, 0.09, 0]} s={[0.05, 0.06, 0.05]} c="#7cc4ff" e={0.8} />
+  </group>
+);
+const A2: React.FC = () => (
+  <AbsoluteFill style={{background: '#f3e7d2'}}>
+    <Room cam={[0.2, 2.35, 4.1]} tgt={[0.0, 2.0, -0.3]} lit={1}>
+      <color attach="background" args={['#f6e9d2']} />
+      <Fridge p={[-1.9, 0, -1.6]} open={1} rotY={0.45} />
+      <directionalLight position={[3, 6, 5]} intensity={1.4} color="#fff4e0" />
+      <Lineman frame={12} pos={[1.45, 0, -0.1]} rotY={-0.25} pose={{armRx: -1.5, armR: 0.35, lookX: 0.0, lookY: -0.25, mouth: 'o', brows: 'worried'}} />
+      <Sweat p={[1.95, 3.0, 0.35]} />
+      <Sweat p={[0.95, 2.85, 0.4]} />
+      <Carton p={[0.6, 1.75, 0.6]} r={[0.05, -0.2, 0.25]} s={1.4} />
+      <Volt frame={12} pos={[2.55, 2.6, -0.8]} glow={0} mood="shock" />
+      {[0, 1, 2].map((i) => (
+        <Box key={i} p={[0.43 + i * 0.16, 2.5 + (i % 2) * 0.08, 0.6]} r={[0, 0, 0.3 - i * 0.3]} s={[0.05, 0.32, 0.05]} c="#3fae2a" e={0.6} />
+      ))}
+    </Room>
+    <div style={{position: 'absolute', top: 36, left: 44}}>
+      <Outline size={136}>DON'T</Outline>
+      <Outline size={136} color="#ffd21f">EAT THIS</Outline>
+    </div>
+    <div style={{position: 'absolute', left: 44, bottom: 40, background: '#e01b1b', color: '#fff', borderRadius: 14, padding: '6px 24px', fontFamily: FONT, fontWeight: 900, fontSize: 64, boxShadow: '0 8px 0 rgba(0,0,0,0.3)'}}>
+      AFTER A BLACKOUT
+    </div>
+  </AbsoluteFill>
+);
+const C2: React.FC = () => (
+  <AbsoluteFill style={{background: '#f3e7d2'}}>
+    <Room cam={[-1.75, 2.2, 5.4]} tgt={[-1.75, 1.9, 0]} lit={1}>
+      <color attach="background" args={['#f6e9d2']} />
+      <directionalLight position={[3, 6, 5]} intensity={1.3} color="#fff4e0" />
+      <Fridge p={[1.9, 0, -1.6]} open={1} rotY={-0.4} />
+      <Lineman frame={12} pos={[0, 0, 0]} rotY={-0.25} pose={{mouth: 'o', brows: 'worried', hold: 'flashlight', armRx: -1.2}} />
+      <Sweat p={[0.5, 3.0, 0.4]} />
+      <Volt frame={12} pos={[0.95, 3.2, -0.8]} glow={0} mood="shock" />
+    </Room>
+    <div style={{position: 'absolute', top: 40, left: 44}}>
+      <Outline size={170}>7 DAYS</Outline>
+      <Outline size={150} color="#ffd21f">NO POWER</Outline>
+    </div>
+    <div style={{position: 'absolute', left: 44, bottom: 44, display: 'flex', gap: 12}}>
+      {['CARD', 'GAS', 'WATER', 'FOOD', 'HEAT'].map((t) => (
+        <div key={t} style={{background: '#111', color: '#fff', borderRadius: 12, padding: '8px 16px', fontFamily: FONT, fontWeight: 900, fontSize: 36, display: 'flex', alignItems: 'center', gap: 10}}>
+          <span style={{width: 22, height: 22, borderRadius: 11, background: UI.red, boxShadow: `0 0 12px ${UI.red}`}} />
+          {t}
+        </div>
+      ))}
+    </div>
+  </AbsoluteFill>
+);
+
+export const Thumb001: React.FC<{v?: 'A' | 'B' | 'C' | 'A2' | 'C2'}> = ({v = 'A'}) =>
+  v === 'B' ? <B /> : v === 'C' ? <C /> : v === 'A2' ? <A2 /> : v === 'C2' ? <C2 /> : <A />;
