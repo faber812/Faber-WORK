@@ -8,6 +8,7 @@ import {StylesRoot} from './styles/StylesRoot';
 import {Gallery} from './long/Gallery';
 import {Short009, S009_FRAMES, S009_FPS} from './shorts2/S009';
 import {Short008, S008_FRAMES, S008_FPS} from './shorts2/S008';
+import {Long002, L2_FRAMES, L2_FPS} from './long2/Long002';
 import {Thumb001} from './long/Thumb001';
 import {Long001, L1_FRAMES, L1_FPS} from './Long001';
 import {LongDraft, LONG_FRAMES, LONG_FPS} from './Long';
@@ -35,6 +36,7 @@ export const Root: React.FC = () => {
   return (
     <>
     <StylesRoot />
+    <Composition id="Long002" component={Long002} width={1920} height={1080} fps={L2_FPS} durationInFrames={L2_FRAMES} />
     <Composition id="Short008" component={Short008} width={1080} height={1920} fps={S008_FPS} durationInFrames={S008_FRAMES} />
     <Composition id="Short009" component={Short009} width={1080} height={1920} fps={S009_FPS} durationInFrames={S009_FRAMES} />
     <Composition id="Thumb001" component={Thumb001 as any} width={1280} height={720} fps={30} durationInFrames={1} defaultProps={{v: "A"}} />
