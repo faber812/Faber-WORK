@@ -7,3 +7,7 @@ Order (one every 2 days): 009 garage → 007 tap → 008 gas.
 - 009 — The Blackout Mistake That Kills People on Day Two. First-frame text: "NOT IN THE GARAGE. NOT EVEN WITH THE DOOR OPEN."
 - 007 — Why Your Tap Still Works in a Blackout (And the Day It Stops). First-frame text: "EVERYTHING IS DEAD. EXCEPT THIS."
 - 008 — Why a Gas Station Full of Gas Can't Sell You Any. First-frame text: "FULL OF GAS. CAN'T SELL IT."
+
+## Published
+- 009: https://www.youtube.com/watch?v=8grp3NDd5bM (scheduled public 2026-11-18 23:00 UTC)
+- Owner decision 2026-11-18: altered/synthetic content = No on all videos (animated channel).
