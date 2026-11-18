@@ -227,7 +227,7 @@ const FLMap: React.FC<{band?: number; big?: number; small?: number; storm?: numb
         return (
           <g key={name} opacity={k}>
             <circle cx={p[0]} cy={p[1]} r={20} fill={e > 0.5 ? UI.red : '#fff'} stroke="#0b1020" strokeWidth={5} />
-            <text x={i === 2 ? p[0] + 30 : lx} y={i === 2 ? p[1] + 12 : p[1] - 34} fill={e > 0.5 ? UI.red : '#fff'} fontFamily="Inter" fontWeight={900} fontSize={38} stroke="#0b1020" strokeWidth={8} paintOrder="stroke">
+            <text x={i === 2 ? p[0] + 30 : p[0] - 32} y={p[1] + 12} textAnchor={i === 2 ? 'start' : 'end'} fill={e > 0.5 ? UI.red : '#fff'} fontFamily="Inter" fontWeight={900} fontSize={38} stroke="#0b1020" strokeWidth={8} paintOrder="stroke">
               {e > 0.5 ? `${name}: EMPTY` : name}
             </text>
           </g>
@@ -465,7 +465,7 @@ const S16: Shot = ({d}) => {
     <AbsoluteFill>
       <Roofs sockets={interpolate(f, [0, 18], [0, 1], clamp)} />
       <Bar lines={[['FLORIDA: MANY STATIONS', UI.green], ['MUST BE WIRED'], ['FOR A GENERATOR']]} top={230} size={74} />
-      <div style={{position: 'absolute', top: 1470 - 120, left: 60, right: 170, background: 'rgba(8,10,18,0.92)', borderRadius: 14, padding: '12px 22px', fontFamily: FONT, fontWeight: 800, fontSize: 46, color: '#fff', lineHeight: 1.15}}>
+      <div style={{position: 'absolute', top: 1300, left: 60, right: 170, background: 'rgba(8,10,18,0.92)', borderRadius: 14, padding: '12px 22px', fontFamily: FONT, fontWeight: 800, fontSize: 46, color: '#fff', lineHeight: 1.15}}>
         big stations near interstates + all built since 2006
       </div>
     </AbsoluteFill>
