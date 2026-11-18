@@ -38,13 +38,14 @@ def tokens(text):
     return out
 
 
-def align(path):
+def align(path, text=None):
     cache = path.replace('.mp3', '.align.json')
     if os.path.exists(cache) and os.path.getmtime(cache) > os.path.getmtime(path):
         return json.load(open(cache))
     from pocketsphinx import Decoder
-    bid = os.path.basename(path)[:-4]
-    text = [b for b in BLOCKS if b['id'] == bid][0]['text']
+    if text is None:
+        bid = os.path.basename(path)[:-4]
+        text = [b for b in BLOCKS if b['id'] == bid][0]['text']
     with tempfile.NamedTemporaryFile(suffix='.raw') as tmp:
         subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', path, '-ar', '16000', '-ac', '1', '-f', 's16le', tmp.name], check=True)
         data = open(tmp.name, 'rb').read()
@@ -81,34 +82,39 @@ def phrases(text):
     return merged
 
 
-result = {'blocks': [], 'captions': []}
-t0 = 0.0
-for b in BLOCKS:
-    path = f"public/long001/{b['id']}.mp3"
-    if not os.path.exists(path):
-        result['blocks'].append({'id': b['id'], 'title': b['title'], 'missing': True})
-        continue
-    dur = duration(path)
-    words = align(path)
-    ph = phrases(b['text'])
-    counts = [len(tokens(p)) for p in ph]
-    assert sum(counts) == len(words), (b['id'], sum(counts), len(words))
-    starts, k = [], 0
-    for c in counts:
-        starts.append(words[k][1])
-        k += c
-    starts[0] = 0.0
-    lasts, k = [], 0
-    for c in counts:
-        k += c
-        lasts.append(words[k - 1][2])
-    caps = []
-    for i, p in enumerate(ph):
-        end = starts[i + 1] if i + 1 < len(ph) else min(dur, lasts[i] + 0.4)
-        caps.append({'start': round(t0 + max(0, starts[i] - 0.05), 2), 'end': round(t0 + end, 2), 'text': p, 'block': b['id']})
-    result['blocks'].append({'id': b['id'], 'title': b['title'], 'audio': f"long001/{b['id']}.mp3", 'start': round(t0, 2), 'duration': round(dur, 2), 'phrases': len(ph)})
-    result['captions'] += caps
-    t0 += dur + GAP
-result['duration'] = round(t0, 2)
-json.dump(result, open('src/long001_timing.json', 'w'), indent=1)
-print('blocks recorded:', sum(1 for b in result['blocks'] if not b.get('missing')), '/', len(BLOCKS), ' total', result['duration'], 's')
+def main():
+  result = {'blocks': [], 'captions': []}
+  t0 = 0.0
+  for b in BLOCKS:
+      path = f"public/long001/{b['id']}.mp3"
+      if not os.path.exists(path):
+          result['blocks'].append({'id': b['id'], 'title': b['title'], 'missing': True})
+          continue
+      dur = duration(path)
+      words = align(path)
+      ph = phrases(b['text'])
+      counts = [len(tokens(p)) for p in ph]
+      assert sum(counts) == len(words), (b['id'], sum(counts), len(words))
+      starts, k = [], 0
+      for c in counts:
+          starts.append(words[k][1])
+          k += c
+      starts[0] = 0.0
+      lasts, k = [], 0
+      for c in counts:
+          k += c
+          lasts.append(words[k - 1][2])
+      caps = []
+      for i, p in enumerate(ph):
+          end = starts[i + 1] if i + 1 < len(ph) else min(dur, lasts[i] + 0.4)
+          caps.append({'start': round(t0 + max(0, starts[i] - 0.05), 2), 'end': round(t0 + end, 2), 'text': p, 'block': b['id']})
+      result['blocks'].append({'id': b['id'], 'title': b['title'], 'audio': f"long001/{b['id']}.mp3", 'start': round(t0, 2), 'duration': round(dur, 2), 'phrases': len(ph)})
+      result['captions'] += caps
+      t0 += dur + GAP
+  result['duration'] = round(t0, 2)
+  json.dump(result, open('src/long001_timing.json', 'w'), indent=1)
+  print('blocks recorded:', sum(1 for b in result['blocks'] if not b.get('missing')), '/', len(BLOCKS), ' total', result['duration'], 's')
+
+
+if __name__ == '__main__':
+    main()

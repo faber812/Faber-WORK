@@ -15,7 +15,7 @@ const Hero: React.FC<{f: number; pos?: V3; rotY?: number; pose?: Pose; volt?: Mo
 );
 
 // ---------- shared 3D bits ----------
-const Generator: React.FC<{p: V3; f: number; on?: boolean}> = ({p, f, on = true}) => (
+export const Generator: React.FC<{p: V3; f: number; on?: boolean}> = ({p, f, on = true}) => (
   <group position={p}>
     <Box p={[0, 0.5, 0]} s={[1.3, 1.0, 0.9]} c="#d9a21b" />
     <Box p={[0, 1.05, 0]} s={[1.4, 0.1, 1.0]} c="#2b2d33" />
@@ -23,7 +23,7 @@ const Generator: React.FC<{p: V3; f: number; on?: boolean}> = ({p, f, on = true}
     {on && <pointLight position={[0, 1.6, 0.8]} color="#ffb238" intensity={5 + 2 * Math.sin(f / 3)} distance={5} />}
   </group>
 );
-const Grill: React.FC<{p: V3; f: number}> = ({p, f}) => (
+export const Grill: React.FC<{p: V3; f: number}> = ({p, f}) => (
   <group position={p}>
     {[[-0.3, -0.3], [0.3, -0.3], [-0.3, 0.3], [0.3, 0.3]].map(([a, b], i) => (
       <Box key={i} p={[a, 0.4, b]} s={[0.07, 0.8, 0.07]} c="#2b2d33" />
@@ -34,7 +34,7 @@ const Grill: React.FC<{p: V3; f: number}> = ({p, f}) => (
   </group>
 );
 // invisible gas made visible: drifting grey puffs
-const Gas: React.FC<{f: number; c: V3; spread: V3; n?: number; k?: number}> = ({f, c, spread, n = 26, k = 1}) => (
+export const Gas: React.FC<{f: number; c: V3; spread: V3; n?: number; k?: number}> = ({f, c, spread, n = 26, k = 1}) => (
   <>
     {new Array(n).fill(0).map((_, i) => {
       const r = (x: number) => (Math.sin(i * 12.9898 + x * 78.233) * 43758.5453) % 1;

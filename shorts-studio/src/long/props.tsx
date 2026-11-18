@@ -24,10 +24,16 @@ export const Canvas: React.FC<{children: React.ReactNode}> = ({children}) => {
   );
 };
 
+// portrait frames (Shorts) need a wider vertical field of view to keep the same subject in frame
+export const useFov = (fov?: number) => {
+  const {width, height} = useVideoConfig();
+  return fov ?? (height > width ? 60 : 35);
+};
+
 // night exterior
-export const Night: React.FC<{cam: V3; tgt: V3; power?: number; fov?: number; children?: React.ReactNode}> = ({cam, tgt, power = 0.35, fov = 35, children}) => (
+export const Night: React.FC<{cam: V3; tgt: V3; power?: number; fov?: number; children?: React.ReactNode}> = ({cam, tgt, power = 0.35, fov, children}) => (
   <Canvas>
-    <Cam pos={cam} target={tgt} fov={fov} />
+    <Cam pos={cam} target={tgt} fov={useFov(fov)} />
     <Stage power={power} fogNear={18} fogFar={70} />
     {/* moonlight: keeps the blackout readable on a phone screen */}
     <hemisphereLight args={['#9fb4ff', '#202a4a', 1.1]} />
@@ -36,8 +42,25 @@ export const Night: React.FC<{cam: V3; tgt: V3; power?: number; fov?: number; ch
   </Canvas>
 );
 
+// bright daytime exterior (Shorts: the bright look holds viewers better)
+export const DayOut: React.FC<{cam: V3; tgt: V3; power?: number; fov?: number; children?: React.ReactNode}> = ({cam, tgt, fov, children}) => (
+  <Canvas>
+    <Cam pos={cam} target={tgt} fov={useFov(fov)} />
+    <color attach="background" args={['#bfdcf5']} />
+    <fog attach="fog" args={['#bfdcf5', 22, 70]} />
+    <hemisphereLight args={['#ffffff', '#9fb6a0', 1.6]} />
+    <directionalLight position={[6, 12, 8]} intensity={1.7} color="#fff4de" castShadow shadow-mapSize={[1024, 1024]} />
+    <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+      <planeGeometry args={[160, 160]} />
+      <meshStandardMaterial color="#c9d3bd" />
+    </mesh>
+    {children}
+  </Canvas>
+);
+
 // interior room (dark when lit=0, warm when lit=1)
-export const Room: React.FC<{cam: V3; tgt: V3; lit?: number; fov?: number; children?: React.ReactNode}> = ({cam, tgt, lit = 0, fov = 35, children}) => {
+export const Room: React.FC<{cam: V3; tgt: V3; lit?: number; fov?: number; children?: React.ReactNode}> = ({cam, tgt, lit = 0, fov: fov0, children}) => {
+  const fov = useFov(fov0);
   const wall = lit > 0.5 ? '#e9dcc6' : '#2c3658';
   const floor = lit > 0.5 ? '#b98a5e' : '#1a2036';
   return (
@@ -57,9 +80,9 @@ export const Room: React.FC<{cam: V3; tgt: V3; lit?: number; fov?: number; child
 };
 
 // underground cutaway: sky strip on top, soil cross-section below ground level y=0
-export const Cutaway: React.FC<{cam: V3; tgt: V3; fov?: number; children?: React.ReactNode}> = ({cam, tgt, fov = 35, children}) => (
+export const Cutaway: React.FC<{cam: V3; tgt: V3; fov?: number; children?: React.ReactNode}> = ({cam, tgt, fov, children}) => (
   <Canvas>
-    <Cam pos={cam} target={tgt} fov={fov} />
+    <Cam pos={cam} target={tgt} fov={useFov(fov)} />
     <color attach="background" args={['#0d1426']} />
     <hemisphereLight args={['#c9d6ff', '#3a2a1a', 1.25]} />
     <directionalLight position={[4, 8, 8]} intensity={1.1} />

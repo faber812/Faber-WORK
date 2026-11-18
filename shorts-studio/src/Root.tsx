@@ -6,6 +6,7 @@ import {GridEp2} from './GridEp2';
 import {Test3D} from './Test3D';
 import {StylesRoot} from './styles/StylesRoot';
 import {Gallery} from './long/Gallery';
+import {Short009, S009_FRAMES, S009_FPS} from './shorts2/S009';
 import {Thumb001} from './long/Thumb001';
 import {Long001, L1_FRAMES, L1_FPS} from './Long001';
 import {LongDraft, LONG_FRAMES, LONG_FPS} from './Long';
@@ -33,6 +34,7 @@ export const Root: React.FC = () => {
   return (
     <>
     <StylesRoot />
+    <Composition id="Short009" component={Short009} width={1080} height={1920} fps={S009_FPS} durationInFrames={S009_FRAMES} />
     <Composition id="Thumb001" component={Thumb001 as any} width={1280} height={720} fps={30} durationInFrames={1} defaultProps={{v: "A"}} />
     <Composition id="L1Gallery" component={Gallery as any} width={1920} height={1080} fps={30} durationInFrames={90} defaultProps={{i: 0}} />
     <Composition id="Long001" component={Long001} width={1920} height={1080} fps={L1_FPS} durationInFrames={L1_FRAMES} />
