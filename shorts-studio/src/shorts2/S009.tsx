@@ -188,7 +188,7 @@ const Icons: React.FC<{items: [string, string][]; d: number}> = ({items, d}) => 
               <path d="M40 40 L210 210 M210 40 L40 210" stroke={UI.red} strokeWidth={22} strokeLinecap="round" />
             </svg>
           </div>
-          <div style={{fontSize: 52, color: '#fff', marginTop: 14}}>{t}</div>
+          <div style={{display: 'inline-block', fontSize: 66, color: '#fff', marginTop: 16, background: 'rgba(11,16,32,0.88)', borderRadius: 18, padding: '6px 22px'}}>{t}</div>
         </div>
       ))}
     </div>
