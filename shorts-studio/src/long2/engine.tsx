@@ -168,13 +168,18 @@ export const Chip: React.FC<{text: string; x: number; y: number; size?: number; 
     {text}
   </div>
 );
-export const Source: React.FC<{text: string}> = ({text}) => (
-  <div style={{position: 'absolute', left: 96, top: 900, maxWidth: 1500, background: 'rgba(5,7,15,0.9)', color: '#dfe5f5', borderRadius: 10, padding: '6px 16px', fontFamily: FONT, fontWeight: 700, fontSize: 30, lineHeight: 1.25}}>
+// in slot scenes the slot labels own the bottom of the frame, so the source line moves to the top
+export const SourceTop = React.createContext(false);
+export const Source: React.FC<{text: string}> = ({text}) => {
+  const top = React.useContext(SourceTop);
+  return (
+  <div style={{position: 'absolute', left: 96, top: top ? 40 : 900, maxWidth: 1500, background: 'rgba(5,7,15,0.9)', color: '#dfe5f5', borderRadius: 10, padding: '6px 16px', fontFamily: FONT, fontWeight: 700, fontSize: top ? 26 : 30, lineHeight: 1.25}}>
     Source: {text}
   </div>
-);
-export const Title: React.FC<{text: string; k?: number}> = ({text, k = 1}) => (
-  <div style={{position: 'absolute', top: 80, left: 0, right: 0, textAlign: 'center', opacity: k}}>
+  );
+};
+export const Title: React.FC<{text: string; k?: number; top?: number}> = ({text, k = 1, top = 80}) => (
+  <div style={{position: 'absolute', top, left: 0, right: 0, textAlign: 'center', opacity: k}}>
     <span style={{background: C.panel, borderRadius: 18, padding: '10px 34px', fontFamily: FONT, fontWeight: 900, fontSize: 64, color: C.amber, letterSpacing: 1}}>{text}</span>
   </div>
 );

@@ -2,10 +2,10 @@
 // Storyboard: yt-channel content/scripts/long-002-storyboard.md (164 shots + orchestrator answers).
 // Every shot starts on a word cue from timing.json; cards appear on the word they repeat, never before.
 import React from 'react';
-import {AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Audio, interpolate, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {ThreeCanvas} from '@remotion/three';
 import timing from './timing.json';
-import {Cam, Card, Cat, CATS, Chip, C, clamp, COLX, BASE, blend, Cubes, ez, FONT, layout, lerpCam, MERGEX, P, ROADS_DATE, S, Source, State, Title, useK, WIDE, World} from './engine';
+import {Cam, Card, Cat, CATS, Chip, C, clamp, COLX, BASE, blend, Cubes, ez, FONT, layout, lerpCam, MERGEX, P, ROADS_DATE, S, Source, SourceTop, State, Title, useK, WIDE, World} from './engine';
 import {Cam as Cam3, Lineman, Volt} from '../three/kit';
 
 export const L2_FPS = 30;
@@ -41,6 +41,16 @@ const s = (head: string, after = 0) => {
     if (ok) return W[i][1];
   }
   throw new Error(`cue not found: ${head}`);
+};
+
+// first head that exists in the timing (the decoder spells STEAR as "steer"; the estimate spells it out)
+const sAny = (heads: string[], after = 0) => {
+  for (const h of heads) {
+    try {
+      return s(h, after);
+    } catch {}
+  }
+  return s(heads[0], after);
 };
 
 // ---------- sources (wording from the script) ----------
@@ -261,11 +271,11 @@ const OpenLabels: React.FC<{t: number; cam: Cam; fade?: number; pulse?: number; 
   return (
     <div style={{position: 'absolute', inset: 0, opacity: fade}}>
       <svg width={1920} height={1080} style={{position: 'absolute', inset: 0}}>
-        <g transform={`translate(${sx(330)},${sy(150)}) scale(${cam.z * 0.6})`}>
+        <g transform={`translate(${Math.max(110, sx(330))},${Math.max(200, sy(150))}) scale(${Math.max(0.8, cam.z * 0.6)})`}>
           <Ico kind="generator" x={0} y={0} s={120} />
         </g>
       </svg>
-      <Chip text="WHAT EVERYONE WARNS YOU ABOUT" x={Math.max(96, sx(330) + 70 * cam.z * 0.6)} y={Math.max(54, sy(150) - 30)} size={34} />
+      <Chip text="WHAT EVERYONE WARNS YOU ABOUT" x={Math.max(110, sx(330)) + 70 * Math.max(0.8, cam.z * 0.6)} y={Math.max(200, sy(150)) - 30} size={34} />
       <Chip text="CARBON MONOXIDE · ALL SOURCES · 19" x={Math.max(96, sx(468))} y={Math.min(880, sy(250 + 6 * P + 20))} size={32} />
       <div style={{position: 'absolute', left: Math.max(96, sx(468)), top: Math.min(940, sy(250 + 6 * P + 80)), display: 'flex', gap: 8, transform: `scale(${1 + 0.06 * pulse})`, transformOrigin: 'left center'}}>
         {words.map((wd, i) => (
@@ -286,7 +296,7 @@ const N5 = s('Number five');
 const N4 = s('Number four');
 const N3 = s('Number three');
 const N2 = s('Number two');
-const N1 = s('Number one');
+const N1 = s('Number one. The cold');
 
 const openWordsLit = (t: number) => {
   const cues = [w('generators', 0, 0), w('grills', 0, 0), w('heaters', 0, 0), w('cars', 0, 0), w('blocked', 0, 0)];
@@ -345,12 +355,12 @@ const SHOTS_RAW: Shot[] = [
   // #4 CO
   {t: N4, st: ST.ch(3), cam: CAM.slots, slots: true, O: () => <><Title text="#4 CARBON MONOXIDE · 19" /><Source text={DSHS} /></>},
   {t: s('This is the one everyone'), st: ST.ch(3), cam: CAM.col('co', 1.7), slots: true, O: ({t}) => <><FiveSources t={t} lit={0} /><Source text={DSHS} /></>},
-  {t: s('Generators. Grills'), st: ST.ch(3), cam: CAM.col('co', 1.7), slots: true, O: ({t}) => <><FiveSources t={t} lit={[w('generators', 0, N4), w('grills', 0, N4), w('heaters', 0, N4), w('cars', 0, N4)].filter((c) => t >= c).length} /><Source text={DSHS} /></>},
+  {t: s('Generators. Grills', N4), st: ST.ch(3), cam: CAM.col('co', 1.7), slots: true, O: ({t}) => <><FiveSources t={t} lit={[w('generators', 0, N4), w('grills', 0, N4), w('heaters', 0, N4), w('cars', 0, N4)].filter((c) => t >= c).length} /><Source text={DSHS} /></>},
   {t: s("And one that's"), st: ST.ch(3), cam: CAM.col('co', 1.7), slots: true, O: ({t}) => <><FiveSources t={t} lit={t >= w('ice', 0, s("And one that's")) ? 5 : 4} glow={t >= w('ice', 0, s("And one that's"))} /><Source text={DSHS} /></>},
   {t: s("You've heard the generator"), O: () => <Field><Svg><Ico kind="generator" x={960} y={520} s={260} /></Svg></Field>},
   {t: s('Outside, at least'), O: () => <Field><Card lines={['OUTSIDE · AT LEAST 20 FT FROM WINDOWS, DOORS & VENTS', 'NEVER IN THE GARAGE — CDC']} top={360} size={54} color={C.amber} width={1600} /><Source text="CDC" /></Field>},
   {t: s("So let's talk about the vent"), O: ({t, t0}) => <Field><Svg><g transform={`translate(960,540) scale(${ez(t * 30, t0 * 30, t0 * 30 + 50, 1.4, 3.2)})`}><Ico kind="vent" x={0} y={0} s={120} /></g></Svg></Field>},
-  {t: s('Gas heating equipment'), O: ({t, t0}) => <Field><Svg><VentCut t={t} ice={0} back={0} /></Svg></Field>},
+  {t: s('Gas heating equipment sends'), O: ({t, t0}) => <Field><Svg><VentCut t={t} ice={0} back={0} /></Svg></Field>},
   {t: s('If ice or snow'), O: ({t, t0}) => <Field><Svg><VentCut t={t} ice={interpolate(t, [t0, t0 + 2], [0, 1], clamp)} back={0} /></Svg></Field>},
   {t: s('The Massachusetts'), O: ({t, t0}) => <Field><Svg><VentCut t={t} ice={1} back={interpolate(t, [t0, t0 + 3], [0, 1], clamp)} /></Svg><Source text={MDFS} /></Field>},
   {t: w('this', 0, s('The Massachusetts')), O: ({t}) => <Field><Svg><g opacity={0.35}><VentCut t={t} ice={1} back={1} /></g></Svg><Card lines={['“If the vent or flue is blocked, this poisonous gas', 'can reach deadly levels inside the home.”']} top={360} size={52} width={1600} /><Source text={MDFS} /></Field>},
@@ -402,7 +412,7 @@ const SHOTS_RAW: Shot[] = [
   {t: s("It doesn't guarantee"), O: ({t}) => <Field><Stear t={t} /><Source text={DEV_SRC} /></Field>},
   {t: s('Outside Texas'), O: ({t, t0}) => <Field><Stear t={t} /><At t={t} at={t0}>{(k) => <Chip text="OUTSIDE TEXAS: ASK YOUR UTILITY & COUNTY IF THEY HAVE A LIST LIKE THIS" x={180} y={800} size={36} k={k} />}</At><Source text={DEV_SRC} /></Field>},
   // #1 COLD
-  {t: N1, st: ST.ch(5), cam: CAM.wide, slots: true, O: () => <><Title text="#1 COLD · 161" /><Source text={T3} /></>},
+  {t: N1, st: ST.ch(5), cam: CAM.wide, slots: true, O: () => <><Title text="#1 COLD · 161" top={110} /><Source text={T3} /></>},
   {t: s('One hundred sixty one deaths'), st: ST.ch(6), cam: CAM.wide, slots: true, O: () => <Source text={T3} />},
   {t: s('One hundred fifty eight'), st: ALL, cam: CAM.wide, slots: true, O: () => <Source text={T3} />},
   {t: s("That's more than every"), st: ALL, cam: CAM.wide, slots: true, O: () => <Source text={T3} />},
@@ -448,10 +458,9 @@ const SHOTS_RAW: Shot[] = [
   {t: s('Those two rules'), O: ({t, t0}) => <Field><TwoCards t={t} rightAt={0} inset={0.6} apart={interpolate(t, [t0, t0 + 2], [0, 1], clamp)} /><Source text="CDC; Ready.gov" /></Field>},
   {t: s("So here's our take"), O: ({t, t0}) => <Field><TwoCards t={t} rightAt={0} inset={0.6} apart={1} /><At t={t} at={w('take', 0, t0)}>{(k) => <Chip text="OUR TAKE" x={96} y={560} size={36} k={k} color={C.amber} />}</At><At t={t} at={w('make', 0, t0)}>{(k) => <Card lines={['MAKE THE PLAN BEFORE THE STORM: WHERE · HOW YOU’D GET THERE']} top={640} size={46} width={1600} k={k} />}</At></Field>},
   {t: s('Know where you would go'), O: ({t, t0}) => <Field><Svg><MapRoute t={t} t0={t0} houseOff={0} route={interpolate(t, [w('how', 0, t0), w('how', 0, t0) + 1.5], [0, 1], clamp)} glow={t > w('where', 0, t0)} /></Svg><Chip text="OUR TAKE" x={96} y={90} size={36} color={C.amber} /><Card lines={['MAKE THE PLAN BEFORE THE STORM: WHERE · HOW YOU’D GET THERE']} top={160} size={42} width={1500} /></Field>},
-  {t: s('And again'), O: ({t, t0}) => <Field><Svg><BigThermo t={t} mark={0} /></Svg><Chip text="not medical advice" x={1180} y={300} size={36} /><Source text={CDC_WS} /></Field>},
+  {t: s("And again, we're not doctors"), O: ({t, t0}) => <Field><Svg><BigThermo t={t} mark={0} /></Svg><Chip text="not medical advice" x={1180} y={300} size={36} /><Source text={CDC_WS} /></Field>},
   {t: s('A body temperature'), O: ({t, t0}) => <Field><Svg><BigThermo t={t} mark={interpolate(t, [w('ninety'), w('ninety') + 0.5], [0, 1], clamp)} /></Svg><At t={t} at={w('ninety', 0, t0)}>{(k) => <Card lines={['BODY TEMP BELOW 95°F = EMERGENCY — CDC']} top={380} size={52} width={900} left={900} color={C.amber} k={k} />}</At><Chip text="not medical advice" x={1180} y={540} size={36} /><Source text={CDC_WS} /></Field>},
-  {t: s('The report also noted'), O: () => <Field><Svg><g transform="translate(-700,0) scale(0.7)"><BigThermo t={0} mark={1} /></g></Svg><Source text={DSHS} /></Field>},
-  {t: w('in', 0, w('storm', 0, s('The report also noted'))), O: () => <Field><Svg><g transform="translate(-700,0) scale(0.7)"><BigThermo t={0} mark={1} /></g></Svg><Chip text="22 of 158 hypothermia deaths: history of alcohol abuse or drinking during the storm (DSHS)" x={400} y={500} size={34} /><Source text={DSHS} /></Field>},
+  {t: s('The report also noted'), O: () => <Field><Svg><g transform="translate(-360,40) scale(0.8)"><BigThermo t={0} mark={1} /></g></Svg><Chip text="22 of 158 hypothermia deaths:" x={620} y={430} size={40} /><Chip text="history of alcohol abuse, or drinking during the storm" x={620} y={510} size={36} /><Source text={DSHS} /></Field>},
   {t: s('One more tip'), O: ({t, t0}) => <Field><Svg><HeatLines t={t} t0={t0} /></Svg><Source text={CDC_WS} /></Field>},
   {t: s('Skip alcohol'), O: ({t, t0}) => <Field><Svg><HeatLines t={t} t0={t0 - 2} /></Svg><RuleCard t={t} at={w('lose', 0, t0)} text="ALCOHOL & CAFFEINE → LOSE HEAT FASTER — CDC" top={140} /><Source text={CDC_WS} /></Field>},
   // THE HONEST VERSION
@@ -757,7 +766,7 @@ const Route: React.FC<{t: number; t0: number; y: number}> = ({t, t0, y}) => {
 const Stear: React.FC<{t: number}> = ({t}) => {
   const a = s('In Texas');
   const parts: [string, number][] = [
-    ['STEAR — State of Texas Emergency Assistance Registry · free', s('called STEAR', a) + 0.4],
+    ['STEAR — State of Texas Emergency Assistance Registry · free', sAny(['called steer', 'called STEAR'], a) + 0.4],
     ['online or dial 2-1-1', w('online', 0, a)],
     ['a family member can register someone, with their permission', w('dialing', 0, a)],
     ['re-register every year', w('every', 0, a)],
@@ -942,7 +951,8 @@ export const Long002: React.FC = () => {
           {cur.slots && <Slots t={t} inT={slotsIn} glowFrom={t < s('One is hiding') ? s("We'll go from") : -1} revealed={revealed} coldShown={t >= N1} lastGlow={t < N6 ? s('And the biggest') : -1} />}
         </World>
       )}
-      {cur.O && <cur.O t={t} t0={t0} t1={t1} />}
+      <SourceTop.Provider value={!!(gridShot && cur.slots)}>{cur.O && <cur.O t={t} t0={t0} t1={t1} />}</SourceTop.Provider>
+      {!(timing as any).estimated && <Audio src={staticFile('long2/l002.mp3')} />}
     </AbsoluteFill>
   );
 };
