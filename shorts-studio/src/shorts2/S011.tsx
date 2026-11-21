@@ -28,6 +28,23 @@ const q = (head: string, after = 0) => {
 // door plane z = -4, x -2.4..2.4, 4 panels of 0.8 m; tracks go up, then along the ceiling (y 3.45) into the garage
 const DOOR_Z = -4;
 const PANEL = 0.8;
+const HANDLE_X = 2.0;
+const CAR_X = -0.5;
+// lift handle on the second section: world position for a given door opening
+const handleAt = (open: number): V3 => [HANDLE_X, open * 3.2 + PANEL * 1.5 + 0.05, DOOR_Z + 0.1];
+// aim Lineman's right arm (kit pose: armRx, armR) so the hand lands on a world point
+const reach = (frame: number, pos: V3, rotY: number, target: V3) => {
+  const c = Math.cos(rotY), sn = Math.sin(rotY);
+  const bob = Math.sin(frame / 8) * 0.03;
+  const sway = Math.sin(frame / 12) * 0.06;
+  const S: V3 = [pos[0] + 0.65 * c, pos[1] + 1.72 + bob, pos[2] - 0.65 * sn];
+  const d = [target[0] - S[0], target[1] - S[1], target[2] - S[2]];
+  const lx = d[0] * c - d[2] * sn, ly = d[1], lz = d[0] * sn + d[2] * c;
+  const n = Math.hypot(lx, ly, lz);
+  const zr = Math.asin(Math.max(-1, Math.min(1, lx / n)));
+  const xr = Math.atan2(-lz / n, -ly / n);
+  return {armRx: xr, armR: -zr - sway};
+};
 const panelPose = (s: number): {p: V3; flat: boolean} => (s < 3.2 ? {p: [0, s, DOOR_Z], flat: false} : {p: [0, 3.45, DOOR_Z + (s - 3.2)], flat: true});
 const Door: React.FC<{open: number; ghost?: boolean}> = ({open, ghost}) => (
   <group>
@@ -37,7 +54,7 @@ const Door: React.FC<{open: number; ghost?: boolean}> = ({open, ghost}) => (
         <group key={i} position={p} rotation={[flat ? -Math.PI / 2 : 0, 0, 0]}>
           <Box s={[4.8, PANEL - 0.03, 0.08]} c={ghost ? '#9fb4ff' : '#c9ced9'} />
           {[-1.6, 0, 1.6].map((x) => <Box key={x} p={[x, 0, 0.05]} s={[1.3, PANEL * 0.62, 0.02]} c="#b3b9c6" />)}
-          {i === 0 && <Box p={[1.9, 0.05, 0.1]} s={[0.36, 0.08, 0.08]} c="#3a3d48" />}
+          {i === 1 && <Box p={[HANDLE_X, 0.05, 0.1]} s={[0.4, 0.1, 0.1]} c="#2b2e38" />}
           {/* hinges between sections */}
           {i > 0 && [-2.0, 0, 2.0].map((x) => <Box key={`h${x}`} p={[x, -PANEL / 2, 0.06]} s={[0.14, 0.12, 0.03]} c="#6b7080" />)}
         </group>
@@ -98,7 +115,7 @@ const Springs: React.FC<{glow?: number; crack?: boolean; stretch?: number}> = ({
 // the whole garage: walls, ceiling, door, opener, springs, car, Lineman with a phone flashlight
 const Garage: React.FC<{
   f: number; cam: V3; tgt: V3; open?: number; hi?: boolean; cordHi?: number; pulled?: number; released?: boolean;
-  springGlow?: number; crack?: boolean; hero?: Pose | null; heroPos?: V3; heroRot?: number; beam?: V3; volt?: boolean; headlights?: boolean; fov?: number;
+  springGlow?: number; crack?: boolean; dark?: boolean; zone?: boolean; hero?: Pose | null; heroPos?: V3; heroRot?: number; beam?: V3; volt?: boolean; headlights?: boolean; fov?: number;
 }> = (o) => {
   const fov = useFov(o.fov);
   const heroPos = o.heroPos ?? [1.6, 0, -1.2];
@@ -108,7 +125,8 @@ const Garage: React.FC<{
       <color attach="background" args={['#1a2140']} />
       <hemisphereLight args={['#b9c8f0', '#3a4260', 1.25]} />
       <directionalLight position={[3, 6, 6]} intensity={0.7} color="#c8d6ff" />
-      <pointLight position={[0, 3.7, -1]} intensity={6} distance={9} color="#9fb4ff" />
+      {!o.dark && <pointLight position={[0, 3.7, -1]} intensity={6} distance={9} color="#9fb4ff" />}
+      {o.zone && <Box p={[0, 0.03, DOOR_Z]} s={[4.8, 0.02, 0.7]} c={UI.amber} e={0.5} />}
       <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[30, 30]} />
         <meshStandardMaterial color="#6a7080" />
@@ -127,10 +145,10 @@ const Garage: React.FC<{
       <Tracks />
       <Opener hi={o.hi} cordHi={o.cordHi} pulled={o.pulled} released={o.released} open={o.open} />
       <Springs glow={o.springGlow} crack={o.crack} />
-      <group position={[0, 0, -1.85]} scale={1.8}><Car p={[0, 0, 0]} r={Math.PI} c="#4e7fff" lights={o.headlights ? 3 : 0} /></group>
-      {o.headlights && <spotLight position={[0, 0.5, -2.4]} target-position={[0, 0.3, -8]} angle={0.5} penumbra={0.6} intensity={60} distance={16} color="#fff3d6" />}
+      <group position={[CAR_X, 0, -1.85]} scale={1.8}><Car p={[0, 0, 0]} r={Math.PI} c="#4e7fff" lights={o.headlights ? 3 : 0} /></group>
+      {o.headlights && <spotLight position={[CAR_X, 0.7, -3.8]} target-position={[CAR_X, 0, -9]} angle={0.55} penumbra={0.5} intensity={140} distance={20} color="#fff3d6" />}
       {o.hero !== null && <Lineman frame={o.f} pos={heroPos} rotY={o.heroRot ?? -2.6} pose={o.hero ?? {hold: 'phone', armRx: -1.3, phoneGlow: 1, lookX: -0.2}} />}
-      {o.beam && <spotLight position={[heroPos[0] - 0.4, 1.8, heroPos[2] - 0.3]} target-position={o.beam} angle={0.38} penumbra={0.5} intensity={40} distance={10} color="#ffe3a8" />}
+      {o.beam && <spotLight position={[heroPos[0] - 0.4, 1.8, heroPos[2] - 0.3]} target-position={o.beam} angle={0.38} penumbra={0.5} intensity={o.dark ? 70 : 40} distance={10} color={o.dark ? '#ffc070' : '#ffe3a8'} />}
       {o.volt && <Volt frame={o.f} pos={[-1.9, 3.0, DOOR_Z + 0.9]} glow={0} mood="worried" />}
     </Canvas>
   );
@@ -202,6 +220,7 @@ const T = {
   called: q("It's called the emergency"),
   makers: q('Opener makers say'),
   pullOnly: q('pull it only with'),
+  fullyClosed: q('fully closed'),
   springsLift: q('The springs do the heavy'),
   but: q('But if one is weak'),
   weak: q('weak or broken'),
@@ -211,6 +230,7 @@ const T = {
   callPro1: q('Call a garage door pro'),
   clear: q('Clear people and pets'),
   stuckOpen: q('If the door is stuck open'),
+  keepOut: q('and keep everyone out'),
   closedTag: q("If it's closed"),
   pullDown: q('pull the cord down'),
   down: q('down', q('pull the cord down') + 0.1),
@@ -229,13 +249,18 @@ const DOOR_CENTER: V3 = [0, 1.6, DOOR_Z];
 const CORD: V3 = [0, 2.6, DOOR_Z + 1.0];
 const ez = (t: number, a: number, b: number, x: number, y: number) => interpolate(t, [a, b], [x, y], clamp);
 
+// lifting: Lineman at the jamb, outside the door width, right hand on the handle
+const LIFT_POS: V3 = [3.0, 0, -3.0];
+const LIFT_ROT = (160 / 180) * Math.PI;
+const PULL_POS: V3 = [1.0, 0, -2.51];
+const OPEN_HERO: V3 = [0.95, 0, -0.6];
 const SHOTS: [number, Shot][] = [
   // beat 1
   [0, ({t}) => {
     const f = Math.round(t * 30);
     return (
       <>
-        <Garage f={f} cam={[ez(t, 0, 1.6, -2.4, -2.0), 2.6, ez(t, 0, 1.6, 2.6, 2.0)]} tgt={[0.4, 1.9, DOOR_Z + 0.4]} beam={[0, 2.4, DOOR_Z + 0.6]} cordHi={0.6} />
+        <Garage f={f} dark cam={[ez(t, 0, 1.6, -1.3, -1.1), 2.9, ez(t, 0, 1.6, 4.6, 4.2)]} tgt={[0.95, 1.5, DOOR_Z + 0.8]} beam={[0, 2.4, DOOR_Z + 0.6]} cordHi={0.6} heroPos={OPEN_HERO} heroRot={-2.75} hero={{hold: 'phone', armRx: -1.5, phoneGlow: 1.4, lookX: -0.35, brows: 'worried'}} />
         <Txt lines={[["CAR'S STUCK."], ['LOOK UP.', UI.amber]]} top={250} size={140} />
       </>
     );
@@ -323,6 +348,18 @@ const SHOTS: [number, Shot][] = [
       <Card text="PULL ONLY WITH THE DOOR FULLY CLOSED" small="if possible" src="Chamberlain · Genie" top={260} size={62} o={kk(t, t0)} />
     </>
   )],
+  [T.fullyClosed, ({t, t0}) => (
+    <>
+      <Garage f={Math.round(t * 30)} cam={[2.6, 2.2, ez(t, t0, t0 + 2, 0.2, -0.4)]} tgt={[0.2, 2.0, DOOR_Z]} beam={[0, 2.5, DOOR_Z + 1.0]} cordHi={0.8} hero={null} />
+      <svg width={1080} height={1920} style={{position: 'absolute', inset: 0}}>
+        <g opacity={kk(t, t0 + 0.2)}>
+          <circle cx={760} cy={1180} r={64} fill="#4ee08a" />
+          <path d="M728 1180 L752 1204 L798 1154" stroke="#0b1020" strokeWidth={14} fill="none" strokeLinecap="round" />
+        </g>
+      </svg>
+      <Card text="PULL ONLY WITH THE DOOR FULLY CLOSED" small="if possible" src="Chamberlain · Genie" top={260} size={62} />
+    </>
+  )],
   [T.springsLift, ({t, t0}) => (
     <>
       <Garage f={Math.round(t * 30)} cam={[0.4, 3.0, ez(t, t0, t0 + 1.6, -1.4, -2.2)]} tgt={[0, 3.5, DOOR_Z + 0.25]} springGlow={1.2} hero={null} volt />
@@ -399,11 +436,19 @@ const SHOTS: [number, Shot][] = [
       <Card text="DOOR OPEN? USE CAUTION. STAY OUT FROM UNDER IT." src="16 CFR 1211 · Chamberlain" top={260} size={58} color={UI.amber} o={kk(t, t0)} />
     </>
   )],
+  [T.keepOut, ({t, t0}) => (
+    <>
+      <Garage f={Math.round(t * 30)} cam={[1.2, 2.9, ez(t, t0, t0 + 2, 1.8, 1.2)]} tgt={[1.6, 1.0, DOOR_Z]} open={0.5} zone beam={[0.6, 0.3, DOOR_Z + 0.3]} hero={{armL: 0.1, brows: 'up', lookX: 0.2}} heroPos={[3.0, 0, -2.6]} heroRot={-2.3} />
+      <Card text="DOOR OPEN? USE CAUTION. STAY OUT FROM UNDER IT." src="16 CFR 1211 · Chamberlain" top={260} size={58} color={UI.amber} />
+    </>
+  )],
   [T.closedTag, ({t, t0}) => {
-    const pull = interpolate(t, [T.pullDown, T.pullDown + 0.6], [0, 1], clamp);
+    const pull = interpolate(t, [T.pullDown, T.pullDown + 0.6], [0, 0.5], clamp);
+    const f = Math.round(t * 30);
+    const grip: V3 = [0, 2.48 - pull * 0.5, DOOR_Z + 1.0];
     return (
       <>
-        <Garage f={Math.round(t * 30)} cam={[2.9, 2.4, 0.6]} tgt={[0.6, 2.0, DOOR_Z + 1.0]} beam={DOOR_CENTER} pulled={pull} hero={{armRx: pull > 0 ? -2.6 + pull * 1.4 : -2.6, armR: 0.25, brows: 'up', lookX: -0.3}} heroPos={[1.25, 0, DOOR_Z + 1.0]} heroRot={-1.6} />
+        <Garage f={f} cam={[-1.5, 3.6, 0.6]} tgt={[0.6, 1.8, DOOR_Z + 1.1]} beam={DOOR_CENTER} pulled={pull} hero={{...reach(f, PULL_POS, Math.PI, grip), brows: 'up', lookX: -0.4}} heroPos={PULL_POS} heroRot={Math.PI} />
         <Chip text="DOOR CLOSED ✓" x={60} y={260} size={50} color="#4ee08a" o={kk(t, t0)} />
         {t >= T.pullDown && (
           <svg width={1080} height={1920} style={{position: 'absolute', inset: 0}}>
@@ -421,9 +466,10 @@ const SHOTS: [number, Shot][] = [
   )],
   [T.liftNever, ({t, t0}) => {
     const open = interpolate(t, [t0 + 0.4, t0 + 1.8], [0, 0.25], clamp);
+    const f = Math.round(t * 30);
     return (
       <>
-        <Garage f={Math.round(t * 30)} cam={[1.0, 2.2, 0.2]} tgt={[2.0, 0.9, DOOR_Z]} released open={open} beam={[1.9, 0.6, DOOR_Z]} hero={{armRx: -1.1, armL: 0.4, armR: 0.2, brows: 'up'}} heroPos={[2.85, 0, DOOR_Z + 0.55]} heroRot={-1.9} />
+        <Garage f={f} cam={[1.0, 2.2, 0.2]} tgt={[2.2, 1.3, DOOR_Z]} released open={open} beam={[2.0, 1.2, DOOR_Z]} hero={{...reach(f, LIFT_POS, LIFT_ROT, handleAt(open)), armL: 0.3, brows: 'up'}} heroPos={LIFT_POS} heroRot={LIFT_ROT} />
         <Card text="LIFT BY THE DOOR, NOT THE CORD" top={260} size={66} o={kk(t, t0 + 0.2)} />
       </>
     );
@@ -443,9 +489,10 @@ const SHOTS: [number, Shot][] = [
   // beat 5
   [T.balanced, ({t, t0}) => {
     const open = interpolate(t, [t0, t0 + 1.8], [0.25, 1], clamp);
+    const f = Math.round(t * 30);
     return (
       <>
-        <Garage f={Math.round(t * 30)} cam={[1.3, 2.1, -0.4]} tgt={[1.6, 1.6, DOOR_Z]} released open={open} beam={[0, 0.2, DOOR_Z - 2]} hero={{armRx: -2.4, brows: 'up', mouth: 'smile'}} heroPos={[2.85, 0, DOOR_Z + 0.55]} heroRot={-1.9} />
+        <Garage f={f} cam={[1.3, 2.1, -0.4]} tgt={[1.6, 1.6, DOOR_Z]} released open={open} beam={[0, 0.2, DOOR_Z - 2]} hero={open < 0.36 ? {...reach(f, LIFT_POS, LIFT_ROT, handleAt(open)), armL: 0.3, brows: 'up'} : {armRx: -0.2, brows: 'up', mouth: 'smile'}} heroPos={LIFT_POS} heroRot={LIFT_ROT} />
         <Card text="BALANCED DOOR LIFTS SMOOTHLY" top={260} size={66} color="#4ee08a" o={kk(t, t0 + 0.2)} />
       </>
     );
@@ -520,8 +567,8 @@ const EndCard: React.FC<{t: number; t0: number}> = ({t, t0}) => {
         );
       })}
       <g opacity={kk(t, t0)}>
-        <rect x={60} y={1400} width={760} height={50} rx={10} fill="rgba(5,7,15,0.9)" />
-        <text x={80} y={1435} fontFamily="Inter" fontWeight={700} fontSize={28} fill="#cfd6ea">Source: Chamberlain · Genie: manual release guides</text>
+        <rect x={60} y={1340} width={760} height={50} rx={10} fill="rgba(5,7,15,0.9)" />
+        <text x={80} y={1375} fontFamily="Inter" fontWeight={700} fontSize={28} fill="#cfd6ea">Source: Chamberlain · Genie: manual release guides</text>
       </g>
     </g>
   );
