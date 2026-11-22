@@ -7,6 +7,7 @@ import {AbsoluteFill, Audio, interpolate, staticFile, useCurrentFrame, useVideoC
 import timing from './s011_timing.json';
 import {Box, Cam, clamp, Lineman, Pose, Volt} from '../three/kit';
 import {Canvas, Car, FONT, pop, UI, useFov} from '../long/props';
+import {ThumbScene, ThumbText} from './Thumb011';
 
 export const S011_FPS = 30;
 export const S011_FRAMES = Math.ceil((timing.duration + 0.6) * S011_FPS);
@@ -26,7 +27,7 @@ const q = (head: string, after = 0) => {
 
 // ---------- garage set ----------
 // door plane z = -4, x -2.4..2.4, 4 panels of 0.8 m; tracks go up, then along the ceiling (y 3.45) into the garage
-const DOOR_Z = -4;
+export const DOOR_Z = -4;
 const PANEL = 0.8;
 const HANDLE_X = 2.0;
 const CAR_X = -0.5;
@@ -46,7 +47,7 @@ const reach = (frame: number, pos: V3, rotY: number, target: V3) => {
   return {armRx: xr, armR: -zr - sway};
 };
 const panelPose = (s: number): {p: V3; flat: boolean} => (s < 3.2 ? {p: [0, s, DOOR_Z], flat: false} : {p: [0, 3.45, DOOR_Z + (s - 3.2)], flat: true});
-const Door: React.FC<{open: number; ghost?: boolean}> = ({open, ghost}) => (
+export const Door: React.FC<{open: number; ghost?: boolean}> = ({open, ghost}) => (
   <group>
     {[0, 1, 2, 3].map((i) => {
       const {p, flat} = panelPose(open * 3.2 + i * PANEL + PANEL / 2);
@@ -62,7 +63,7 @@ const Door: React.FC<{open: number; ghost?: boolean}> = ({open, ghost}) => (
     })}
   </group>
 );
-const Tracks: React.FC = () => (
+export const Tracks: React.FC = () => (
   <>
     {[-2.5, 2.5].map((x) => (
       <group key={x}>
@@ -96,7 +97,7 @@ const Opener: React.FC<{hi?: boolean; cordHi?: number; pulled?: number; released
     </group>
   );
 };
-const Springs: React.FC<{glow?: number; crack?: boolean; stretch?: number}> = ({glow = 0, crack, stretch = 0}) => (
+export const Springs: React.FC<{glow?: number; crack?: boolean; stretch?: number}> = ({glow = 0, crack, stretch = 0}) => (
   <group position={[0, 3.55, DOOR_Z + 0.25]}>
     {[-1, 1].map((side) => (
       <group key={side} position={[side * 1.1, 0, 0]}>
@@ -255,8 +256,15 @@ const LIFT_ROT = (160 / 180) * Math.PI;
 const PULL_POS: V3 = [1.0, 0, -2.51];
 const OPEN_HERO: V3 = [0.95, 0, -0.6];
 const SHOTS: [number, Shot][] = [
+  // frame 0 = the thumbnail (held 0.3 s)
+  [0, ({t}) => (
+    <>
+      <ThumbScene frame={Math.round(t * 30)} />
+      <ThumbText />
+    </>
+  )],
   // beat 1
-  [0, ({t}) => {
+  [0.3, ({t}) => {
     const f = Math.round(t * 30);
     return (
       <>
