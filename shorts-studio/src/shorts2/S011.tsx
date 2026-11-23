@@ -16,7 +16,7 @@ const W = timing.words as [string, number, number][];
 
 // ---------- cues: word sequence, first match at or after `after` ----------
 const toks = (text: string) => (text.toLowerCase().replace(/[^a-z' ]/g, ' ').match(/[a-z']+/g) ?? []).map((w) => w.replace(/^'+|'+$/g, ''));
-const q = (head: string, after = 0) => {
+export const q = (head: string, after = 0) => {
   const h = toks(head);
   for (let i = 0; i + h.length <= W.length; i++) {
     if (W[i][1] < after - 0.001) continue;
@@ -30,11 +30,11 @@ const q = (head: string, after = 0) => {
 export const DOOR_Z = -4;
 const PANEL = 0.8;
 const HANDLE_X = 2.0;
-const CAR_X = -0.5;
+export const CAR_X = -0.5;
 // lift handle on the second section: world position for a given door opening
-const handleAt = (open: number): V3 => [HANDLE_X, open * 3.2 + PANEL * 1.5 + 0.05, DOOR_Z + 0.1];
+export const handleAt = (open: number): V3 => [HANDLE_X, open * 3.2 + PANEL * 1.5 + 0.05, DOOR_Z + 0.1];
 // aim Lineman's right arm (kit pose: armRx, armR) so the hand lands on a world point
-const reach = (frame: number, pos: V3, rotY: number, target: V3) => {
+export const reach = (frame: number, pos: V3, rotY: number, target: V3) => {
   const c = Math.cos(rotY), sn = Math.sin(rotY);
   const bob = Math.sin(frame / 8) * 0.03;
   const sway = Math.sin(frame / 12) * 0.06;
@@ -74,7 +74,7 @@ export const Tracks: React.FC = () => (
   </>
 );
 // generic opener: dark housing, rail, trolley, arm to the door top, red cord with a T handle
-const Opener: React.FC<{hi?: boolean; cordHi?: number; pulled?: number; released?: boolean; open?: number}> = ({hi, cordHi = 0, pulled = 0, released, open = 0}) => {
+export const Opener: React.FC<{hi?: boolean; cordHi?: number; pulled?: number; released?: boolean; open?: number}> = ({hi, cordHi = 0, pulled = 0, released, open = 0}) => {
   const trolleyZ = DOOR_Z + 1.0 + (released ? 0 : open * 3.0);
   return (
     <group>
@@ -208,7 +208,7 @@ const Wrench: React.FC<{x: number; y: number; s?: number}> = ({x, y, s = 1}) => 
 );
 
 // ---------- cue times ----------
-const T = {
+export const T = {
   stuck: q("Your car's stuck"),
   budge: q("The garage door won't budge"),
   how: q('How do you get it out'),
@@ -253,7 +253,7 @@ const ez = (t: number, a: number, b: number, x: number, y: number) => interpolat
 // lifting: Lineman at the jamb, outside the door width, right hand on the handle
 const LIFT_POS: V3 = [3.0, 0, -3.0];
 const LIFT_ROT = (160 / 180) * Math.PI;
-const PULL_POS: V3 = [1.0, 0, -2.51];
+export const PULL_POS: V3 = [1.0, 0, -2.51];
 const OPEN_HERO: V3 = [0.95, 0, -0.6];
 const SHOTS: [number, Shot][] = [
   // frame 0 = the thumbnail (held 0.3 s)
