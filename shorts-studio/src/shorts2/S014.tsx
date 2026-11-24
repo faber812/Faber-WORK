@@ -184,7 +184,7 @@ const World: React.FC<{t: number; f: number; cam: V3}> = ({t, f, cam}) => {
   const yard = interpolate(t, [T.follow + 0.3, T.thin], [0, 1], cl);
   const pipeFrost = 1;
   const cutSiding = interpolate(t, [T.hits + 0.3, T.hits + 0.8, T.finds + 1.4, T.finds + 1.8], [1, 0, 0, 1], cl);
-  const cutDry = interpolate(t, [T.finds, T.finds + 0.4, T.behind, T.behind + 0.4], [1, 0, 0, 1], cl);
+  const cutDry = interpolate(t, [T.finds - 0.4, T.finds, T.behind, T.behind + 0.4], [1, 0, 0, 1], cl);
   const coldGlow = t >= T.coldWall && t < T.usual ? 0.8 + 0.4 * Math.sin(t * 6) : 0.3;
   // doors: open by Lineman at "lists" (shows the note) and again at "Open the doors"
   const open1 = interpolate(t, [T.lists - 0.3, T.lists + 0.2, T.follow - 0.2, T.follow + 0.3], [0, 1.6, 1.6, 0], cl);
@@ -223,6 +223,9 @@ const World: React.FC<{t: number; f: number; cam: V3}> = ({t, f, cam}) => {
         <Box p={[0.25, 1.94, -1.65]} s={[0.04, 0.02, 0.04]} c="#2b7be0" />
         <Box p={[-0.05, 1.9, -1.72]} s={[0.12, 0.06, 0.16]} c="#c9ced6" />
         <Box p={[-0.05, 1.94, -1.65]} s={[0.04, 0.02, 0.04]} c="#e0352b" />
+        <Box p={[-0.75, 1.82, -1.45]} s={[0.36, 0.3, 0.3]} c="#d8402c" />
+        <Box p={[-0.75, 2.0, -1.45]} s={[0.12, 0.08, 0.12]} c="#2b2d33" />
+        <Box p={[0.6, 0.008, 1.0]} s={[2.4, 0.015, 1.4]} c="#c8643c" />
         {/* upper cabinets + dark ceiling light (off) */}
         <Box p={[-2.2, 3.5, -1.8]} s={[1.6, 1.1, 0.5]} c="#efe2c4" />
         <Box p={[2.0, 3.5, -1.8]} s={[1.6, 1.1, 0.5]} c="#efe2c4" />
@@ -293,9 +296,10 @@ const World: React.FC<{t: number; f: number; cam: V3}> = ({t, f, cam}) => {
         {h: HINGE_L, a: aL, s: 1},
         {h: -HINGE_L, a: aR, s: -1},
       ].map((d, i) => {
-        const camNear = cam[2] < -0.75 && cam[2] > -1.5 && Math.abs(cam[0]) < 1.4 && cam[1] < 1.8;
+        const camNear = cam[2] < -0.75 && cam[2] > -1.5 && Math.abs(cam[0]) < 1.4 && cam[1] < 1.8 && !(t >= T.lists && t < T.follow);
         const look = interpolate(t, [0.45, 0.7, T.lose - 0.1, T.lose + 0.15], [1, 0, 0, 1], cl);
-        const o = Math.min(look, camNear ? Math.max(0, Math.min(1, (Math.abs(cam[2] + 1.08) - 0.08) / 0.35)) : 1);
+        const xray = interpolate(t, [T.runs - 0.3, T.runs, T.closedDoor - 0.2, T.closedDoor, T.thatsWhy, T.thatsWhy + 0.3, T.openDoors - 0.2, T.openDoors], [1, 0.35, 0.35, 1, 1, 0.35, 0.35, 1], cl);
+        const o = Math.min(look, xray, camNear ? Math.max(0, Math.min(1, (Math.abs(cam[2] + 1.08) - 0.08) / 0.35)) : 1);
         if (o <= 0.02) return null;
         return (
           <group key={i} position={[d.h, 0.85, -1.08]} rotation={[0, -d.s * d.a, 0]}>
@@ -387,8 +391,8 @@ const World: React.FC<{t: number; f: number; cam: V3}> = ({t, f, cam}) => {
       </group>
       {/* in-world notes, magnets, tags */}
       <Sign title="IBHS: outages can lead to frozen pipes" bg="#ffe98a" p={[-2.15, 1.75, -1.18]} width={0.62} h={560} k={t >= T.lose && t < T.follow ? popK(t, T.risk - 0.2) : 0} t={0} size={98} />
-      <Decal title="OUTSIDE WALL" bg="transparent" color="#e6f7ff" p={[1.85, 2.2, WALL_OUT - 0.03]} rot={[0, Math.PI, 0]} width={1.5} h={256} k={t >= T.hits && t < T.finds + 1 ? popK(t, T.hits + 0.5) : 0} size={150} glow={0.4} />
-      <Sign title="Red Cross: walls with little insulation" bg="#e8d3a2" p={[1.85, 0.85, WALL_OUT - 0.08]} rotY={Math.PI} width={0.75} h={560} k={t >= T.thin && t < T.finds + 1 ? popK(t, T.thin + 0.2) : 0} t={0} size={98} />
+      <Decal title="OUTSIDE WALL" bg="transparent" color="#e6f7ff" p={[1.85, 1.55, WALL_OUT - 0.03]} rot={[0, Math.PI, 0]} width={1.5} h={256} k={t >= T.hits && t < T.finds + 1 ? popK(t, T.hits + 0.5) : 0} size={150} glow={0.4} />
+      <Sign title="Red Cross: walls with little insulation" bg="#e8d3a2" p={[1.85, 0.62, WALL_OUT - 0.08]} rotY={Math.PI} width={0.7} h={560} k={t >= T.thin && t < T.finds + 1 ? popK(t, T.thin + 0.2) : 0} t={0} size={98} />
       <Sign title="Red Cross: let cold water drip" bg="#ffe98a" p={[-0.65, 2.25, -1.97]} width={0.62} h={560} k={t >= T.drip ? popK(t, T.drip + 0.1) : 0} t={0} size={100} />
       <Sign title="MAIN SHUT-OFF" bg="#e8d3a2" p={[VALVE[0] + 0.28, VALVE[1] - 0.32, VALVE[2] + 0.12]} width={0.55} hangTo={0.18} k={t >= T.ibhs - 0.4 ? popK(t, T.ibhs) : 0} t={t} size={120} />
       <Sign title="IBHS: shut off the water supply" bg="#e8d3a2" p={[VALVE[0] - 0.45, VALVE[1] - 0.35, VALVE[2] + 0.1]} width={0.62} h={420} hangTo={0.2} k={t >= T.ibhs ? popK(t, T.ibhs + 0.4) : 0} t={t} size={92} />
@@ -407,18 +411,20 @@ const K0: CamKey = {t: 0, pos: [2.4, 2.1, 3.1], tgt: [-0.45, 1.4, -0.9], fov: 60
 const KEYS: CamKey[] = [
   K0,
   {t: 0.25, pos: [0.9, 1.15, 0.1], tgt: [0.45, 0.85, -1.9], fov: 58, move: 0.9, push: 0.12}, // the doors dissolve: the frosted pipe inside
-  {t: T.lose, pos: [-0.9, 2.2, 2.4], tgt: [-2.3, 1.75, -1.2], fov: 56, move: 0.55}, // fridge magnet
+  {t: T.lose, pos: [1.6, 2.3, 1.8], tgt: [-2.3, 1.75, -1.2], fov: 58, move: 0.35}, // out around Lineman, not through him
+  {t: T.lose + 0.35, pos: [-0.9, 2.2, 2.4], tgt: [-2.3, 1.75, -1.2], fov: 56, move: 0.5}, // fridge magnet
   {t: T.why, pos: [2.2, 2.2, 3.0], tgt: [-0.5, 1.35, -0.6], fov: 58, move: 0.5},
-  {t: T.lists, pos: [0.3, 1.2, -0.9], tgt: [-1.1, 1.0, -0.5], fov: 58, move: 0.5}, // note inside the open door
+  {t: T.lists, pos: [1.3, 2.7, 0.3], tgt: [-1.12, 0.95, -0.53], fov: 62, move: 0.3},
+  {t: T.lists + 0.3, pos: [0.9, 1.3, -1.25], tgt: [-1.12, 0.95, -0.53], fov: 62, move: 0.4}, // note inside the open door
   {t: T.follow, pos: [0.0, 3.0, -1.0], tgt: [0.0, 2.7, -4.0], fov: 60, move: 0.45, push: 0}, // to the window
-  {t: T.follow + 0.45, pos: [0.0, 3.2, -5.0], tgt: [1.5, 0.6, -9.0], fov: 60, move: 0.6, push: 0}, // through it, into the yard
-  {t: T.hits, pos: [4.0, 1.7, -6.6], tgt: [1.85, 0.6, -2.6], fov: 58, move: 0.8},
+  {t: T.follow + 0.45, pos: [-1.2, 3.0, -4.0], tgt: [1.6, 0.4, -6.8], fov: 60, move: 0.6, push: 0.08}, // through it, into the yard
+  {t: T.hits, pos: [4.0, 1.7, -6.6], tgt: [1.85, 0.6, -2.6], fov: 58, move: 0.35},
   {t: T.thin, pos: [2.3, 1.2, -4.2], tgt: [1.85, 0.8, -2.3], fov: 58, move: 0.6},
   {t: T.house1, pos: [3.5, 2.1, 2.0], tgt: [5.4, 1.2, -1.5], fov: 58, move: 0.5}, // whip into the living room
-  {t: T.finds, pos: [2.3, 1.0, -0.8], tgt: [1.2, 0.6, -2.2], fov: 60, move: 0.5}, // the pipe in the cut wall
-  {t: T.runs, pos: [-0.9, 1.15, -1.9], tgt: [0.5, 0.85, -1.45], fov: 70, move: 0.8, push: 0.04}, // inside the cabinet: pipe in front, closed door behind
-  {t: T.thatsWhy, pos: [-0.6, 1.05, -1.6], tgt: [0.55, 0.85, -2.0], fov: 58, move: 0.5, push: 0.12}, // push on the frosted pipe
-  {t: T.openDoors - 0.3, pos: [0.85, 0.55, -1.95], tgt: [-0.45, 2.0, 0.6], fov: 70, move: 0.5}, // look out as the doors open
+  {t: T.finds, pos: [3.0, 1.6, 0.4], tgt: [1.0, 0.7, -2.1], fov: 60, move: 0.5}, // the pipe in the cut wall
+  {t: T.runs, pos: [1.9, 1.7, 1.6], tgt: [0.1, 0.95, -1.5], fov: 60, move: 0.8, push: 0.06}, // inside the cabinet: pipe in front, closed door behind
+  {t: T.thatsWhy, pos: [1.3, 1.3, 0.6], tgt: [0.45, 0.9, -1.9], fov: 58, move: 0.5, push: 0.12}, // push on the frosted pipe
+  {t: T.openDoors - 0.3, pos: [2.0, 2.0, 2.4], tgt: [-0.4, 1.3, -0.8], fov: 60, move: 0.5}, // look out as the doors open
   {t: T.veryCold, pos: [2.4, 2.35, -0.3], tgt: [-0.15, 1.9, -1.4], fov: 56, move: 0.7}, // up to the faucet
   {t: T.says2, pos: [2.0, 2.3, -0.6], tgt: [-0.1, 1.9, -1.5], fov: 54, move: 0.6},
   {t: T.openTap, pos: [1.7, 2.2, 0.9], tgt: [-0.4, 1.8, -1.0], fov: 58, move: 0.5},
@@ -428,18 +434,18 @@ const KEYS: CamKey[] = [
   {t: T.know, pos: [2.2, -2.2, 0.3], tgt: [1.5, -2.65, -1.8], fov: 56, move: 0.5},
   {t: T.never, pos: [-2.6, -2.2, 0.4], tgt: [-1.2, -2.95, -1.7], fov: 56, move: 0.5},
   // loop experiment: back up the pipe to frame 0's camera on the last frame
-  {t: END - 1.0, pos: K0.pos, tgt: K0.tgt, fov: K0.fov, move: 1.0 - 1 / FPS, push: 0},
+  {t: T.never + 1.3, pos: K0.pos, tgt: K0.tgt, fov: K0.fov, move: END - 1 / FPS - (T.never + 1.3), push: 0},
 ];
 
 const hero = (t: number, f: number): {pos: V3; rot: number; pose: Pose} | null => {
   const knobPose = (target: V3, extra: Pose): Pose => ({...reachArm(f, P_KNOB, R_KNOB, target), ...extra});
-  if (t < T.follow + 0.3 || t >= END - 1.0) {
+  if (t < T.follow + 0.3 || t >= T.never + 1.3) {
     const a = interpolate(t, [T.lists - 0.3, T.lists + 0.2, T.follow - 0.2, T.follow + 0.3], [0, 1.6, 1.6, 0], cl);
-    const target = t < T.lists - 0.3 || t >= END - 1.0 ? KNOB_CLOSED : doorKnob(Math.min(a, 0.9));
-    const hand = t < T.lose || t >= END - 1.0 || (t >= T.lists - 0.3 && t < T.lists + 0.6);
+    const target = t < T.lists - 0.3 || t >= T.never + 1.3 ? KNOB_CLOSED : doorKnob(Math.min(a, 0.9));
+    const hand = t < T.lose || t >= T.never + 1.3 || (t >= T.lists - 0.3 && t < T.lists + 0.3);
     return {pos: P_KNOB, rot: R_KNOB, pose: hand ? knobPose(target, {brows: 'worried', lookX: 0.15, lookY: -0.2}) : {armRx: -0.3, brows: 'worried', lookY: t < T.why ? 0.6 : -0.3, lookX: 0.1}};
   }
-  if (t >= T.coldWall && t < T.veryCold) {
+  if (t >= T.finds && t < T.veryCold) {
     const a = interpolate(t, [T.openDoors, T.openDoors + 0.5], [0, 1.75], cl);
     const reaching = t >= T.openDoors - 0.25 && t < T.openDoors + 0.35;
     return {pos: P_KNOB, rot: R_KNOB, pose: reaching ? knobPose(doorKnob(Math.min(a, 0.7)), {brows: 'up'}) : {armRx: -0.2, brows: t >= T.none ? 'worried' : 'up', lookY: -0.4, lookX: 0.2, mouth: t >= T.noWarm && t < T.thatsWhy ? 'o' : 'flat'}};
