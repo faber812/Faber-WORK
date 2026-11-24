@@ -1,6 +1,6 @@
 // Cover for Short 014 (separate file, not frame 0): daylight kitchen cutaway — snow window (left), thin-insulation wall
 // with a frost line (middle), frosted copper pipe (right, the hero, >25% of frame); Lineman's face 3/4 lit by window daylight.
-// Text: "IT CAN FREEZE HERE" with FREEZE yellow, no box; frost-drawn arrow to the pipe.
+// Text: "WHY" white / "HERE?" yellow, no box; frost-drawn arrow from the "?" to the pipe.
 import React from 'react';
 import {AbsoluteFill} from 'remotion';
 import {ThreeCanvas} from '@remotion/three';
@@ -71,11 +71,11 @@ export const Thumb014: React.FC = () => (
     </AbsoluteFill>
     {/* frost-drawn arrow to the pipe */}
     <svg width={1080} height={1920} style={{position: 'absolute', inset: 0}}>
-      <path d="M 600 640 Q 700 660 740 780" stroke="#e8f8ff" strokeWidth={18} fill="none" strokeLinecap="round" />
-      <path d="M 700 755 L 745 795 L 765 735" stroke="#e8f8ff" strokeWidth={18} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M 650 500 Q 790 470 850 620" stroke="#e8f8ff" strokeWidth={18} fill="none" strokeLinecap="round" />
+      <path d="M 805 600 L 855 640 L 878 575" stroke="#e8f8ff" strokeWidth={18} fill="none" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
-    <div style={{position: 'absolute', top: 210, left: 60, right: 170, fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 900, fontSize: 150, lineHeight: 0.98, letterSpacing: -3}}>
-      {[['IT CAN', '#ffffff'], ['FREEZE', '#ffd21f'], ['HERE', '#ffffff']].map(([w, c]) => (
+    <div style={{position: 'absolute', top: 210, left: 60, right: 170, fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 900, fontSize: 200, lineHeight: 0.98, letterSpacing: -3}}>
+      {[['WHY', '#ffffff'], ['HERE?', '#ffd21f']].map(([w, c]) => (
         <div key={w} style={{color: c, WebkitTextStroke: '18px #0a0a0e', paintOrder: 'stroke fill', textShadow: '0 10px 30px rgba(0,0,0,0.7)'}}>{w}</div>
       ))}
     </div>
