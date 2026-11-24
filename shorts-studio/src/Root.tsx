@@ -15,6 +15,8 @@ import {Short012, S012_FRAMES, S012_FPS} from './shorts2/S012';
 import {Thumb012} from './shorts2/Thumb012';
 import {Short014, S014_FRAMES, S014_FPS} from './shorts2/S014';
 import {Thumb014} from './shorts2/Thumb014';
+import {Short013, S013_FRAMES, S013_FPS} from './shorts2/S013';
+import {Thumb013} from './shorts2/Thumb013';
 import {Short011B, S011B_FRAMES, S011B_FPS} from './shorts2/S011B';
 import {Long002, L2_FRAMES, L2_FPS} from './long2/Long002';
 import {Thumb001} from './long/Thumb001';
@@ -45,6 +47,8 @@ export const Root: React.FC = () => {
     <>
     <StylesRoot />
     <Composition id="Long002" component={Long002} width={1920} height={1080} fps={L2_FPS} durationInFrames={L2_FRAMES} />
+    <Composition id="Thumb013" component={Thumb013} width={1080} height={1920} fps={30} durationInFrames={1} />
+    <Composition id="Short013" component={Short013} width={1080} height={1920} fps={S013_FPS} durationInFrames={S013_FRAMES} />
     <Composition id="Thumb014" component={Thumb014} width={1080} height={1920} fps={30} durationInFrames={1} />
     <Composition id="Short014" component={Short014} width={1080} height={1920} fps={S014_FPS} durationInFrames={S014_FRAMES} />
     <Composition id="Thumb012" component={Thumb012} width={1080} height={1920} fps={30} durationInFrames={1} />
