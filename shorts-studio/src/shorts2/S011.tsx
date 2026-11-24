@@ -7,7 +7,6 @@ import {AbsoluteFill, Audio, interpolate, staticFile, useCurrentFrame, useVideoC
 import timing from './s011_timing.json';
 import {Box, Cam, clamp, Lineman, Pose, Volt} from '../three/kit';
 import {Canvas, Car, FONT, pop, UI, useFov} from '../long/props';
-import {ThumbScene, ThumbText} from './Thumb011';
 
 export const S011_FPS = 30;
 export const S011_FRAMES = Math.ceil((timing.duration + 0.6) * S011_FPS);
@@ -256,15 +255,8 @@ const LIFT_ROT = (160 / 180) * Math.PI;
 export const PULL_POS: V3 = [1.0, 0, -2.51];
 const OPEN_HERO: V3 = [0.95, 0, -0.6];
 const SHOTS: [number, Shot][] = [
-  // frame 0 = the thumbnail (held 0.3 s)
-  [0, ({t}) => (
-    <>
-      <ThumbScene frame={Math.round(t * 30)} />
-      <ThumbText />
-    </>
-  )],
-  // beat 1
-  [0.3, ({t}) => {
+  // beat 1 (frame 0 is a moving shot; the cover lives only in Thumb011)
+  [0, ({t}) => {
     const f = Math.round(t * 30);
     return (
       <>

@@ -7,7 +7,6 @@ import {Box, Lineman, Pose} from '../three/kit';
 import {Car} from '../long/props';
 import {CamKey, camAt, camSpeed, Decal, Headline, Inked, LookCanvas, Pool, popK, project, Puff, Rig, RigCam, Shaft, Sign, Sparkle, SpeedLines} from '../three/look';
 import {CAR_X, Door, DOOR_Z, handleAt, Opener, PULL_POS, q, reach, Springs, T, Tracks} from './S011';
-import {ThumbScene, ThumbText} from './Thumb011';
 
 type V3 = [number, number, number];
 const FPS = 30;
@@ -32,15 +31,15 @@ const Set: React.FC<{open?: number; released?: boolean; hi?: boolean; cordHi?: n
     <Inked>
       <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[7, 9.2]} />
-        <meshStandardMaterial color="#b9b3a8" roughness={0.9} />
+        <meshStandardMaterial color="#a9a7a3" roughness={0.9} />
       </mesh>
-      <Box p={[-3.4, 1.95, 0]} s={[0.2, 3.9, 9]} c="#b7a6cf" />
-      <Box p={[3.4, 1.95, 0]} s={[0.2, 3.9, 9]} c="#b7a6cf" />
-      <Box p={[0, 1.95, 4.5]} s={[7, 3.9, 0.2]} c="#a998c4" />
-      <Box p={[0, 3.6, DOOR_Z - 0.12]} s={[6.8, 0.8, 0.16]} c="#a998c4" />
-      <Box p={[-2.9, 1.6, DOOR_Z - 0.12]} s={[1.0, 3.2, 0.16]} c="#a998c4" />
-      <Box p={[2.9, 1.6, DOOR_Z - 0.12]} s={[1.0, 3.2, 0.16]} c="#a998c4" />
-      <Box p={[0, 4.0, 0]} s={[7, 0.1, 9]} c="#8f86ad" />
+      <Box p={[-3.4, 1.95, 0]} s={[0.2, 3.9, 9]} c="#e9dcc6" />
+      <Box p={[3.4, 1.95, 0]} s={[0.2, 3.9, 9]} c="#e9dcc6" />
+      <Box p={[0, 1.95, 4.5]} s={[7, 3.9, 0.2]} c="#dccfb8" />
+      <Box p={[0, 3.6, DOOR_Z - 0.12]} s={[6.8, 0.8, 0.16]} c="#dccfb8" />
+      <Box p={[-2.9, 1.6, DOOR_Z - 0.12]} s={[1.0, 3.2, 0.16]} c="#dccfb8" />
+      <Box p={[2.9, 1.6, DOOR_Z - 0.12]} s={[1.0, 3.2, 0.16]} c="#dccfb8" />
+      <Box p={[0, 4.0, 0]} s={[7, 0.1, 9]} c="#cfc4b0" />
       {/* workbench + shelves on the left wall, paint cans for color */}
       <Box p={[-2.95, 0.9, 0.8]} s={[0.8, 0.08, 2.4]} c="#a8723f" />
       {[-0.3, 1.9].map((z) => <Box key={z} p={[-2.95, 0.45, z]} s={[0.7, 0.9, 0.08]} c="#8a5a2f" />)}
@@ -115,11 +114,11 @@ const PartA: React.FC<{ts: number}> = ({ts}) => {
   const pHead = project(cam, [OPEN_POS[0], 3.05, OPEN_POS[2]]);
   const pOpener = project(cam, [0.15, 3.5, -2.6]);
   return (
-    <AbsoluteFill style={{background: '#20183a'}}>
+    <AbsoluteFill style={{background: '#d9cdb6'}}>
       <LookCanvas blur={blur}>
         <RigCam {...cam} />
-        <color attach="background" args={['#2a2147']} />
-        <Rig keyPos={[3.5, 6, 3]} keyI={3.2} fillI={2.1} fog={['#4a3f70', 10, 24]} />
+        <color attach="background" args={['#d9cdb6']} />
+        <Rig keyPos={[3.5, 6, 3]} keyI={3.2} fillI={2.1} fog={['#d9cdb6', 11, 26]} />
         <Set hi={ts >= T.hooked && ts < T.unhook} cordHi={ts >= T.unhook ? 1.4 + Math.sin(ts * 9) * 0.5 : 0.3} shake={shake} />
         <Lineman frame={f} pos={OPEN_POS} rotY={OPEN_ROT} pose={hero} />
         <spotLight position={phone} target-position={beamTo} angle={0.42} penumbra={0.5} intensity={45} distance={9} color="#ffcf8a" castShadow />
@@ -181,11 +180,11 @@ const PartB: React.FC<{ts: number}> = ({ts}) => {
   const pTrolley = project(cam, TROLLEY);
   const pWrench = project(cam, [3.1, 1.45, -1.0]);
   return (
-    <AbsoluteFill style={{background: '#20183a'}}>
+    <AbsoluteFill style={{background: '#d9cdb6'}}>
       <LookCanvas blur={blur}>
         <RigCam {...cam} />
-        <color attach="background" args={['#2a2147']} />
-        <Rig keyPos={[3.5, 6, 3]} keyI={3.2} fillI={2.1} fog={['#4a3f70', 10, 24]} />
+        <color attach="background" args={['#d9cdb6']} />
+        <Rig keyPos={[3.5, 6, 3]} keyI={3.2} fillI={2.1} fog={['#d9cdb6', 11, 26]} />
         <Set open={open} crack={ts < T.callPro1 + 0.3} zone={zone} released={released} pulled={atPull ? Math.max(0, pull) : 0} hi={released && ts < T.down + 0.6} cordHi={atPull && !released ? 1.0 : 0.3} />
         <Lineman frame={f} pos={heroPos} rotY={heroRot} pose={hero} />
         {!atPull && !openState && <spotLight position={[2.0, 1.5, 0.3]} target-position={[1.4, 3.3, -3.6]} angle={0.4} penumbra={0.5} intensity={45} distance={9} color="#ffcf8a" />}
@@ -210,12 +209,6 @@ const PartB: React.FC<{ts: number}> = ({ts}) => {
 };
 
 // ---------- composition ----------
-const Thumb0: React.FC = () => (
-  <AbsoluteFill>
-    <ThumbScene frame={0} />
-    <ThumbText />
-  </AbsoluteFill>
-);
 export const Short011B: React.FC = () => {
   const f = useCurrentFrame();
   const aFrames = A_END * FPS;
@@ -224,8 +217,7 @@ export const Short011B: React.FC = () => {
       {/* part A (with the thumbnail frame dissolving in at 0.3 s) */}
       <Sequence from={0} durationInFrames={aFrames + XF}>
         <AbsoluteFill style={{opacity: 1}}>
-          {f >= 9 - XF && <PartA ts={f / FPS} />}
-          {f < 9 && <AbsoluteFill style={{opacity: interpolate(f, [9 - XF, 9], [1, 0], cl)}}><Thumb0 /></AbsoluteFill>}
+          <PartA ts={f / FPS} />
         </AbsoluteFill>
         <Audio src={staticFile('shorts2/s011.mp3')} endAt={aFrames + XF} volume={(x) => interpolate(x, [aFrames, aFrames + XF], [1, 0], cl)} />
       </Sequence>

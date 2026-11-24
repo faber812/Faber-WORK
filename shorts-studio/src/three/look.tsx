@@ -35,7 +35,7 @@ export const Rig: React.FC<{keyPos?: V3; keyColor?: string; keyI?: number; fillI
   }, [scene, fog?.[0], fog?.[1], fog?.[2]]);
   return (
     <>
-      <hemisphereLight args={['#a9b8ff', '#5b3f6e', fillI]} />
+      <hemisphereLight args={['#bcd0ff', '#6b4a7c', fillI]} />
       <directionalLight position={k} intensity={keyI} color={keyColor} castShadow shadow-mapSize={[2048, 2048]} shadow-bias={-0.0004} shadow-radius={4}>
         <orthographicCamera attach="shadow-camera" args={[-8, 8, 8, -8, 0.5, 30]} />
       </directionalLight>
@@ -126,18 +126,25 @@ export const popK = (t: number, at: number, fps = 30) => {
 };
 
 // ---------- in-world sign: canvas-textured board hung by two cords, pops in and swings gently ----------
-type SignText = {title: string; sub?: string; src?: string; color?: string; bg?: string; w?: number; h?: number; size?: number};
-const useSignTexture = ({title, sub, src, color = '#11131c', bg = '#fff6e0', w = 1024, h = 512, size = 120}: SignText) =>
+type SignText = {title: string; sub?: string; src?: string; corner?: string; color?: string; bg?: string; w?: number; h?: number; size?: number; lines?: number};
+const useSignTexture = ({title, sub, src, corner, color = '#11131c', bg = '#fff6e0', w = 1024, h = 512, size = 120, lines: greyLines = 0}: SignText) =>
   useMemo(() => {
     const c = document.createElement('canvas');
     c.width = w;
     c.height = h;
     const g = c.getContext('2d')!;
-    g.fillStyle = bg;
-    g.fillRect(0, 0, w, h);
-    g.lineWidth = 18;
-    g.strokeStyle = '#11131c';
-    g.strokeRect(9, 9, w - 18, h - 18);
+    const stencil = bg === 'transparent';
+    if (!stencil) {
+      g.fillStyle = bg;
+      g.fillRect(0, 0, w, h);
+      g.lineWidth = 18;
+      g.strokeStyle = '#11131c';
+      g.strokeRect(9, 9, w - 18, h - 18);
+    } else {
+      g.lineWidth = size / 7;
+      g.strokeStyle = 'rgba(20,16,10,0.85)';
+      g.lineJoin = 'round';
+    }
     g.fillStyle = color;
     g.textAlign = 'center';
     g.textBaseline = 'middle';
@@ -157,10 +164,20 @@ const useSignTexture = ({title, sub, src, color = '#11131c', bg = '#fff6e0', w =
     const extra = (sub ? 1 : 0) + (src ? 0.6 : 0);
     const total = lines.length + extra;
     let y = h / 2 - ((total - 1) * size * 1.05) / 2;
+    if (greyLines) y -= (greyLines * size * 0.32) / 2;
     lines.forEach((l) => {
+      if (stencil) g.strokeText(l, w / 2, y);
       g.fillText(l, w / 2, y);
       y += size * 1.05;
     });
+    // unreadable grey lines under a heading (manual / label plate: no steps shown)
+    for (let i = 0; i < greyLines; i++) {
+      g.fillStyle = '#9aa0ad';
+      g.globalAlpha = 0.7;
+      const lw = (w - 200) * (i % 3 === 2 ? 0.6 : 0.9);
+      g.fillRect((w - lw) / 2, y - size * 0.35 + i * size * 0.32, lw, size * 0.12);
+      g.globalAlpha = 1;
+    }
     if (sub) {
       g.font = `800 ${size * 0.5}px Inter, Arial, sans-serif`;
       g.fillStyle = '#5a5f70';
@@ -172,11 +189,17 @@ const useSignTexture = ({title, sub, src, color = '#11131c', bg = '#fff6e0', w =
       g.fillStyle = '#3b4052';
       g.fillText(`Source: ${src}`, w / 2, h - 50);
     }
+    if (corner) {
+      g.font = `900 ${Math.round(size * 0.45)}px Inter, Arial, sans-serif`;
+      g.fillStyle = color;
+      g.textAlign = 'right';
+      g.fillText(corner, w - 44, h - 50);
+    }
     const t = new THREE.CanvasTexture(c);
     t.colorSpace = THREE.SRGBColorSpace;
     t.anisotropy = 8;
     return t;
-  }, [title, sub, src, color, bg, w, h, size]);
+  }, [title, sub, src, corner, color, bg, w, h, size, greyLines]);
 
 export const Sign: React.FC<SignText & {p: V3; width: number; k: number; t: number; rotY?: number; hangTo?: number; glow?: number}> = (o) => {
   const tex = useSignTexture(o);
@@ -205,14 +228,14 @@ export const Sign: React.FC<SignText & {p: V3; width: number; k: number; t: numb
   );
 };
 // flat decal on the floor (doorway markings etc.)
-export const Decal: React.FC<SignText & {p: V3; width: number; k: number}> = (o) => {
+export const Decal: React.FC<SignText & {p: V3; width: number; k: number; rot?: V3; glow?: number}> = (o) => {
   const tex = useSignTexture(o);
   const hgt = (o.width * (o.h ?? 512)) / (o.w ?? 1024);
   if (o.k <= 0) return null;
   return (
-    <mesh position={o.p} rotation={[-Math.PI / 2, 0, 0]} scale={o.k} receiveShadow>
+    <mesh position={o.p} rotation={o.rot ?? [-Math.PI / 2, 0, 0]} scale={o.k} receiveShadow>
       <planeGeometry args={[o.width, hgt]} />
-      <meshStandardMaterial map={tex} transparent emissive="#ffffff" emissiveMap={tex} emissiveIntensity={0.2} roughness={0.9} />
+      <meshStandardMaterial map={tex} transparent depthWrite={false} emissive="#ffffff" emissiveMap={tex} emissiveIntensity={0.2 + (o.glow ?? 0)} roughness={0.9} />
     </mesh>
   );
 };
