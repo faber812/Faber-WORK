@@ -205,7 +205,7 @@ const Octagon: React.FC<{a: App; k: number; label: string; blink?: number}> = ({
     <group position={[x, 2.3, z]} rotation={[0, lineRot(a), 0]} scale={k}>
       <mesh rotation={[0, 0, Math.PI / 8]}>
         <circleGeometry args={[0.85, 8]} />
-        <meshBasicMaterial color="#ff3326" transparent opacity={0.45 * blink} side={THREE.DoubleSide} depthWrite={false} toneMapped={false} />
+        <meshBasicMaterial color="#ff3326" transparent opacity={0.7 * blink} side={THREE.DoubleSide} depthWrite={false} toneMapped={false} />
       </mesh>
       <mesh rotation={[0, 0, Math.PI / 8]}>
         <ringGeometry args={[0.78, 0.85, 8]} />
@@ -324,7 +324,7 @@ export const Signal: React.FC<{lamp: number}> = ({lamp}) => (
 );
 
 // ---------- camera ----------
-const K0: CamKey = {t: 0, pos: [-1.2, 10.5, 15.0], tgt: [1.0, 3.6, 2.0], fov: 60, push: 0.05};
+const K0: CamKey = {t: 0, pos: [0.6, 8.2, 15.6], tgt: [1.7, 3.4, 5.0], fov: 60, push: 0.14};
 const KEYS: CamKey[] = [
   K0,
   {t: T.four, pos: [-6.5, 10, 13], tgt: [0, 1.0, 0], fov: 60, move: 1.6, push: 0.04},
@@ -340,9 +340,10 @@ const KEYS: CamKey[] = [
   {t: T.nobody, pos: [3.0, 2.9, -5.0], tgt: [7.0, 2.0, -2.0], fov: 60, move: 0.6},
   {t: T.police, pos: [6.0, 2.6, 2.4], tgt: [0.4, 1.8, -1.0], fov: 60, move: 0.7},
   {t: T.now, pos: [4.4, 2.1, 0.6], tgt: [-0.6, 2.2, -2.6], fov: 60, move: 0.6},
+  {t: T.inNY, pos: [3.6, 2.6, 1.3], tgt: [7.3, 1.7, -1.45], fov: 50, move: 0.6, push: 0.08}, // Lineman's face through the cab
   {t: T.waves + 0.2, pos: [7.5, 5.5, 5.5], tgt: [-2, 0.8, -2.5], fov: 60, move: 0.7},
-  {t: T.calif, pos: [3.4, 2.8, 2.6], tgt: [-2.4, 1.6, -6.0], fov: 58, move: 0.6},
-  {t: T.wash, pos: [-2.4, 3.0, -2.6], tgt: [-6.4, 3.0, -6.4], fov: 52, move: 0.6},
+  {t: T.calif, pos: [5.5, 4.2, 5.0], tgt: [-2.0, 1.4, -5.5], fov: 58, move: 0.6},
+  {t: T.wash, pos: [-2.6, 3.4, -2.8], tgt: [-6.4, 4.0, -6.4], fov: 52, move: 0.6},
   {t: T.power, pos: [3.0, 2.0, 14.5], tgt: [1.7, 5.2, 6.6], fov: 58, move: 0.7},
   {t: T.nysDmv, pos: [2.4, 4.2, 16.5], tgt: [2.0, 0.6, 9.0], fov: 56, move: 0.6},
   {t: T.whenDark, pos: [6, 9, 12], tgt: [0.5, 0.5, 0], fov: 60, move: 0.7},

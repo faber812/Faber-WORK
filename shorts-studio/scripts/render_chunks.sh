@@ -3,7 +3,9 @@
 # Renders in chunks (resumable after a container restart), then joins them losslessly.
 set -e
 COMP=$1; OUT=$2; CH=${3:-600}
-DIR=out/chunks_$COMP; mkdir -p $DIR
+# chunk dir is keyed to the source state, so a new commit never reuses stale chunks
+REV=$(git rev-parse --short HEAD 2>/dev/null || echo nogit)$(git diff --quiet -- src public 2>/dev/null || echo -dirty)
+DIR=out/chunks_${COMP}_$REV; mkdir -p $DIR
 TOTAL=$(npx remotion compositions src/index.ts 2>/dev/null | awk -v c="$COMP" '$1==c {print $4}')
 echo "total frames $TOTAL"
 for ((s=0; s<TOTAL; s+=CH)); do

@@ -62,11 +62,11 @@ const LPOLE_Z = -24;
 const GEN: V3 = [-10.2, 0, 11.6];
 const OUTLET: V3 = [-6.6, 0.9, 8.03];
 const DOOR: V3 = [-9.6, 0, 8.0];
-const LINE_POS: V3 = [POLE_X + 0.55, 6.3, LPOLE_Z + 0.35];
-const LINE_ROT = Math.PI - 0.35;
+const LINE_POS: V3 = [POLE_X + 0.55, 6.3, LPOLE_Z - 0.35];
+const LINE_ROT = Math.PI + 0.35;
 // the span he is working on runs from his crossarm end toward the camera
 const SPAN_A: V3 = [POLE_X - 1.1, 9.0, LPOLE_Z];
-const SPAN_B: V3 = [POLE_X - 1.1, 9.0, -12];
+const SPAN_B: V3 = [POLE_X - 1.1, 9.0, -36];
 
 const Wire: React.FC<{a: V3; b: V3; glow?: number; color?: string; sag?: number}> = ({a, b, glow = 0, color = '#ff8a1c', sag = 0.35}) => {
   // a sagging wire built from short segments (same thickness whether dead or energized)
@@ -139,7 +139,7 @@ const Generator: React.FC<{t: number}> = ({t}) => (
 const Marker: React.FC<{p: V3; label: string; k: number; t: number}> = ({p, label, k, t}) => {
   if (k <= 0.01) return null;
   return (
-    <group position={p} scale={k}>
+    <group position={p} scale={k * 2.4}>
       <Box p={[0, 0.6, 0]} s={[0.12, 1.2, 0.12]} c="#e9e6df" />
       <Sign title={label} color={label === '✓' ? '#127a3c' : '#11131c'} bg="#ffd21f" p={[0, 1.6 + Math.sin(t * 3) * 0.05, 0]} width={1.1} h={512} w={512} k={1} t={t} size={300} />
     </group>
@@ -147,19 +147,23 @@ const Marker: React.FC<{p: V3; label: string; k: number; t: number}> = ({p, labe
 };
 
 // ---------- camera: fixed board + three ease-out whip push-ins that return to the exact same board ----------
-const BOARD: CamKey = {t: 0.9, pos: [3, 32, 30], tgt: [-0.5, 0, -10], fov: 52, move: 0.35, push: 0.03};
-const K0: CamKey = {t: 0, pos: [-7.0, 6.2, 20.8], tgt: [-8.3, 0.7, 9.8], fov: 60, push: 0.06};
+const BOARD: CamKey = {t: 0.9, pos: [3, 32, 30], tgt: [-0.5, 0, -10], fov: 52, move: 0.35, push: 0.12};
+const K0: CamKey = {t: 0, pos: [-7.0, 6.2, 20.8], tgt: [-8.3, 0.7, 9.8], fov: 60, push: 0.16};
 const KEYS: CamKey[] = [
   K0,
   BOARD,
-  {...BOARD, t: T.backward, push: 0.03},
-  {...BOARD, t: T.transformer, push: 0.03},
-  {t: T.down, pos: [2.6, 10.2, -15.5], tgt: [-2.4, 8.2, -23.6], fov: 54, move: 0.3, push: 0.04},
-  {...BOARD, t: T.notOnly, move: 0.3},
-  {...BOARD, t: T.fix, push: 0.03},
+  {t: T.which, pos: [2, 26, 22], tgt: [0, 2, -6], fov: 52, move: 0.8, push: 0.08},
+  {t: T.backward, pos: [-1.5, 15, 22], tgt: [-6.5, 1.5, 7], fov: 52, move: 0.7, push: 0.1},
+  {t: T.transformer, pos: [5, 13, 15], tgt: [-1.2, 4.6, 0.5], fov: 54, move: 0.6, push: 0.1},
+  {t: T.stepsUp + 0.6, pos: [5, 17, 0], tgt: [-1.5, 6, -26], fov: 52, move: 0.6, push: 0.08},
+  {t: T.niosh + 0.1, pos: [5, 13, 15], tgt: [-1.2, 4.6, 0.5], fov: 54, move: 0.6, push: 0.1},
+  {t: T.down, pos: [1.9, 8.7, -30.0], tgt: [-1.7, 8.2, -24.2], fov: 54, move: 0.35, push: 0.06},
+  {t: T.notOnly, pos: [3, 26, 24], tgt: [-0.5, 0, -4], fov: 52, move: 0.35, push: 0.06},
+  {t: T.neighbors, pos: [3, 19, 19], tgt: [-0.5, 0, -0.5], fov: 54, move: 0.7, push: 0.1},
+  {...BOARD, t: T.fix, push: 0.1},
   {t: T.wiring, pos: [-16.5, 3.6, 8.5], tgt: [-11.1, 1.7, 4.6], fov: 54, move: 0.3, push: 0.05},
   {t: T.otherwise, pos: [-5.0, 9.0, 17.5], tgt: [-9.0, 0.4, 10.0], fov: 56, move: 0.45, push: 0.04},
-  {...BOARD, t: T.thatWay, move: 0.3},
+  {...BOARD, t: T.thatWay, move: 0.3, push: 0.1},
   {t: T.notLines, pos: K0.pos, tgt: K0.tgt, fov: K0.fov, move: END - 1 / FPS - T.notLines, push: 0},
 ];
 
@@ -180,11 +184,11 @@ export const Short015: React.FC = () => {
   const lampOn = t >= T.straight;
   // Lineman: hands reach toward the span, stop a foot short, then pull back and lean on his belt
   const reachK = interpolate(t, [T.down + 0.2, T.live1], [0.6, 1], cl) * interpolate(t, [T.stops, T.stops + 0.4], [1, 0.25], cl);
-  const handTarget: V3 = [SPAN_A[0] + 0.35 + (1 - reachK) * 0.6, 8.55, LPOLE_Z + 0.9];
+  const handTarget: V3 = [SPAN_A[0] + 0.35 + (1 - reachK) * 0.6, 8.55, LPOLE_Z - 0.9];
   const lean = interpolate(t, [T.stops, T.stops + 0.4], [0, 0.18], cl);
   const atWork = t >= T.thatWay;
   const linePose = atWork
-    ? {...reachArm(f, LINE_POS, LINE_ROT, [SPAN_A[0] + 0.6, 8.4, LPOLE_Z + 0.7]), brows: 'up' as const}
+    ? {...reachArm(f, LINE_POS, LINE_ROT, [SPAN_A[0] + 0.6, 8.4, LPOLE_Z - 0.7]), brows: 'up' as const}
     : {...reachArm(f, LINE_POS, LINE_ROT, handTarget), brows: (t >= T.live1 ? 'worried' : 'up') as 'worried' | 'up', mouth: t >= T.live1 && t < T.notOnly ? ('frown' as const) : ('flat' as const), lookX: -0.15, lookY: -0.35};
   return (
     <AbsoluteFill style={{background: '#dbeaf6'}}>
@@ -257,7 +261,7 @@ export const Short015: React.FC = () => {
         <Chevrons a={ATTACH.A} b={[CAN[0], CAN[1] - 0.2, CAN[2]]} t={t} k={serviceA} color="#ffd21f" />
         {POLES_Z.slice(1).map((z, i) => {
           const z0 = POLES_Z[i];
-          const isSpan = z0 === -12 && z === LPOLE_Z;
+          const isSpan = z0 === LPOLE_Z && z === -36;
           return <Wire key={z} a={[POLE_X - 1.1, 9.0, z0]} b={[POLE_X - 1.1, 9.0, z]} glow={isSpan ? Math.max(span, primary * 0.0) : primary * (z0 === 0 || z === 0 || z0 > 0 ? 1 : interpolate(t, [T.stepsUp + 0.4, T.stepsUp + 1.2], [0, 1], cl))} />;
         })}
         {/* transformer can: swells and its seams glow (no ratio, no household number) */}
@@ -287,23 +291,23 @@ export const Short015: React.FC = () => {
           <meshStandardMaterial color="#3b2a1c" />
         </mesh>
         {t >= T.live1 + 0.5 && t < T.notOnly + 0.3 && (
-          <group position={[POLE_X + 1.6, 6.5, LPOLE_Z + 1.9]} scale={popK(t, T.live1 + 0.6) * 0.7}>
+          <group position={[POLE_X + 2.3, 7.4, LPOLE_Z - 1.6]} scale={popK(t, T.live1 + 0.6) * 0.7}>
             <Volt frame={f} pos={[0, 0, 0]} glow={1} mood="worried" />
           </group>
         )}
         {/* game markers + in-world tags, stake signs, stencils */}
         <Marker p={[POLE_X, 9.6, LPOLE_Z]} label={t >= T.stops + 0.3 ? '✓' : '?'} k={t >= T.which && t < T.fix ? popK(t, T.which + 0.1) : 0} t={t} />
         <Marker p={[8.5, 0, 9.5]} label={t >= T.same ? ' ' : '?'} k={t >= T.which && t < T.fix ? popK(t, T.which + 0.35) : 0} t={t} />
-        <Sign title="BACKFEED · NIOSH" bg="#fff6e0" p={[-6.2, 1.4, 9.8]} width={2.4} h={300} k={t >= T.backward && t < T.fix ? popK(t, T.backward + 0.3) : 0} t={0} size={130} />
-        {t >= T.backward && t < T.fix && <Box p={[-6.2, 0.5, 9.8]} s={[0.12, 1.0, 0.12]} c="#8a6a4a" />}
-        <Sign title="UP TO 7,200 VOLTS · NIOSH" bg="#fff6e0" p={[POLE_X + 0.2, 5.2, 0.25]} rotY={0.1} width={3.4} h={300} k={t >= T.niosh - 0.3 && t < T.fix ? popK(t, T.niosh) : 0} t={0} size={120} />
-        <Sign title="MILES OF LINE · NIOSH" bg="#fff6e0" p={[POLE_X + 0.6, 4.0, -48 + 0.3]} width={3.2} h={300} k={t >= T.stepsUp + 1.0 && t < T.fix ? popK(t, T.stepsUp + 1.1) : 0} t={0} size={130} />
-        <Sign title="LINE DEAD · STORM REPAIR" bg="#e8d3a2" p={[POLE_X + 0.22, 4.6, LPOLE_Z + 0.2]} rotY={0.25} width={1.5} h={300} k={1} t={0} size={110} />
-        <Sign title="TREAT EVERY LINE AS LIVE · OSHA" bg="#e8d3a2" p={[POLE_X + 1.75, 8.25, LPOLE_Z + 0.3]} rotY={0.35} width={1.2} h={400} hangTo={0.55} k={1} t={t} size={96} />
-        <Decal title="SAME TRANSFORMER · CPSC" bg="transparent" color="#ffffff" p={[0.2, 0.04, 2.5]} rot={[-Math.PI / 2, 0, 0]} width={4.4} h={256} k={t >= T.same && t < T.fix + 0.5 ? popK(t, T.same) : 0} size={110} />
+        <Sign title="BACKFEED · NIOSH" bg="#fff6e0" p={[-4.8, 3.2, 11.5]} rotY={0.25} width={5.2} h={512} k={t >= T.backward && t < T.fix ? popK(t, T.backward + 0.3) : 0} t={0} size={190} />
+        {t >= T.backward && t < T.fix && <Box p={[-4.8, 0.8, 11.5]} s={[0.2, 1.6, 0.2]} c="#8a6a4a" />}
+        <Sign title="UP TO 7,200 VOLTS · NIOSH" bg="#fff6e0" p={[POLE_X + 3.0, 4.4, 5.4]} rotY={0.3} width={5.4} h={512} k={t >= T.niosh && t < T.down ? popK(t, T.niosh + 0.3) : 0} t={0} size={140} />
+        <Sign title="MILES OF LINE · NIOSH" bg="#fff6e0" p={[POLE_X + 5.0, 6.8, -30]} rotY={0.15} width={6.4} h={512} k={t >= T.stepsUp + 0.8 && t < T.niosh + 0.4 ? popK(t, T.stepsUp + 0.9) : 0} t={0} size={150} />
+        <Sign title="LINE DEAD · STORM REPAIR" bg="#e8d3a2" p={[POLE_X - 0.1, 5.9, LPOLE_Z - 0.2]} rotY={Math.PI + 0.3} width={1.5} h={300} k={1} t={0} size={110} />
+        <Sign title="TREAT EVERY LINE AS LIVE · OSHA" bg="#e8d3a2" p={[POLE_X + 1.75, 8.25, LPOLE_Z - 0.3]} rotY={Math.PI + 0.35} width={1.2} h={400} hangTo={0.55} k={1} t={t} size={96} />
+        <Decal title="SAME TRANSFORMER · CPSC" bg="transparent" color="#ffffff" p={[0.2, 0.04, 5.5]} rot={[-Math.PI / 2, 0, 0]} width={8.5} h={256} k={t >= T.same && t < T.fix + 0.5 ? popK(t, T.same) : 0} size={110} />
         <Sign title="TRANSFER SWITCH OR INTERLOCK · INSTALLED BY A QUALIFIED ELECTRICIAN · NIOSH" bg="#fff6e0" p={[-11.62, 0.65, 4.6]} rotY={-Math.PI / 2} width={1.5} h={560} k={t >= T.wiring && t < T.thatWay ? popK(t, T.wiring + 0.35) : 0} t={0} size={70} />
-        <Sign title="HEAVY-DUTY · OUTDOOR-RATED · RATED FOR THE LOAD · CPSC" bg="#fff6e0" p={[GEN[0] + 1.7, 0.95, GEN[2] + 0.3]} rotY={0.56} width={1.7} h={440} hangTo={0.3} k={t >= T.heavy - 0.3 ? popK(t, T.heavy) : 0} t={t} size={78} />
-        <Decal title="AT LEAST 20 FT FROM DOORS, WINDOWS, VENTS · CDC" bg="transparent" color="#ffffff" p={[-7.6, 0.04, 10.6]} rot={[-Math.PI / 2, 0, 0]} width={4.6} h={420} k={t >= T.outside ? popK(t, T.outside + 0.3) : 0} size={92} />
+        <Sign title="HEAVY-DUTY · OUTDOOR-RATED · RATED FOR THE LOAD · CPSC" bg="#fff6e0" p={[GEN[0] + 0.2, 2.5, GEN[2] + 0.7]} rotY={0.56} width={2.0} h={440} hangTo={0.3} k={t >= T.heavy - 0.3 ? popK(t, T.heavy) : 0} t={t} size={78} />
+        <Decal title="AT LEAST 20 FT FROM DOORS, WINDOWS, VENTS · CDC" bg="transparent" color="#ffffff" p={[-7.0, 0.04, 10.9]} rot={[-Math.PI / 2, 0, 0.35]} width={4.2} h={420} k={t >= T.outside ? popK(t, T.outside + 0.3) : 0} size={92} />
         <Pool p={[-6, 4, 12]} c="#fff1dc" i={6} d={12} />
       </LookCanvas>
       <Captions t={t} chunks={CHUNKS} />
